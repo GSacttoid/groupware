@@ -1,0 +1,64 @@
+create table gw_employee(
+emp_num int not null auto_increment,
+emp_buseo varchar(10),
+emp_grade varchar(10),
+emp_id varchar(20),
+emp_enter date,
+emp_name varchar(10),
+emp_pwd varchar(20),
+emp_photo varchar(300),
+emp_regdate date,
+emp_auth int default 1,
+emp_confirm char(1) default 'N',
+emp_gender char(2),
+emp_birth char(12),
+emp_phone char(13),
+emp_tel char(13),
+emp_company_tel char(13),
+emp_height char(3),
+emp_weight char(3),
+emp_hobby varchar(10),
+emp_speciality varchar(10),
+emp_married char(3),
+emp_license varchar(100),
+emp_lang varchar(100),
+emp_comment text,
+primary key(emp_num)
+);
+
+insert into gw_employee set 
+emp_id='admin',
+emp_pwd='qwer',
+emp_name='관리자',
+emp_auth=10,
+emp_confirm='Y',
+emp_buseo='',
+emp_grade='';
+
+create table gw_buseo(
+buseo_id varchar(5) not null,
+buseo_name varchar(20) not null
+);
+
+insert into gw_buseo values('100','관리부');
+insert into gw_buseo values('200','인사부');
+insert into gw_buseo values('300','기획부');
+insert into gw_buseo values('400','총무부');
+insert into gw_buseo values('500','영업부');
+insert into gw_buseo values('600','생산부');
+insert into gw_buseo values('700','자재부');
+
+create table gw_grade(
+grade_id varchar(2) not null,
+grade_name varchar(10) not null
+);
+
+insert into gw_grade values('1','대표이사');
+insert into gw_grade values('2','전무');
+insert into gw_grade values('3','이사');
+insert into gw_grade values('4','부장');
+insert into gw_grade values('5','팀장');
+insert into gw_grade values('6','과장');
+insert into gw_grade values('7','대리');
+insert into gw_grade values('8','주임');
+insert into gw_grade values('9','사원');

@@ -1,0 +1,139 @@
+@charset 'utf-8';
+
+html {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #347765 -50%, #092756 100%);
+    overflow: hidden;
+}
+
+h1 {
+    color: #fff;
+    margin: 30px 20px;
+    text-align: left;
+    font-size: 30px;
+
+}
+
+.login-box{
+    width: 500px;
+    height: 680px;
+    background-color: #eee;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    padding: 0 40px;
+    margin: 20px;
+}
+
+.login-box h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 40px;
+    color: #092756;
+}
+
+.input-wrap {
+    margin-top: 30px;
+}
+
+.input-wrap > span {
+    color: #092756;
+    font-weight: 700;
+}
+.input-wrap > p {
+    color: #092756;
+    opacity: 0.6;
+    font-size: 14px;
+}
+
+select {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: #fff;
+    padding-left: 40px;
+    margin-bottom: 6px;
+    color: rgba(18, 18, 77, 0.5);
+}
+
+.input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: #fff;
+    padding-left: 40px;
+    margin-bottom: 6px;
+}
+
+::placeholder {
+    color: rgba(18, 18, 77, 0.5);
+    font-size: 16px;
+}
+
+.pos {
+    position: relative;
+}
+
+.form-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.form-icon i {
+    color: #092756;
+    vertical-align: top;
+}
+
+.btn {
+    width: 100%;
+    height: 50px;
+    background-color: #092756;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    border: 1px solid #092756;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+.register {
+    margin-top: 10px;
+}
+
+.forgot {
+    float: left;
+}
+
+.forgot a,
+.account a {
+    color: #8898aa;
+}
+
+.account {
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.copy {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+}
+
