@@ -20,20 +20,18 @@
         <div class="login-box">
             <h2>Login</h2>
             <div class="">
-                <form name="frm" id="frm" method="post" action="${pageContext.request.contextPath}/admin/main" autocomplete="off">
+                <form name="frm" id="frm" method="post" action="${pageContext.request.contextPath}/" autocomplete="off">
                     <div class="input-wrap">
                         <div class="pos">
                             <span class="form-icon"><i class="far fa-id-card"></i></span>
-                            <input type="text" name="mem_id" id="mem_id" class="input" tabindex="1" placeholder="아이디 입력해주세요." autofocus />
+                            <input type="text" name="emp_id" id="emp_id" class="input" tabindex="1" placeholder="아이디 입력해주세요." required autofocus />
                         </div>
                         <div class="pos">
                             <span class="form-icon"><i class="fas fa-unlock-alt"></i></span>
-                            <input type="password" name="mem_pwd" id="mem_pwd" class="input" tabindex="2" placeholder="패스워드 입력해주세요." />
+                            <input type="password" name="emp_pwd" id="emp_pwd" class="input" tabindex="2" placeholder="패스워드 입력해주세요." required />
                         </div>
                         <div class="check-box">
-                            <label style="display: flex;"><input type="checkbox" name="remember" value="remember" checked />
-                                <span style="padding-left: 7px; font-size: 14px; color: #8898aa;">아이디 저장하기</span>
-                            </label>
+                            <div style="color:#f00;font-size:16px;text-align:center;font-weight:700;">${msg}</div>
                         </div>
                     </div>
 
@@ -56,7 +54,4 @@
     </main>
 </body>
 
-<script>
-
-</script>
 </html>
