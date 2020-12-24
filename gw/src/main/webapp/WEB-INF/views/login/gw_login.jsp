@@ -17,7 +17,7 @@
         <div class="logo">
             <h1>GreenArt Company Groupware</h1>
         </div>
-        <div class="login-box">
+        <div class="login-box" style="height:450px;">
             <h2>Login</h2>
             <div class="">
                 <form name="frm" id="frm" method="post" action="${pageContext.request.contextPath}/" autocomplete="off">

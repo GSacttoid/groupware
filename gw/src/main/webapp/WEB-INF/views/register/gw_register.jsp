@@ -126,8 +126,8 @@
 	
 	/* 패스워드 확인 (20201220_jhpark) */
 	$("#repwd").blur(function() {
-		var pwd = $("#emp_pwd");
-		var repwd = $("#repwd");
+		var pwd = $("#emp_pwd").val();
+		var repwd = $("#repwd").val();
 		
 		if( pwd != repwd ) {
 			alert("패스워드가 일치하지 않습니다.\n다시 입력해주세요.");
