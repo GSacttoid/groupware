@@ -4,26 +4,6 @@
 <%@ include file="/WEB-INF/views/INCLUDE/GW_HEADER.jsp" %>
 <!-- /INCLUDE HEADER (ALL) -->
 <style>
-    ul>li::before {
-        content: '';
-        display: inline-block;
-        width: 5px;
-        height: 5px;
-        background-color: #000;
-        margin-right: 10px;
-        vertical-align: middle;
-        transform: rotate(45deg) translateY(-50%);
-    }
-	table {
-	    border-collapse: collapse;
-	}
-	tr{
-	    height: 40px;
-	    border: 1px solid #c1c1c1;
-	}
-	td{
-	    border: 1px solid #c1c1c1;
-	}
 	.list tr:first-child{
 	    background-color: #6f809a;
 	    color: #fff;
@@ -33,22 +13,7 @@
 	}
 </style>
 <body>
-    <div class="total-wrap">
-        <!-- INCLUDE LOGO (ALL) -->
-        <%@ include file="/WEB-INF/views/INCLUDE/GW_LOGO.jsp" %>
-        <!-- /INCLUDE LOGO (ALL) -->
-        <main>
-            <div class="container">
-            	<!-- INCLUDE MENU (ALL) -->
-                <%@ include file="/WEB-INF/views/INCLUDE/GW_MENU.jsp" %>
-                <!-- /INCLUDE MENU (ALL) -->
-                <div class="detail-wrap">
-                	<!-- INCLUDE MENU_DETAIL (ADMIN) -->
-                    <%@ include file="/WEB-INF/views/INCLUDE/GW_MENU_DETAIL_ADMIN.jsp" %>
-                    <!-- /INCLUDE MENU_DETAIL (ADMIN) -->
-
-                </div>
-                <div class="main-wrap noto font14">
+                <div class="main-wrap noto font14" style="width:100%;">
                     
                     <div class="p20">
                         <div class="notice-title font16 noto">
@@ -229,95 +194,7 @@
                         </div>   
                     </div>
                 </div>
-            </div>
-        </main>
-    </div>
 </body>
-<!-- calendar -->
-<script src="${pageContext.request.contextPath}/calendar/core/main.js"></script>
-<script src="${pageContext.request.contextPath}/calendar/core/locales/ko.js"></script>
-<script src="${pageContext.request.contextPath}/calendar/interaction/main.js"></script>
-<script src="${pageContext.request.contextPath}/calendar/daygrid/main.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var calendarEl = document.getElementById('calendar');
 
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            plugins: ['interaction', 'dayGrid'],
-            header: {
-                left: 'prevYear,prev,next,nextYear today',
-                center: 'title',
-                right: 'dayGridMonth,dayGridWeek,dayGridDay'
-            },
-            navLinks: true,
-            editable: true,
-            eventLimit: true,
-            locales: "ko",
-            events: [{
-                    title: '휴일',
-                    start: '2020-09-05',
-                    color: '#ff0000'
-                },
-                {
-                    title: '휴일',
-                    start: '2020-09-06',
-                    color: '#ff0000'
-                },
-                {
-                    title: '휴일',
-                    start: '2020-09-12',
-                    color: '#ff0000'
-                },
-                {
-                    title: '휴일',
-                    start: '2020-09-13',
-                    color: '#ff0000'
-                },
-                {
-                    title: '휴일',
-                    start: '2020-09-19',
-                    color: '#ff0000'
-                },
-                {
-                    title: '휴일',
-                    start: '2020-09-20',
-                    color: '#ff0000'
-                },
-                {
-                    title: '휴일',
-                    start: '2020-09-26',
-                    color: '#ff0000'
-                },
-                {
-                    title: '휴일',
-                    start: '2020-09-27',
-                    color: '#ff0000'
-                },
-                {
-                    title: '추석연휴',
-                    start: '2020-09-30',
-                    end: '2020-10-05',
-                    color: '#ff0000'
-                },
-                {
-                    title: '개천절',
-                    start: '2020-10-03',
-                    color: '#ff0000'
-            }]
-        });
 
-        calendar.render();
-    });
-</script>
-<!-- //calendar -->
-
-<!-- calendar event -->
-<script>
-    $(function(){
-        $("#startDate, #endDate").datepicker({
-            dateFormat : 'yy-mm-dd'
-        });
-    });
-</script>
-<!-- //calendar click event -->
 </html>

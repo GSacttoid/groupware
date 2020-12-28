@@ -62,21 +62,21 @@ public class AdminCtr {
 	}
 	
 	//커뮤니티 / 설문조사
-	@RequestMapping("/survey_main")
+	@RequestMapping("/survey_set")
 	public String getSurveyMain() {
-		return "admin/admin_community/survey_main";
+		return "admin/admin_community/survey_set";
 	}
 	
 	//커뮤니티 / 회사메뉴 관리
-	@RequestMapping("/menu_company_set")
+	@RequestMapping("/company_menu_set")
 	public String getMenuComSet() {
-		return "admin/admin_community/menu_company_set";
+		return "admin/admin_community/company_menu_set";
 	}
 	
 	//커뮤니티 / 부서메뉴 관리
-	@RequestMapping("/menu_buseo_set")
+	@RequestMapping("/buseo_menu_set")
 	public String getMenuBuseoSet() {
-		return "admin/admin_community/menu_buseo_set";
+		return "admin/admin_community/buseo_menu_set";
 	}
 	
 	//인사 관리 / 근무일 설정
@@ -101,5 +101,23 @@ public class AdminCtr {
 	@RequestMapping("/vacation_num_set")
 	public String getVacationNumSet() {
 		return "admin/admin_hr/vacation_num_set";
+	}
+	
+	//전자 결제 / 전자결제 양식관리
+	@RequestMapping("/approval_form")
+	public String getApprovalForm() {
+		return "admin/admin_approval/approval_form";
+	}
+	
+	//전자 결제 / 전자결제 설정
+	@RequestMapping("/approval_set")
+	public String getApprovalSet() {
+		return "admin/admin_approval/approval_set";
+	}
+	
+	//자료실 설정 / 자료실 설정
+	@RequestMapping("/gw_library_set")
+	public String getLibrarySet() {
+		return "admin/admin_library/gw_library_set";
 	}
 }

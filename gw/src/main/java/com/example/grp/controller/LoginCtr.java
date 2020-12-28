@@ -33,7 +33,7 @@ public class LoginCtr {
 		if( loginSrv.loginCheck(evo) != 0 ) {
 			String confirm = loginSrv.getEmpInfoOne(evo, httpSession).getEmp_confirm();
 			if( confirm.equals("Y") ) {
-				mav.setViewName("/admin/gw_admin_main");
+				mav.setViewName("/home/gw_home_main");
 				loginSrv.getEmpInfoOne(evo, httpSession);
 			}else {
 				mav.addObject("msg", "관리자의 승인이 필요합니다.");

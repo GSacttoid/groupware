@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- INCLUDE HEADER (ALL) -->
-<%@ include file="/WEB-INF/views/INCLUDE/GW_HEADER.jsp" %>
-<!-- /INCLUDE HEADER (ALL) -->
+
     <style>
         .button{
             border: 1px solid #6d6d6d;
@@ -17,20 +15,18 @@
         <div class="modal noto font14 weight500">
             <div class="p20">
                 <div class="notice-title">
-                    <h3><i class="fas fa-info-circle"></i>그룹웨어 서비스 추가하기</h3>
+                    <h2><i class="fas fa-info-circle"></i>그룹웨어 서비스 추가하기</h2>
                 </div>
                 <hr />
                 <form method="post" action="#">
-                    <table class="" style="width:100%; border: 1px solid #c1c1c1; margin-bottom: 10px;">
-                        <div class="notice-title m-tb5">
-                            <h4>※사용중인 그룹웨어 서비스</h4>
-                        </div>
+                    <table class="p10" style="width:100%; border: 1px solid #c1c1c1; margin-bottom: 10px;">
+                        <div class="m-tb5 noto font16 weight700">※사용중인 그룹웨어 서비스</div>
                         <tr>
-                            <td style="width: 20%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">도메인 명</td>
+                            <td style="width: 20%; height:35px; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">도메인 명</td>
                             <td style="width: 80%; padding: 5px 10px;">gw.greenart.kr</td>
                         </tr>
                         <tr>
-                            <td style="width: 20%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">그룹웨어 개설일</td>
+                            <td style="width: 20%; height:35px; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">그룹웨어 개설일</td>
                             <td style="width: 80%; padding: 5px 10px;">2009/04/02</td>
                         </tr>
                         <tr>
@@ -71,9 +67,7 @@
                         </tr>
                     </table>
                     <table style="width:100%; border: 1px solid #c1c1c1; margin-bottom: 10px;">
-                        <div class="notice-title m-tb5">
-                            <h4>※사용중인 할당용량 변경하기</h4>
-                        </div>
+                        <div class="m-tb5 noto font16 weight700">※사용중인 할당용량 변경하기</div>
                         <tr>
                             <td style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 10px 0;">메일 사용 용량</td>
                             <td style="width: 100%; display: flex; padding: 5px 10px; line-height: 35px;">
@@ -128,21 +122,8 @@
     <!-- //modal layer -->
 
     <div class="total-wrap">
-        <!-- INCLUDE LOGO (ALL) -->
-        <%@ include file="/WEB-INF/views/INCLUDE/GW_LOGO.jsp" %>
-        <!-- /INCLUDE LOGO (ALL) -->
-        <main>
-            <div class="container">
-                <!-- INCLUDE MENU (ALL) -->
-                <%@ include file="/WEB-INF/views/INCLUDE/GW_MENU.jsp" %>
-                <!-- /INCLUDE MENU (ALL) -->
-                <div class="detail-wrap">
-                    <!-- INCLUDE MENU_DETAIL (ADMIN) -->
-                    <%@ include file="/WEB-INF/views/INCLUDE/GW_MENU_DETAIL_ADMIN.jsp" %>
-                    <!-- /INCLUDE MENU_DETAIL (ADMIN) -->
-
-                </div>
-                <div class="main-wrap noto font14">
+        
+                <div class="main-wrap noto font14" style="width:100%;">
                     
                     <div class="p20">
                         <div class="notice-title">
@@ -235,8 +216,7 @@
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
+
 </body>
 
 <script>

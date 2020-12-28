@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- INCLUDE HEADER (ALL) -->
-<%@ include file="/WEB-INF/views/INCLUDE/GW_HEADER.jsp" %>
-<!-- /INCLUDE HEADER (ALL) -->
 <style>
     ul>li::before {
         content: '';
@@ -23,22 +20,7 @@
     }
 </style>
 <body>
-    <div class="total-wrap">
-        <!-- INCLUDE LOGO (ALL) -->
-        <%@ include file="/WEB-INF/views/INCLUDE/GW_LOGO.jsp" %>
-        <!-- /INCLUDE LOGO (ALL) -->
-        <main>
-            <div class="container">
-                <!-- INCLUDE MENU (ALL) -->
-                <%@ include file="/WEB-INF/views/INCLUDE/GW_MENU.jsp" %>
-                <!-- /INCLUDE MENU (ALL) -->
-                <div class="detail-wrap">
-                    <!-- INCLUDE MENU_DETAIL (ADMIN) -->
-                    <%@ include file="/WEB-INF/views/INCLUDE/GW_MENU_DETAIL_ADMIN.jsp" %>
-                    <!-- /INCLUDE MENU_DETAIL (ADMIN) -->
-
-                </div>
-                <div class="main-wrap noto font14">
+                <div class="main-wrap noto font14" style="width:100%">
                     
                     <div class="p20">
                         <div class="notice-title font16 noto">
@@ -190,9 +172,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
-    </div>
+
 </body>
 
 </html>

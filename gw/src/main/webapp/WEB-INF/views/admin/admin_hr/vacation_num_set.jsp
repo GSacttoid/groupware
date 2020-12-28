@@ -1,37 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- INCLUDE HEADER (ALL) -->
-<%@ include file="/WEB-INF/views/INCLUDE/GW_HEADER.jsp" %>
-<!-- /INCLUDE HEADER (ALL) -->
-	<style>
-        table {
-		    border-collapse: collapse;
-		}
-		tr{
-		    height: 40px;
-		    border: 1px solid #c1c1c1;
-		}
-		td{
-		    border: 1px solid #c1c1c1;
-		}
-    </style>
-<body>
-    <div class="total-wrap">
-        <!-- INCLUDE LOGO (ALL) -->
-        <%@ include file="/WEB-INF/views/INCLUDE/GW_LOGO.jsp" %>
-        <!-- /INCLUDE LOGO (ALL) -->
-        <main>
-            <div class="container">
-                <!-- INCLUDE MENU (ALL) -->
-                <%@ include file="/WEB-INF/views/INCLUDE/GW_MENU.jsp" %>
-                <!-- /INCLUDE MENU (ALL) -->
-                <div class="detail-wrap">
-                    <!-- INCLUDE MENU_DETAIL (ADMIN) -->
-                    <%@ include file="/WEB-INF/views/INCLUDE/GW_MENU_DETAIL_ADMIN.jsp" %>
-                    <!-- /INCLUDE MENU_DETAIL (ADMIN) -->
 
-                </div>
-                <div class="main-wrap noto font14">
+<body>
+                <div class="main-wrap noto font14" style="width:100%;">
                     
                     <div class="p10">
                         <div class="notice-title font16 noto">
@@ -333,9 +304,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
-    </div>
 </body>
 
 </html>
