@@ -3,94 +3,65 @@
 <div class="">
 	<div class="title-detail" style="font-size: 14px; border-bottom: 1px solid #6d6d6d;">
 		<h2>
-			<a href="${pageContext.request.contextPath}/admin/main" title="관리자메뉴" class="f6"><i class="fas fa-home"></i> Home</a>
+			<a href="${pageContext.request.contextPath}/home/main" title="Home" class="f6"><i class="fas fa-home"></i> Home</a>
 		</h2>
-	</div>
-
-	<div id="" class="flex flex-justify">
-		<a href="#" class="tab active-all" id="close">전체닫기</a> <a href="#" class="tab" id="open">전체열기</a>
 	</div>
 </div>
 
 <div class="accordion">
-
-	<div class="accordion-header">그룹웨어 정보</div>
-	<div class="accordion-content">
-		<div>
-			<a style="cursor:pointer;" onClick="getSystemNotice();">시스템 공지사항</a>
+	<div>
+		<div class="myInfo">
+			<p class="noto font16 weight700 m-lr5">나의 정보</p>
+			<p class="noto font14 weight500 m-lr5">아이디	: ${sessionScope.empId}</p>
+			<p class="noto font14 weight500 m-lr5">이름	: ${sessionScope.empName} 님</p>
+			<p class="noto font14 weight500 m-lr5">직급	: ${sessionScope.empGradeName}</p>
+			<p class="noto font14 weight500 m-lr5">권한	: ${sessionScope.empAuth} 등급</p>
 		</div>
-		<div>
-			<a style="cursor:pointer;" onClick="getGwInfo();">그룹웨어 사용정보</a>
-		</div>
-	</div>
-
-	<div class="accordion-header">회사 정보 설정</div>
-	<div class="accordion-content">
-		<div>
-			<a style="cursor:pointer;" onClick="getCompanyInfo();">회사 정보 관리</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" onClick="getBuseoInsert();">부서 등록</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" onClick="getGradeInsert();">직급 등록</a>
+		<div class="m-lr5 m-t5">
+			<a href="${pageContext.request.contextPath}/gw_employee_info?" title="사용자 정보" class="font16 noto" style="color:#5ebfd9; padding:5px 0px;">
+				<i class="fas fa-user f6" style="color:#5ebfd9;"></i> 내정보 상세보기
+			</a>
 		</div>
 	</div>
 
-	<div class="accordion-header">사원 및 관리자 정보 관리</div>
-	<div class="accordion-content">
-		<div>
-			<a style="cursor:pointer;" onClick="getEmpList();">사원 관리</a>
+	<div style="font-size: 14px; border-top:1px solid #6d6d6d; border-bottom: 1px solid #6d6d6d; margin-top:10px;">
+		<div class="m-t5" style="line-height:1.8;">
+			<p class="noto font14 weight500 m-lr5">출근시간	: </p>
+			<p class="noto font14 weight500 m-lr5">퇴근시간	: </p>
+			<p class="noto font14 weight500 m-lr5">현재상태	: </p>
+			<p class="noto font14 weight500 m-lr5">잔여휴가	: </p>
 		</div>
-		<div>
-			<a style="cursor:pointer;" onClick="getAdminInfo();">관리자 정보 관리</a>
+
+		<div class="flex flex-justify">
+			<button class="noto font16 f6 m-tb10" style="width:100px; border: 2px solid #5ebfd9; border-radius:50px; padding:10px;">출근하기</button>
+			<button class="noto font16 f6 m-tb10" style="width:100px; border: 2px solid #f2f2f2; border-radius:50px; padding:10px;">퇴근하기</button>
+		</div>
+	</div>
+	
+	<div class="p10" style="font-size: 14px; height:250px; margin-top:10px; background-color:#D6D6D3">
+		<div style="line-height:1.8;" class="flex flex-justify">
+			<p class="noto font16 weight500 m-lr5" style="color:#000;"><i class="fas fa-sticky-note"></i> 메모</p>
+			<p class="noto font16 weight500 m-lr5" style="color:#000; cursor:pointer;"><i class="far fa-plus-square"></i> 추가</p>
+		</div>
+		<div class="m-t10" style="line-height:1.8; ">
+		
+			<div class="flex flex-justify" style="height:25px; border-bottom:1px solid #e9e9e9;">
+				<p class="noto font14 weight500 m-lr5" style="color:#000;">메모1 </p>
+				<p class="noto font14 weight500" style="color:#000; cursor:pointer;"><i class="far fa-minus-square"></i></p>
+			</div>
+			
+			<div class="flex flex-justify" style="height:25px; border-bottom:1px solid #e9e9e9;">
+				<p class="noto font14 weight500 m-lr5" style="color:#000;">메모2 </p>
+				<p class="noto font14 weight500" style="color:#000; cursor:pointer;"><i class="far fa-minus-square"></i></p>
+			</div>
+			
+			<div class="flex flex-justify" style="height:25px; border-bottom:1px solid #e9e9e9;">
+				<p class="noto font14 weight500 m-lr5" style="color:#000;">메모3 </p>
+				<p class="noto font14 weight500" style="color:#000; cursor:pointer;"><i class="far fa-minus-square"></i></p>
+			</div>
+
 		</div>
 	</div>
 
-	<div class="accordion-header">커뮤니티</div>
-	<div class="accordion-content">
-		<div>
-			<a style="cursor:pointer;" onClick="getCompanyNotice();">회사 공지 사항</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" onClick="getSurveySet();">설문 조사 설정</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" onClick="getComMenuSet();">회사 메뉴 설정</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" onClick="getBuseoMenuSet();">부서 메뉴 설정</a>
-		</div>
-	</div>
-
-	<div class="accordion-header">인사 관리</div>
-	<div class="accordion-content">
-		<div>
-			<a style="cursor:pointer;" onClick="getCommuteSet();">출퇴근 설정</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" onClick="getVacationSet();">휴가 종류 설정</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" onClick="getVacationNumSet();">휴가 일수 설정</a>
-		</div>
-	</div>
-
-	<div class="accordion-header">전자결재</div>
-	<div class="accordion-content">
-		<div>
-			<a style="cursor:pointer;" onClick="getApprovalForm();">전자결재 양식관리</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" onClick="getApprovalSet();">전자결재 설정</a>
-		</div>
-	</div>
-
-	<div class="accordion-header">자료실 관리</div>
-	<div class="accordion-content">
-		<div>
-			<a style="cursor:pointer;" onClick="getLibrarySet();">자료실 설정</a>
-		</div>
-	</div>
 
 </div>

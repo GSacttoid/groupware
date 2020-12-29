@@ -33,8 +33,8 @@ public class LoginCtr {
 		if( loginSrv.loginCheck(evo) != 0 ) {
 			String confirm = loginSrv.getEmpInfoOne(evo, httpSession).getEmp_confirm();
 			if( confirm.equals("Y") ) {
-				mav.setViewName("/home/gw_home_main");
 				loginSrv.getEmpInfoOne(evo, httpSession);
+				mav.setViewName("/home/gw_home_main");
 			}else {
 				mav.addObject("msg", "관리자의 승인이 필요합니다.");
 				mav.setViewName("/login/gw_login");
@@ -46,7 +46,7 @@ public class LoginCtr {
 		return mav;
 	}
 	
-	@RequestMapping("/grp_logout")
+	@RequestMapping("/gw_logout")
 	@ResponseBody
 	public String grpLogout(HttpSession httpSession) {
 		loginSrv.logout(httpSession);

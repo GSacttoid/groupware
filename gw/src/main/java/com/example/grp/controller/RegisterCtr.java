@@ -31,7 +31,6 @@ public class RegisterCtr {
 	@ResponseBody
 	public List<BuseoVO> getBuseo() {
 		List<BuseoVO> list = regSrv.getBuseo();
-		System.out.println(list);
 		return list;
 	}
 	

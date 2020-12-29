@@ -8,8 +8,29 @@
      </div>
 
     <div class="icons">
-        <div class="icon"><a href="${pageContext.request.contextPath}/gw_employee_info" title="사용자 정보"><i class="fas fa-user f6"></i></a></div>
+        <div class="icon"><a href="${pageContext.request.contextPath}/gw_employee_info?" title="사용자 정보"><i class="fas fa-user f6"></i></a></div>
         <div class="icon"><a href="${pageContext.request.contextPath}/gw_setting" title="환경설정"><i class="fas fa-cogs f6"></i></a></div>
-        <div class="icon"><a href="${pageContext.request.contextPath}" title="로그아웃"><i class="fas fa-sign-out-alt f6"></i></a></div>
+        <div class="icon"><a href="${pageContext.request.contextPath}/grp_logout" title="로그아웃"><i class="fas fa-sign-out-alt f6" id="logout"></i></a></div>
     </div>
 </header>
+
+<script>
+	$(function() {
+		$("#logout").click(function() {
+			$.ajax({
+				url		: "${pageContext.request.contextPath}/gw_logout",
+				type	: "POST",
+				data	: "",
+				success : function(data) {
+					if( data == "success" ) {
+						alert("로그아웃 되었습니다..");
+						window.location.href = '${pageContext.request.contextPath}/';
+					}
+				},
+				error	: function() {
+					alert("시스템 에러!!");
+				}
+			});
+		});
+	});
+</script>

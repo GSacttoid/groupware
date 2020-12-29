@@ -19,7 +19,14 @@ public class LoginSrv {
 	}
 	
 	public EmpVO getEmpInfoOne(EmpVO evo, HttpSession httpSession) {
-		return loginDao.getEmpInfoOne(evo);
+		EmpVO result = loginDao.getEmpInfoOne(evo);
+		if(result != null) {
+			httpSession.setAttribute("empAuth", result.getEmp_auth());
+			httpSession.setAttribute("empId", result.getEmp_id());
+			httpSession.setAttribute("empName", result.getEmp_name());
+			httpSession.setAttribute("empBuseoCode", result.getEmpBuseoCode());
+		}
+		return result;
 	}
 	
 	public void logout(HttpSession httpSession) {
