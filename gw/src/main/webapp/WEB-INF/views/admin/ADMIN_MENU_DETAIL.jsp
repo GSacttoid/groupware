@@ -37,7 +37,7 @@
 		</div>
 	</div>
 
-	<div class="accordion-header">사원 및 관리자 정보 관리</div>
+	<div class="accordion-header">사원 및 관리자 정보</div>
 	<div class="accordion-content">
 		<div>
 			<a style="cursor:pointer;" onClick="getEmpList();">사원 관리</a>

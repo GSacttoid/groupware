@@ -62,3 +62,30 @@ insert into gw_grade values('6','과장');
 insert into gw_grade values('7','대리');
 insert into gw_grade values('8','주임');
 insert into gw_grade values('9','사원');
+
+create table gw_system_notice(
+sn_num int not null auto_increment,
+sn_code char(6) not null,
+sn_maker varchar(10),
+sn_title varchar(50),
+sn_content text,
+sn_read int,
+sn_write int,
+sn_download int,
+sn_reply int,
+sn_type int,
+sn_regdate date,
+sn_count int,
+sn_files varchar(300),
+primary key(sn_num)
+);
+
+
+
+
+
+
+
+
+
+

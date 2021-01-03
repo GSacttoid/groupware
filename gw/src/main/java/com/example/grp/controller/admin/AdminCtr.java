@@ -1,11 +1,18 @@
-package com.example.grp.controller;
+package com.example.grp.controller.admin;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.example.grp.service.NoticeSrv;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminCtr {
+	@Autowired
+	NoticeSrv nSrv;
 	
 	//관리자 메뉴 메인페이지
 	@RequestMapping("/main")
@@ -20,9 +27,11 @@ public class AdminCtr {
 	}
 	
 	//그룹웨어 정보 / 시스템 공지사항
-	@RequestMapping("/system_notice")
+	@RequestMapping("/system_notice" )
 	public String getSystemNotice() {
-		return "admin/admin_gw_info/gw_system_notice_list";
+
+		
+		return "";
 	}
 	
 	//회사정보설정 / 회사정보관리

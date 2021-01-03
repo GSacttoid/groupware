@@ -229,6 +229,11 @@ hr{
     opacity: 1;
     transition: 0.3s;
 }
+.close{
+    visibility: visible;
+    opacity: 0;
+    transition: 0.3s;
+}
 .modal{
     width: 750px;
     height: 600px;

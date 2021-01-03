@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+
+	<insert id="setNoticeInsert" parameterType="com.example.grp.model.NoticeVO">
+		INSERT INTO gw_system_notice SET 
+			sn_maker	= #{sn_maker},
+			sn_title	= #{sn_title},
+			sn_content	= #{sn_content},
+			sn_regdate	= now(),
+			sn_type 	= #{sn_type},
+			sn_read		= #{sn_read},
+			sn_write	= #{sn_write},
+			sn_download	= #{sn_download},
+			sn_reply	= #{sn_reply}
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

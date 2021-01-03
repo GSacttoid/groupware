@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style_admin.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/board.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     <!-- calendar -->
@@ -23,5 +22,6 @@
     <!-- calendar -->
     
     <script src="https://kit.fontawesome.com/6ecca0b569.js" crossorigin="anonymous"></script>
+    <script src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
 	<script src="${pageContext.request.contextPath}/js/tab.js"></script>
 </head>

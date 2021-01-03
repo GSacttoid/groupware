@@ -246,7 +246,7 @@ $(function () {
 		$.ajax({
 			url		:"${pageContext.request.contextPath}/admin/system_notice",
 			type	:"POST",
-			datatype:"html",
+			datatype:"",
 			success	:function(resData){
 				$("#main-wrap").html(resData);
 			},
