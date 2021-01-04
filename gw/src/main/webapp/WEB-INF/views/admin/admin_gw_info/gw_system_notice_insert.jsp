@@ -113,6 +113,28 @@
 
 <script>
 
+function noticeWrite() {
+	
+	if( $.trim($("#sn_title").val()) == '' ) {
+		alert("게시판 제목을 입력하세요.");
+		$("#sn_title").focus();
+		return false;
+	}
+
+	var formData = $("#frm").serialize();
+	
+	$.ajax({
+		url		: "${pageContext.request.contextPath}/notice/system_notice_write",
+		type	: "POST",
+		data	: formData,
+		success	: function(resData) {
+			alert("공지사항이 등록되었습니다.");
+		},
+		error	:function() {
+			alert("시스템 에러");
+		}
+	});
+}
 
 
 </script>

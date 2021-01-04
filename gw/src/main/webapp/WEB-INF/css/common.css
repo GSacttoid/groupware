@@ -184,7 +184,7 @@ button{
     border-radius: 2px;
     background-color: #edeff5;
     border: 1px solid #d4d4d4;
-    color: #000;
+    color: #fff;
 }
 .btn-off:hover{
     background-color: #ddd;
@@ -209,6 +209,18 @@ button{
     line-height: 25px;
     border-radius: 2px;
     background-color: #edeff5;
+    border: 1px solid #d4d4d4;
+    color: #000;
+    font-size: 12px;
+}
+.s-btn-red{
+    display: inline-block;
+    width: 35px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 2px;
+    background-color: #fc6468;
     border: 1px solid #d4d4d4;
     color: #000;
     font-size: 12px;

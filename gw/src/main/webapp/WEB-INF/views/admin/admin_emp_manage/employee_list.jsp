@@ -19,6 +19,48 @@
     .tr-even{
         background-color: #eff3f9;
     }
+   	/* table tr 높이 */
+	tr {
+	    height:40px;
+	}
+	
+	/* table 선색 */
+	td {
+	    border:1px solid #d5d5d5;
+	}
+	.depart-btn {
+	    display: inline-block;
+	    width: 65px;
+	    height: 25px;
+	    text-align: center;
+	    border-radius: 2px;
+	    background-color: #c1c1c1;
+	    border: 1px solid transparent;
+	    color: #fff;
+	    font-size: 12px;
+	    cursor: pointer;
+	    font-weight: 700;
+	}
+	.depart-btn:hover{
+	    background-color: #3f51b5;
+	    color: #fff;
+	}
+	.list-btn {
+	    width: 170px;
+	    height: 25px;
+	    text-align: center;
+	    border-radius: 2px;
+	    background-color: #c1c1c1;
+	    border: 1px solid transparent;
+	    color: #000;
+	    font-size: 14px;
+	    cursor: pointer;
+	    font-weight: 700;
+	}
+	.list-btn:hover{
+	    background-color: #3f51b5;
+	    color: #fff;
+	}
 </style>
 <body>
                 <div class="main-wrap noto font14" style="width:100%">
@@ -28,7 +70,7 @@
                             <h3><i class="fas fa-info-circle m-lr5"></i>사원 관리</h3>
                         </div>
                         <hr />
-                            <table style="width:100%; border: 1px solid #c1c1c1; margin-bottom: 5px;">
+                            <table style="width:100%; border: 1px solid #c1c1c1;">
                                 <tr>
                                     <td style="width: 20%; line-height: 1.8; padding: 10px;">
                                         <div class="noto font14">
@@ -50,16 +92,14 @@
                                         <div class="noto font16 weight700">1. 등록된 사원 리스트</div>
                                         <div class="m-lr20">
                                             <button type="button" class="list-btn m-lr5" onclick="location.href='${pageContext.request.contextPath}/admin/gw_employee_waiting'">가입대기 리스트</button>
-                                            <button type="button" class="list-btn m-lr5" onclick="location.href='${pageContext.request.contextPath}/admin/gw_employee_resign'">퇴사자 리스트</button>
-                                            <button type="button" class="excel-btn m-lr5"><i class="far fa-file-excel m-lr5"></i>엑셀 파일로 저장 </button>
+                                            <button type="button" class="list-btn" onclick="location.href='${pageContext.request.contextPath}/admin/gw_employee_resign'">퇴사자 리스트</button>
                                         </div>
                                     </div>
                                     <div class="noto font14 m-b10">등록중인 사원 : 125 명</div>
                                     <div class="flex flex-justify">
                                         <div class="">
-                                            <div class="btn-grp m-b10">
+                                            <div class="btn-grp">
                                                 <button class="depart-btn" type="button" >전체 선택</button>
-                                                <button class="depart-btn" type="button" style="background-color: #3f51b5;">선택 수정</button>
                                                 <button class="depart-btn" type="button" style="background-color: #fc6468;">선택 삭제</button>
                                             </div>
                                         </div>
@@ -87,8 +127,8 @@
                                             <td class="td-10">전화번호</td>
                                             <td class="td-10">사내번호</td>
                                             <td class="td-10">권한설정</td>
-                                            <td class="td-10">관리</td>
                                             <td class="td-10">입사일</td>
+                                            <td class="td-10">관리</td>
                                         </tr>
 
                                         <tr class="center noto font14">
@@ -116,10 +156,11 @@
                                                     <option class="" value="">1등급</option>
                                                 </select>
                                             </td>
-                                            <td >
-                                                <button type="button" class="depart-btn m-lr5">퇴사</button>
-                                            </td>
                                             <td>2020/09/16</td>
+                                            <td >
+                                            	<button type="button" class="s-btn-on">수정</button>
+                                                <button type="button" class="s-btn-off" style="background-color: #fc6468; color:#fff;">퇴사</button>
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>

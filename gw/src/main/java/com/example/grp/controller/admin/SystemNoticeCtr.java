@@ -15,7 +15,12 @@ public class SystemNoticeCtr {
 	@Autowired
 	NoticeSrv nSrv;
 	
-	@RequestMapping(value="/notice/system_notice_insert", method = RequestMethod.POST)
+	@RequestMapping(value="/notice/system_notice_insert",method= {RequestMethod.GET, RequestMethod.POST})
+	public String getNoticeInsert() {
+		return "admin/admin_gw_info/gw_system_notice_insert";
+	}
+	
+	@RequestMapping(value="/notice/system_notice_write", method = RequestMethod.POST)
 	@ResponseBody
 	public String setNoticeInsert(NoticeVO nvo) {
 		nSrv.setNoticeInsert(nvo);

@@ -53,15 +53,15 @@ grade_id varchar(2) not null,
 grade_name varchar(10) not null
 );
 
-insert into gw_grade values('1','대표이사');
-insert into gw_grade values('2','전무');
-insert into gw_grade values('3','이사');
-insert into gw_grade values('4','부장');
-insert into gw_grade values('5','팀장');
-insert into gw_grade values('6','과장');
-insert into gw_grade values('7','대리');
-insert into gw_grade values('8','주임');
-insert into gw_grade values('9','사원');
+insert into gw_grade values('1','대표이사',1,now());
+insert into gw_grade values('2','전무',1,now());
+insert into gw_grade values('3','이사',1,now());
+insert into gw_grade values('4','부장',1,now());
+insert into gw_grade values('5','팀장',1,now());
+insert into gw_grade values('6','과장',1,now());
+insert into gw_grade values('7','대리',1,now());
+insert into gw_grade values('8','주임',1,now());
+insert into gw_grade values('9','사원',1,now());
 
 create table gw_system_notice(
 sn_num int not null auto_increment,

@@ -21,7 +21,23 @@
 		td{
 		    border: 1px solid #c1c1c1;
 		}
-
+		.depart-btn {
+		    display: inline-block;
+		    width: 65px;
+		    height: 25px;
+		    text-align: center;
+		    border-radius: 2px;
+		    background-color: #c1c1c1;
+		    border: 1px solid transparent;
+		    color: #fff;
+		    font-size: 12px;
+		    cursor: pointer;
+		    font-weight: 700;
+		}
+		.depart-btn:hover{
+		    background-color: #3f51b5;
+		    color: #fff;
+		}
     </style>
 <body>
                 <div class="main-wrap noto font14" style="width:100%">
@@ -32,7 +48,7 @@
                         </div>
                         <hr />
                         
-                            <table style="width:100%; border: 1px solid #c1c1c1; margin-bottom: 5px;">
+                            <table style="width:100%; border: 1px solid #c1c1c1;">
                                 <tr>
                                     <td style="width: 20%; line-height: 1.8; padding: 10px;">
                                         <div class="noto font14">
@@ -75,103 +91,32 @@
                                     <div class="noto font14 m-b10">사용중인 회사 메뉴 : 5 개</div>
                                     <div class="btn-grp m-b10">
                                         <button class="depart-btn" type="button" >전체 선택</button>
-                                        <button class="depart-btn" type="button" style="background-color: #3f51b5;">선택 수정</button>
                                         <button class="depart-btn" type="button" style="background-color: #fc6468;">선택 삭제</button>
                                     </div>
                                 </div>
                                 <div class="">
                                     <table style="width:100%; border: 1px solid #c1c1c1; margin-bottom: 10px;">
                                         <tr class="center noto font14 bg-gray">
-                                            <td class="td-5">선택</td>
-                                            <td class="td-15">메뉴 종류</td>
-                                            <td class="td-30">메뉴 이름</td>
-                                            <td class="td-20">관리 [순서 변경]</td>
-                                            <td class="td-20">관리 [메뉴 속성]</td>
-                                            <td class="td-10">생성일</td>
+                                            <td class="" style="width:5%;">선택</td>
+                                            <td class="" style="width:10%;">순서</td>
+                                            <td class="" style="width:10%;">메뉴 종류</td>
+                                            <td class="" >메뉴 이름</td>
+                                            <td class="" style="width:15%;">생성일</td>
+                                            <td class="" style="width:15%;">관리 [메뉴 속성]</td>
                                         </tr>
                                         <tr class="center noto font14">
                                             <td>
                                                 <input type="checkbox"/>
                                             </td>
+                                            <td>1</td>
                                             <td>게시판</td>
                                             <td>토론 게시판</td>
-                                            <td >
-                                                <button type="button" class="depart-btn m-lr5"><i class="fas fa-angle-up" style="font-size: 22px;"></i></button>
-                                                <button type="button" class="depart-btn m-lr5"><i class="fas fa-angle-down" style="font-size: 22px;"></i></button>
-                                            </td>
-                                            <td >
-                                                <button type="button" class="depart-btn m-lr5">수정</button>
-                                                <button type="button" class="depart-btn m-lr5">삭제</button>
-                                            </td>
                                             <td>2020/09/16</td>
-                                        </tr>
+                                            <td >
+                                                <button type="button" class="s-btn-on">수정</button>
+                                                <button type="button" class="s-btn-off" style="background-color: #fc6468; color:#fff;">삭제</button>
+                                            </td>
 
-                                        <tr class="center noto font14">
-                                            <td>
-                                                <input type="checkbox"/>
-                                            </td>
-                                            <td>게시판</td>
-                                            <td>자유 게시판</td>
-                                            <td >
-                                                <button type="button" class="depart-btn m-lr5"><i class="fas fa-angle-up" style="font-size: 22px;"></i></button>
-                                                <button type="button" class="depart-btn m-lr5"><i class="fas fa-angle-down" style="font-size: 22px;"></i></button>
-                                            </td>
-                                            <td >
-                                                <button type="button" class="depart-btn m-lr5">수정</button>
-                                                <button type="button" class="depart-btn m-lr5">삭제</button>
-                                            </td>
-                                            <td>2020/09/16</td>
-                                        </tr>
-
-                                        <tr class="center noto font14">
-                                            <td>
-                                                <input type="checkbox"/>
-                                            </td>
-                                            <td>앨범</td>
-                                            <td>2020 상반기 야유회</td>
-                                            <td >
-                                                <button type="button" class="depart-btn m-lr5"><i class="fas fa-angle-up" style="font-size: 22px;"></i></button>
-                                                <button type="button" class="depart-btn m-lr5"><i class="fas fa-angle-down" style="font-size: 22px;"></i></button>
-                                            </td>
-                                            <td >
-                                                <button type="button" class="depart-btn m-lr5">수정</button>
-                                                <button type="button" class="depart-btn m-lr5">삭제</button>
-                                            </td>
-                                            <td>2020/09/16</td>
-                                        </tr>
-
-                                        <tr class="center noto font14">
-                                            <td>
-                                                <input type="checkbox"/>
-                                            </td>
-                                            <td>게시판</td>
-                                            <td>토론게시판</td>
-                                            <td >
-                                                <button type="button" class="depart-btn m-lr5"><i class="fas fa-angle-up" style="font-size: 22px;"></i></button>
-                                                <button type="button" class="depart-btn m-lr5"><i class="fas fa-angle-down" style="font-size: 22px;"></i></button>
-                                            </td>
-                                            <td >
-                                                <button type="button" class="depart-btn m-lr5">수정</button>
-                                                <button type="button" class="depart-btn m-lr5">삭제</button>
-                                            </td>
-                                            <td>2020/09/16</td>
-                                        </tr>
-
-                                        <tr class="center noto font14">
-                                            <td>
-                                                <input type="checkbox"/>
-                                            </td>
-                                            <td>앨범</td>
-                                            <td>2020 하반기 야유회</td>
-                                            <td >
-                                                <button type="button" class="depart-btn m-lr5"><i class="fas fa-angle-up" style="font-size: 22px;"></i></button>
-                                                <button type="button" class="depart-btn m-lr5"><i class="fas fa-angle-down" style="font-size: 22px;"></i></button>
-                                            </td>
-                                            <td >
-                                                <button type="button" class="depart-btn m-lr5">수정</button>
-                                                <button type="button" class="depart-btn m-lr5">삭제</button>
-                                            </td>
-                                            <td>2020/09/16</td>
                                         </tr>
 
                                     </table>

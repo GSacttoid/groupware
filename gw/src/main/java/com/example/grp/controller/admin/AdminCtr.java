@@ -29,9 +29,7 @@ public class AdminCtr {
 	//그룹웨어 정보 / 시스템 공지사항
 	@RequestMapping("/system_notice" )
 	public String getSystemNotice() {
-
-		
-		return "";
+		return "admin/admin_gw_info/gw_system_notice_list";
 	}
 	
 	//회사정보설정 / 회사정보관리

@@ -3,16 +3,25 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-    <style>
-
-        .board-wrap tr:first-child{
-            background-color: #6f809a;
-            color: #fff;
-        }
-        .tr-even{
-            background-color: #eff3f9;
-        }
-    </style>
+<style>
+	table {
+		border-collapse: collapse;
+	}
+	tr{
+	    height: 40px;
+	}
+	
+	td{
+	    border: 1px solid #d5d5d5;
+	}
+    .board-wrap tr:first-child{
+        background-color: #6f809a;
+        color: #fff;
+    }
+    .tr-even{
+        background-color: #eff3f9;
+    }
+</style>
 
 
 <body>

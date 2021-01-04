@@ -3,16 +3,24 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-    <style>
+<style>
+/* table tr 높이 */
+tr {
+    height:40px;
+}
 
-        .board-wrap tr:first-child{
-            background-color: #6f809a;
-            color: #fff;
-        }
-        .tr-even{
-            background-color: #eff3f9;
-        }
-    </style>
+/* table 선색 */
+td {
+    border:1px solid #d5d5d5;
+}
+.board-wrap tr:first-child{
+    background-color: #6f809a;
+    color: #fff;
+}
+.tr-even{
+    background-color: #eff3f9;
+}
+</style>
 
 
 <body>
@@ -27,9 +35,7 @@
             <div class="" style="display: block;">
                 <div class="search-wrap flex flex-justify m-b5">
                     <div class="m-b5">
-                        <span class="btn-cancel" style="border: 1px solid #474747;">
-                            전체 게시물 수 30 개
-                        </span>
+                        <span class="btn-cancel" style="border: 1px solid #474747;">전체 게시물 수 30 개</span>
                     </div>
                     
                     <div class="flex flex-justify">
@@ -42,7 +48,7 @@
                             </select>
                             <input type="text" name="words" required style="margin-left: -2px;"/>
                             <button type="submit" class="btn-off" style="margin-left: -2px;">게시글 검색</button>
-                            <button type="button" class="btn-on" onClick="location.href='grp_approval_form_make.html'">새양식 작성</button>
+                            <button type="button" class="btn-on" onClick="location.href='grp_approval_form_make.html'">새양식 등록</button>
                         </form>
                     </div>
                 </div>
@@ -50,15 +56,15 @@
                 <div class="board-wrap" style="width: 100%;">
                     <table style="width: 100%;">
                         <tr class="center tr-color font14 weight700">
-                            <td class="td-5">번호</td>
-                            <td class="td-10">구분</td>
-                            <td class="td-10">양식 종류</td>
-                            <td class="td-30">양식 이름</td>
-                            <td class="td-10">작성자</td>
-                            <td class="td-5">조회</td>
-                            <td class="td-10">등록 날짜</td>
-                            <td class="td-10">접근권한등급</td>
-                            <td class="td-10">관리</td>
+                            <td style="width: 5%;">번호</td>
+                            <td style="width: 5%;">구분</td>
+                            <td style="width: 10%;">양식 종류</td>
+                            <td >양식 이름</td>
+                            <td style="width: 10%;">작성자</td>
+                            <td style="width: 5%;">조회</td>
+                            <td style="width: 10%;">접근권한등급</td>
+                            <td style="width: 10%;">등록 날짜</td>
+                            <td style="width: 10%;">관리</td>
                         </tr>
 
                         <tr class="center font14">
@@ -68,8 +74,8 @@
                             <td class="noto font14 weight700 under">연차 계획서</td>
                             <td>김그린</td>
                             <td>13</td>
-                            <td>2020/09/22</td>
                             <td>5등급</td>
+                            <td>2020/09/22</td>
                             <td>
                                 <button type="button" class="s-btn-on" onclick="location.href='grp_approval_form_modify.html?num=30'">수정</button>
                                 <button type="button" class="s-btn-off">삭제</button>
