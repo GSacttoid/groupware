@@ -54,14 +54,14 @@ tr:first-child{
                                         <div class="">
                                             <div class="btn-grp">
                                                 <button class="btn-on" type="button" >전체 선택</button>
-                                                <button class="btn-off" type="button" >읽음</button>
+                                                <button class="btn-off" type="button" style="color:#000;">읽음</button>
                                                 <button class="btn-off" type="button" style="background-color: #fc6468; color:#fff;"><i class="far fa-trash-alt"></i> 삭제</button>
                                                 
-                                                <button class="btn-off" type="button" style="margin-left:10px;">답장</button>
-                                                <button class="btn-off" type="button" >전체답장</button>
-                                                <button class="btn-off" type="button" >전달</button>
+                                                <button class="btn-off" type="button" style="margin-left:10px; color:#000;">답장</button>
+                                                <button class="btn-off" type="button" style="color:#000;">전체답장</button>
+                                                <button class="btn-off" type="button" style="color:#000;">전달</button>
                                                 
-                                                <button class="btn-off" type="button" style="margin-left:10px;">이동 <i class="fas fa-caret-down"></i></button>
+                                                <button class="btn-off" type="button" style="margin-left:10px; color:#000;">이동 <i class="fas fa-caret-down"></i></button>
                                             </div>
                                         </div>
                                         <div class="">
@@ -94,7 +94,7 @@ tr:first-child{
                                             <td><i class="far fa-star"></i><i class="fas fa-star"></i></td>
                                             <td>받은메일함</td>
                                             <td>박그린</td>
-                                            <td class="left p-lr5 weight500 under" style="cursor:pointer;">연말결산 자료</td>
+                                            <td class="left p-lr3 weight500 under" style="cursor:pointer;">연말결산 자료</td>
                                             <td>2021-01-04</td>
                                             <td>9.3 KB</td>
                                         </tr>

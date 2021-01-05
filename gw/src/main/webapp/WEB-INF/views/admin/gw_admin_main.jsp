@@ -149,7 +149,7 @@
                                 </tr>
                                 <tr>
                                     <td style="width: 20%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">그룹웨어 이용정보</td>
-                                    <td style="width: 80%; display: flex; font-weight: 500; padding: 5px 10px;">
+                                    <td style="width: 100%; height:39px; display: flex; font-weight: 500; padding: 5px 10px;">
                                         <p style="margin-right: 20px;">2009/04/02 ~ 2020/12/15</p>
                                         <a class="detailButton  noto font14 p-lr10 weight300" onClick="getGwInfo();">그룹웨어 사용정보 상세보기</a>
                                     </td>
@@ -182,19 +182,19 @@
                             <table style="width:100%; border: 1px solid #ccc; margin-bottom: 10px;">
                                 <tr>
                                     <td style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">메일 용량</td>
-                                    <td style="width: 80%; display: flex; font-weight: 500; padding: 5px 10px;">
+                                    <td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
                                         <p style="margin-right: 20px;">550 / 1024 MB [ 54% 사용중 ]</p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">웹하드 용량</td>
-                                    <td style="width: 80%; display: flex; font-weight: 500; padding: 5px 10px;">
+                                    <td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
                                         <p style="margin-right: 20px;">310 / 1024 MB [ 30% 사용중 ]</p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">그룹웨어 용량</td>
-                                    <td style="width: 80%; display: flex; font-weight: 500; padding: 5px 10px;">
+                                    <td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
                                         <p style="margin-right: 20px;">150 / 1024 MB [ 15% 사용중 ]</p>
                                     </td>
                                 </tr>

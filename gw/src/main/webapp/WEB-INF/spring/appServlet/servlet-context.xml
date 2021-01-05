@@ -17,31 +17,18 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
 	<!--<resources mapping="/resources/**" location="/resources/" /> -->
-	<resources
-		location="/WEB-INF/images/, classpath=/WEB-INF/images/"
-		mapping="/images/**" />
-	<resources
-		location="/WEB-INF/upload/, classpath=/WEB-INF/upload/"
-		mapping="/upload/**" />
-	<resources location="/WEB-INF/css/, classpath=/WEB-INF/css/"
-		mapping="/css/**" />
-	<resources
-		location="/WEB-INF/calendar/, classpath=/WEB-INF/calendar/"
-		mapping="/calendar/**" />
-	<resources
-		location="/WEB-INF/ckeditor/, classpath=/WEB-INF/ckeditor/"
-		mapping="/ckeditor/**" />
-	<resources
-		location="/WEB-INF/html/, classpath=/WEB-INF/html/" mapping="/html/**" />
-	<resources location="/WEB-INF/js/, classpath=/WEB-INF/js/"
-		mapping="/js/**" />
-	<resources location="/WEB-INF/lib/, classpath=/WEB-INF/lib/"
-		mapping="/lib/**" />
+	<resources location="/WEB-INF/images/, classpath=/WEB-INF/images/"	mapping="/images/**" />
+	<resources location="/WEB-INF/upload/, classpath=/WEB-INF/upload/"	mapping="/upload/**" />
+	<resources location="/WEB-INF/css/, classpath=/WEB-INF/css/" mapping="/css/**" />
+	<resources location="/WEB-INF/calendar/, classpath=/WEB-INF/calendar/" mapping="/calendar/**" />
+	<resources location="/WEB-INF/ckeditor/, classpath=/WEB-INF/ckeditor/" mapping="/ckeditor/**" />
+	<resources location="/WEB-INF/html/, classpath=/WEB-INF/html/" mapping="/html/**" />
+	<resources location="/WEB-INF/js/, classpath=/WEB-INF/js/"	mapping="/js/**" />
+	<resources location="/WEB-INF/lib/, classpath=/WEB-INF/lib/" mapping="/lib/**" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
-	<beans:bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<beans:bean	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
@@ -56,9 +43,7 @@
 	<!-- 일반 파일 업로드 경로 -->
 	<!-- <resources location="/WEB-INF/upload" mapping="/upload/**" /> -->
 
-	<beans:bean
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-		id="multipartResolver">
+	<beans:bean	class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
 		<beans:property name="maxUploadSize" value="10485760" />
 	</beans:bean>
 

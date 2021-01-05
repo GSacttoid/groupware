@@ -27,4 +27,39 @@ public class EmailCtr {
 	public String getEmailSent() {
 		return "email/email_sent";
 	}
+	
+	@RequestMapping("/email_temp")
+	public String getEmailTemp() {
+		return "email/email_temp";
+	}
+	
+	@RequestMapping("/email_keep")
+	public String getEmailKeep() {
+		return "email/email_keep";
+	}
+	
+	@RequestMapping("/email_myself")
+	public String getEmailMyself() {
+		return "email/email_myself";
+	}
+	
+	@RequestMapping("/email_spam")
+	public String getEmailSpam() {
+		return "email/email_spam";
+	}
+	
+	@RequestMapping("/email_trash")
+	public String getEmailTrash() {
+		return "email/email_trash";
+	}
+	
+	@RequestMapping("/email_address")
+	public String getEmailAddress() {
+		return "email/email_address";
+	}
+	
+	@RequestMapping("/email_set")
+	public String getEmailSet() {
+		return "email/email_set";
+	}
 }

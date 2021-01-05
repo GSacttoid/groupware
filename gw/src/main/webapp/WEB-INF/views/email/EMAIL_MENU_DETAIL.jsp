@@ -15,25 +15,25 @@
 <div class="">
 	<div class="title-detail" style="font-size: 14px; border-bottom: 1px solid #6d6d6d;">
 		<h2>
-			<a href="${pageContext.request.contextPath}/home/main" title="Home" class="f6"><i class="far fa-envelope"></i> e-mail 메뉴</a>
+			<a href="${pageContext.request.contextPath}/email/main" title="email" class="f6"><i class="far fa-envelope"></i> e-mail 메뉴</a>
 		</h2>
 	</div>
 </div>
 
 <div class="accordion">
 	<div class="p10 m-b10" style="width:100%; background-color:#347765; border-radius:3px; ">
-		<button class="noto font18 weight700 f6 center p-tb5" style="width:100%;"  onClick="writeMail();">편지쓰기</button>
+		<button class="noto font18 weight700 f6 center p-tb5" style="width:100%; background-color:#347765;"  onClick="writeMail();">편지쓰기</button>
 	</div>
-	<div class="accordion-header" style="border-bottom: 1px solid #6d6d6d;" onClick="location.href='${pageContext.request.contextPath}/email/main'">전체메일</div>
+	<div class="accordion-header" style="border-bottom: 1px solid #6d6d6d; color:#5ebfd9;" onClick="location.href='${pageContext.request.contextPath}/email/main'">전체메일</div>
 	<div class="accordion-header" onClick="location.href='${pageContext.request.contextPath}/email/email_list'">받은메일함</div>
 	<div class="accordion-header" onClick="location.href='${pageContext.request.contextPath}/email/email_sent'">보낸메일함</div>
-	<div class="accordion-header">임시보관함</div>
-	<div class="accordion-header">보관함</div>
-	<div class="accordion-header" style="border-bottom: 1px solid #6d6d6d;">내게쓴메일함</div>
-	<div class="accordion-header-ver2"><i class="far fa-times-circle"></i> 스팸메일함</div>
-	<div class="accordion-header-ver2"><i class="far fa-trash-alt"></i> 휴지통</div>
-	<div class="accordion-header-ver2"><i class="far fa-address-book"></i> 주소록</div>
-	<div class="accordion-header-ver2" style="border-bottom: 1px solid #6d6d6d;"><i class="fas fa-cogs"></i> 환경설정</div>
+	<div class="accordion-header" onClick="location.href='${pageContext.request.contextPath}/email/email_temp'">임시보관함</div>
+	<div class="accordion-header" onClick="location.href='${pageContext.request.contextPath}/email/email_keep'">보관함</div>
+	<div class="accordion-header" style="border-bottom: 1px solid #6d6d6d;" onClick="location.href='${pageContext.request.contextPath}/email/email_myself'">내게쓴메일함</div>
+	<div class="accordion-header-ver2" onClick="location.href='${pageContext.request.contextPath}/email/email_spam'"><i class="far fa-times-circle"></i> 스팸메일함</div>
+	<div class="accordion-header-ver2" onClick="location.href='${pageContext.request.contextPath}/email/email_trash'"><i class="far fa-trash-alt"></i> 휴지통</div>
+	<div class="accordion-header-ver2" onClick="location.href='${pageContext.request.contextPath}/email/email_address'"><i class="far fa-address-book"></i> 주소록</div>
+	<div class="accordion-header-ver2" style="border-bottom: 1px solid #6d6d6d;" onClick="location.href='${pageContext.request.contextPath}/email/email_set'"><i class="fas fa-cogs"></i> 환경설정</div>
 </div>
 
 <script>

@@ -33,8 +33,8 @@
 		</div>
 
 		<div class="flex flex-justify">
-			<button class="noto font16 f6 m-tb10" style="width:100px; border: 2px solid #5ebfd9; border-radius:50px; padding:10px;">출근하기</button>
-			<button class="noto font16 f6 m-tb10" style="width:100px; border: 2px solid #f2f2f2; border-radius:50px; padding:10px;">퇴근하기</button>
+			<button class="noto font16 m-tb10 m-lr3" style="width:100px; border: 2px solid #5ebfd9; border-radius:50px; padding:10px;">출근하기</button>
+			<button class="noto font16 m-tb10 m-lr3" style="width:100px; border: 2px solid #f2f2f2; border-radius:50px; padding:10px;">퇴근하기</button>
 		</div>
 	</div>
 	

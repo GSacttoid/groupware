@@ -14,13 +14,6 @@
 	td{
 	    border: 1px solid #d5d5d5;
 	}
-    .board-wrap tr:first-child{
-        background-color: #6f809a;
-        color: #fff;
-    }
-    .tr-even{
-        background-color: #eff3f9;
-    }
     input[type="radio"] {
 	    width:15px;
 	    height:15px;

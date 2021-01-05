@@ -53,9 +53,6 @@
 			<a style="cursor:pointer;" onClick="getCompanyNotice();">회사 공지 사항</a>
 		</div>
 		<div>
-			<a style="cursor:pointer;" onClick="getSurveySet();">설문 조사 설정</a>
-		</div>
-		<div>
 			<a style="cursor:pointer;" onClick="getComMenuSet();">회사 메뉴 설정</a>
 		</div>
 		<div>
