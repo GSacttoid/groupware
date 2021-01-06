@@ -6,10 +6,8 @@ import java.util.Date;
 public class EmpVO {
 
 	private int emp_num;
-	private String empBuseoCode;
-	private String empBuseoName;
-	private String empGradeCode;
-	private String empGradeName;
+	private String emp_buseo;
+	private String emp_grade;
 	private String emp_id;
 	private String emp_enter;
 	private String emp_name;
@@ -44,36 +42,20 @@ public class EmpVO {
 		this.emp_num = emp_num;
 	}
 
-	public String getEmpBuseoCode() {
-		return empBuseoCode;
+	public String getEmp_buseo() {
+		return emp_buseo;
 	}
 
-	public void setEmpBuseoCode(String empBuseoCode) {
-		this.empBuseoCode = empBuseoCode;
+	public void setEmp_buseo(String emp_buseo) {
+		this.emp_buseo = emp_buseo;
 	}
 
-	public String getEmpBuseoName() {
-		return empBuseoName;
+	public String getEmp_grade() {
+		return emp_grade;
 	}
 
-	public void setEmpBuseoName(String empBuseoName) {
-		this.empBuseoName = empBuseoName;
-	}
-
-	public String getEmpGradeCode() {
-		return empGradeCode;
-	}
-
-	public void setEmpGradeCode(String empGradeCode) {
-		this.empGradeCode = empGradeCode;
-	}
-
-	public String getEmpGradeName() {
-		return empGradeName;
-	}
-
-	public void setEmpGradeName(String empGradeName) {
-		this.empGradeName = empGradeName;
+	public void setEmp_grade(String emp_grade) {
+		this.emp_grade = emp_grade;
 	}
 
 	public String getEmp_id() {

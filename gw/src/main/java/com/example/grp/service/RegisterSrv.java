@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.grp.model.BuseoVO;
 import com.example.grp.model.EmpVO;
+import com.example.grp.model.GradeVO;
 import com.example.grp.repository.RegisterDao;
 
 
@@ -21,6 +22,9 @@ public class RegisterSrv {
 		return regDao.getBuseo();
 	}
 	
+	public List<GradeVO> getGrade() {
+		return regDao.getGrade();
+	}
 	public void setEmpRegister(EmpVO evo) {
 		regDao.setEmpRegister(evo);
 	}

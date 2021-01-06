@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="employee">
+	
+	<select id="getNewEmpList"  resultType="com.example.grp.model.EmpVO">
+		SELECT * FROM gw_employee WHERE emp_confirm = 'N' ORDER BY emp_num DESC
+	</select>
+	
+	<select id="getResignEmpList"  resultType="com.example.grp.model.EmpVO">
+		SELECT * FROM gw_employee WHERE emp_confirm = 'X' ORDER BY emp_num DESC
+	</select>
+	
+	<select id="getEmployeeCount" resultType="int">
+		SELECT COUNT(*) FROM gw_employee WHERE emp_confirm = 'N'
+	</select>
+	
+	<select id="getResignEmpCount" resultType="int">
+		SELECT COUNT(*) FROM gw_employee WHERE emp_confirm = 'X'
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

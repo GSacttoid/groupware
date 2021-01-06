@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.grp.model.BuseoVO;
 import com.example.grp.model.EmpVO;
+import com.example.grp.model.GradeVO;
 import com.example.grp.service.RegisterSrv;
 
 @Controller
@@ -34,6 +35,14 @@ public class RegisterCtr {
 		return list;
 	}
 	
+	//직급 목록 DB에서 가져오기
+	@RequestMapping(value="/get_grade", method=RequestMethod.POST)
+	@ResponseBody
+	public List<GradeVO> getGrade() {
+		List<GradeVO> list = regSrv.getGrade();
+		return list;
+	}
+	
 	//계정등록
 	@RequestMapping(value = "/gw_register", method = RequestMethod.POST)
 	public String setEmpRegister(@ModelAttribute EmpVO evo) {
@@ -53,5 +62,10 @@ public class RegisterCtr {
 			msg = "success";
 		}
 		return msg;
+	}
+	
+	@RequestMapping(value="/my_info", method={RequestMethod.GET, RequestMethod.POST})
+	public String myInfo() {
+		return "register/gw_employee_register";
 	}
 }

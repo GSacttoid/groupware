@@ -51,7 +51,7 @@
      </div>
 
     <div class="icons">
-        <div class="icon"><a href="${pageContext.request.contextPath}/gw_employee_info?" title="사용자 정보"><i class="fas fa-user f6"></i></a></div>
+        <div class="icon" title="사용자 정보" onClick="myInfo();" style="cursor:pointer;"><i class="fas fa-user f6"></i></div>
         <div class="icon"><a href="${pageContext.request.contextPath}/gw_setting" title="환경설정"><i class="fas fa-cogs f6"></i></a></div>
         <div class="icon"><a href="${pageContext.request.contextPath}/gw_logout" title="로그아웃"><i class="fas fa-sign-out-alt f6" id="logout"></i></a></div>
     </div>
@@ -79,4 +79,15 @@
 			});
 		});
 	});
+</script>
+
+
+<script>
+function myInfo(){
+  	 //window.open(주소, 별명, 넓이/높이/위치/스코롤바)
+  	 var url 	="${pageContext.request.contextPath}/my_info";
+  	 var nick	="myInfo";
+  	 var opt	="width=1440, height=710, top=50, left=50";
+  	 window.open(url,nick,opt);
+}
 </script>

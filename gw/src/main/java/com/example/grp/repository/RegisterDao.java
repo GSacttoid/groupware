@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.grp.model.BuseoVO;
 import com.example.grp.model.EmpVO;
+import com.example.grp.model.GradeVO;
 
 
 @Repository
@@ -18,6 +19,10 @@ public class RegisterDao {
 	
 	public List<BuseoVO> getBuseo() {
 		return sqlSession.selectList("register.getBuseo");
+	}
+	
+	public List<GradeVO> getGrade() {
+		return sqlSession.selectList("register.getGrade");
 	}
 	
 	public void setEmpRegister(EmpVO evo) {

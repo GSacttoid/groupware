@@ -3,8 +3,6 @@ package com.example.grp.controller.admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.example.grp.service.NoticeSrv;
 
@@ -25,13 +23,7 @@ public class AdminCtr {
 	public String getGwInfo() {
 		return "admin/admin_gw_info/gw_info";
 	}
-	
-	//그룹웨어 정보 / 시스템 공지사항
-	@RequestMapping("/system_notice" )
-	public String getSystemNotice() {
-		return "admin/admin_gw_info/gw_system_notice_list";
-	}
-	
+		
 	//회사정보설정 / 회사정보관리
 	@RequestMapping("/company_info")
 	public String getCompanyInfo() {
@@ -68,12 +60,6 @@ public class AdminCtr {
 		return "admin/admin_community/company_notice";
 	}
 	
-	//커뮤니티 / 설문조사
-	@RequestMapping("/survey_set")
-	public String getSurveyMain() {
-		return "admin/admin_community/survey_set";
-	}
-	
 	//커뮤니티 / 회사메뉴 관리
 	@RequestMapping("/company_menu_set")
 	public String getMenuComSet() {
@@ -84,12 +70,6 @@ public class AdminCtr {
 	@RequestMapping("/buseo_menu_set")
 	public String getMenuBuseoSet() {
 		return "admin/admin_community/buseo_menu_set";
-	}
-	
-	//인사 관리 / 근무일 설정
-	@RequestMapping("/workday_set")
-	public String getWorkdaySet() {
-		return "admin/admin_hr/workday_set";
 	}
 	
 	//인사 관리 / 출퇴근 설정

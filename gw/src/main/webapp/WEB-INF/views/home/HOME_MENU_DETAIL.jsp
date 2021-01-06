@@ -18,7 +18,7 @@
 			<p class="noto font14 weight500 m-lr5">권한	: ${sessionScope.empAuth} 등급</p>
 		</div>
 		<div class="m-lr5 m-t5">
-			<a href="${pageContext.request.contextPath}/gw_employee_info?" title="사용자 정보" class="font16 noto" style="color:#5ebfd9; padding:5px 0px;">
+			<a onClick="myInfo();" title="사용자 정보" class="font16 noto" style="color:#5ebfd9; padding:5px 0px; cursor:pointer;">
 				<i class="fas fa-user f6" style="color:#5ebfd9;"></i> 내정보 상세보기
 			</a>
 		</div>

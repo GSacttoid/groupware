@@ -112,14 +112,12 @@ a.active-all{
     background-color: #092774;
     color: #ccc;
 }
-
-
 .accordion-content {
-    padding: 12px 8px;
+    padding: 8px;
     font-size: 14px;
     background-color: #2c3f7c;
     color: #092756;
-    display: none;
+    display: block;
 }
 .accordion-content a {
     color: #fff;
@@ -136,10 +134,6 @@ a.active-all{
     vertical-align: middle;
     transform: rotate(45deg) translateY(-50%);
 }
-.active.accordion-header::before {
-    background-color: #fc6468;
-}
-
 
 .main-wrap{
     width: 100%;

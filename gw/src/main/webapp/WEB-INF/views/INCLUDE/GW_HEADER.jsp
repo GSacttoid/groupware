@@ -28,4 +28,5 @@
     <script src="https://kit.fontawesome.com/6ecca0b569.js" crossorigin="anonymous"></script>
     <script src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
 	<script src="${pageContext.request.contextPath}/js/tab.js"></script>
+
 </head>

@@ -1,5 +1,7 @@
 package com.example.grp.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,13 @@ public class NoticeSrv {
 	
 	public void setNoticeInsert(NoticeVO nvo) {
 		nDao.setNoticeInsert(nvo);
+	}
+	
+	public List<NoticeVO> getSystemNotice(int start, int end) {
+		return nDao.getSystemNotice(start, end);
+	}
+	
+	public int getNoticeTotalCount() {
+		return nDao.getNoticeTotalCount();
 	}
 }

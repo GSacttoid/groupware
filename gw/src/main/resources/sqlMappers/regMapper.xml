@@ -6,6 +6,10 @@
 		SELECT * FROM gw_buseo ORDER BY buseo_id
 	</select>
 	
+	<select id="getGrade" resultType="com.example.grp.model.GradeVO">
+		SELECT * FROM gw_grade ORDER BY grade_id
+	</select>
+	
 	<insert id="setEmpRegister" parameterType="com.example.grp.model.EmpVO">
 			INSERT INTO gw_employee SET 
 				emp_buseo 	= #{empBuseoCode},
