@@ -23,12 +23,6 @@ public class AdminCtr {
 	public String getGwInfo() {
 		return "admin/admin_gw_info/gw_info";
 	}
-		
-	//회사정보설정 / 회사정보관리
-	@RequestMapping("/company_info")
-	public String getCompanyInfo() {
-		return "admin/admin_com_info/company_info";
-	}
 	
 	//회사정보설정 / 부서등록
 	@RequestMapping("/buseo_insert")

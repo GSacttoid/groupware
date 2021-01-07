@@ -81,6 +81,26 @@ primary key(sn_num)
 );
 
 
+create table gw_company_info(
+com_num int not null auto_increment,
+com_name varchar(30),
+com_code varchar(20),
+com_ceo varchar(5),
+com_file varchar(300),
+com_logo_paper varchar(300),
+com_logo varchar(300),
+com_tel varchar(15),
+com_fax varchar(15),
+com_address varchar(200),
+logo_name varchar(20),
+logo_sub_name varchar(30),
+com_start date,
+com_address_num varchar(10),
+primary key(com_num)
+);
+
+insert into gw_company_info value ('(주)그린아트컴퍼니','123-12-12123','홍그린','파일','파일','파일','055-333-3333','055-444-5555','경남 양산시 물금읍','GreenArt','Groupware System',now(), '56854');
+
 
 
 
