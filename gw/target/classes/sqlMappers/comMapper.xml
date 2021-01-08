@@ -6,6 +6,9 @@
 		SELECT * FROM gw_company_info
 	</select>
 	
+	<select id="getComInfo"  resultType="com.example.grp.model.ComVO">
+		SELECT * FROM gw_info
+	</select>
 </mapper>
 
 

@@ -14,7 +14,7 @@
 			emp_regdate as emp_regdate,
 			emp_confirm as emp_confirm,
 			emp_auth as emp_auth 
-		 FROM gw_employee e, gw_buseo b WHERE emp_confirm = 'N' AND e.emp_buseo = b.buseo_id ORDER BY emp_num DESC
+		 FROM gw_employee e, gw_buseo b WHERE emp_confirm = 'N' AND e.emp_buseo = b.buseo_id ORDER BY emp_num DESC LIMIT #{start}, #{end}
 	</select>
 	
 	<select id="getResignEmpList"  resultType="com.example.grp.model.EmpVO">
@@ -29,15 +29,31 @@
 			emp_regdate as emp_regdate,
 			emp_confirm as emp_confirm,
 			emp_auth as emp_auth 
-		 FROM gw_employee e, gw_buseo b WHERE emp_confirm = 'X' AND e.emp_buseo = b.buseo_id ORDER BY emp_num DESC
+		 FROM gw_employee e, gw_buseo b WHERE emp_confirm = 'X' AND e.emp_buseo = b.buseo_id ORDER BY emp_num DESC LIMIT #{start}, #{end}
 	</select>
 	
-	<select id="getEmployeeCount" resultType="int">
+	<select id="getTotalEmpCount" resultType="int">
+		SELECT COUNT(*) FROM gw_employee WHERE NOT emp_buseo = '' AND emp_confirm = 'Y'
+	</select>
+	
+	<select id="getNewEmpCount" resultType="int">
 		SELECT COUNT(*) FROM gw_employee WHERE emp_confirm = 'N'
 	</select>
 	
 	<select id="getResignEmpCount" resultType="int">
 		SELECT COUNT(*) FROM gw_employee WHERE emp_confirm = 'X'
+	</select>
+	
+	<update id="setNewEmpConfirm" parameterType="int">
+		UPDATE gw_employee SET emp_confirm = 'Y' WHERE emp_num = #{emp_num}
+	</update>
+	
+	<delete id="setEmpDelete" parameterType="int">
+		DELETE FROM gw_employee WHERE emp_num = #{emp_num}
+	</delete>
+	
+	<select id="getEmpOne" parameterType="com.example.grp.model.EmpVO" resultType="com.example.grp.model.EmpVO">
+		SELECT * FROM gw_employee WHERE emp_num = #{emp_num}
 	</select>
 </mapper>
 

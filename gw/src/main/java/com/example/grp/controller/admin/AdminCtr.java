@@ -27,12 +27,6 @@ public class AdminCtr {
 		return mav;
 	}
 	
-	//그룹웨어 정보 / 그룹웨어 사용정보
-	@RequestMapping("/gw_info")
-	public String getGwInfo() {
-		return "admin/admin_gw_info/gw_info";
-	}
-	
 	//회사정보설정 / 부서등록
 	@RequestMapping("/buseo_insert")
 	public String getBuseoInsert() {

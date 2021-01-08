@@ -28,11 +28,27 @@ public class EmpDao {
 		return sqlSession.selectList("employee.getResignEmpList", map);
 	}
 
-	public int getEmployeeCount() {
-		return sqlSession.selectOne("employee.getEmployeeCount");
+	public int getTotalEmpCount() {
+		return sqlSession.selectOne("employee.getTotalEmpCount");
+	}
+	
+	public int getNewEmpCount() {
+		return sqlSession.selectOne("employee.getNewEmpCount");
 	}
 	
 	public int getResignEmpCount() {
 		return sqlSession.selectOne("employee.getResignEmpCount");
+	}
+	
+	public void setNewEmpConfirm(int emp_num) {
+		sqlSession.update("employee.setNewEmpConfirm", emp_num);
+	}
+	
+	public void setEmpDelete(int emp_num) {
+		sqlSession.delete("employee.setEmpDelete", emp_num);
+	}
+	
+	public EmpVO getEmpOne(EmpVO evo) {
+		return sqlSession.selectOne("employee.getEmpOne", evo);
 	}
 }

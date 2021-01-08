@@ -23,12 +23,29 @@ public class EmpSrv {
 	public List<EmpVO> getResignEmp(int start, int end) {
 		return eDao.getResignEmp(start, end);
 	}
+	
+	public int getTotalEmpCount() {
+		return eDao.getTotalEmpCount();
+	}
 
-	public int getEmployeeCount() {
-		return eDao.getEmployeeCount();
+	public int getNewEmpCount() {
+		return eDao.getNewEmpCount();
 	}
 
 	public int getResignEmpCount() {
 		return eDao.getResignEmpCount();
 	}
+	
+	public void setNewEmpConfirm(int emp_num) {
+		eDao.setNewEmpConfirm(emp_num);
+	}
+	
+	public void setEmpDelete(int emp_num) {
+		eDao.setEmpDelete(emp_num);
+	}
+	
+	public EmpVO getEmpOne(EmpVO evo) {
+		return eDao.getEmpOne(evo);
+	}
+	
 }

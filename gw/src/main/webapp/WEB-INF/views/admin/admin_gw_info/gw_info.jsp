@@ -79,21 +79,21 @@ td {
 							<tr>
 								<td style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">가입된	회원수</td>
 								<td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
-									<p style="margin-right: 20px;"><span>125</span> 명</p>
+									<p style="margin-right: 20px;"><span>${totalCount}</span> 명</p>
 									<a class="button  noto font14 p-lr10 weight300" href="${pageContext.request.contextPath}/admin/employee_list">사원관리</a>
 								</td>
 							</tr>
 							<tr>
 								<td style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">가입 대기자 수</td>
 								<td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
-									<p style="margin-right: 20px;"><span style="color: #f00;">3</span> 명</p> 
+									<p style="margin-right: 20px;"><span style="color: #f00;">${newCount}</span> 명</p> 
 									<a class="button  noto font14 p-lr10 weight300" onClick="newEmp();">가입대기 리스트</a>
 								</td>
 							</tr>
 							<tr>
 								<td style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">퇴사처리된 회원수</td>
 								<td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
-									<p style="margin-right: 20px;"><span>1</span> 명</p>
+									<p style="margin-right: 20px;"><span>${resignCount}</span> 명</p>
 									<a class="button  noto font14 p-lr10 weight300"	onClick="resignEmp();">퇴사자 리스트</a>
 								</td>
 							</tr>
