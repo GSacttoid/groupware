@@ -57,11 +57,11 @@ td{
 								<c:forEach var="list" items="${list}" varStatus="status">
 
 	                                 <tr class="center noto font14">
-	                                     <td><input type="checkbox" /></td>
+	                                     <td><input type="checkbox" style="width:17px; height:17px;" /></td>
 	                                     <td>${list.emp_num}</td>
 	                                     <td>${list.emp_id}</td>
 	                                     <td>${list.emp_name}</td>
-	                                     <td>${list.emp_buseo}</td>
+	                                     <td>${list.emp_buseo_name}</td>
 	                                     <td>${list.emp_enter}</td>
 	                                     <td>
 	                                         <button type="button" class="s-btn-on">승인</button>

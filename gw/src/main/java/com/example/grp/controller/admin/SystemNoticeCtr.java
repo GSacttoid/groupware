@@ -1,9 +1,15 @@
 package com.example.grp.controller.admin;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,10 +63,53 @@ public class SystemNoticeCtr {
 	
 	@RequestMapping(value="/notice/system_notice_write", method = RequestMethod.POST)
 	@ResponseBody
-	public String setNoticeInsert(NoticeVO nvo) {
+	public String setNoticeInsert(@ModelAttribute NoticeVO nvo) {
 		nSrv.setNoticeInsert(nvo);
 		return "success";
 	}
 	
+	@RequestMapping(value="/notice/system_notice_delete", method = RequestMethod.POST)
+	@ResponseBody
+	public String setNoticeDelete(@ModelAttribute NoticeVO nvo) {
+		nSrv.setNoticeDelete(nvo);
+		return "success";
+	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	    sdf.setLenient(true);
+	    binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
+	}
+	
+	@RequestMapping(value="/notice/system_notice_modify", method = RequestMethod.GET)
+	public ModelAndView getNoticeModify(@ModelAttribute NoticeVO nvo) {
+
+		ModelAndView mav = new ModelAndView();
+		NoticeVO vo = nSrv.getNoticeOne(nvo);
+		
+		mav.addObject("notice", vo);
+
+		mav.setViewName("admin/admin_gw_info/gw_system_notice_modify");
+		return mav;
+	}
+	
+	@RequestMapping(value="/notice/system_notice_modify", method = RequestMethod.POST)
+	@ResponseBody
+	public String setNoticeUpdate(@ModelAttribute NoticeVO nvo) {
+		nSrv.setNoticeUpdate(nvo);
+		return "success";
+	}
+
+	@RequestMapping(value="/notice/system_notice_view", method = RequestMethod.GET)
+	public ModelAndView getNoticeView(@ModelAttribute NoticeVO nvo) {
+
+		ModelAndView mav = new ModelAndView();
+		
+		NoticeVO vo = nSrv.getNoticeOne(nvo);
+		mav.addObject("notice", vo);
+		mav.setViewName("admin/admin_gw_info/gw_system_notice_view");
+		return mav;
+	}
 	
 }

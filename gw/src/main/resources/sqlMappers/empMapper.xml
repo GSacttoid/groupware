@@ -3,11 +3,33 @@
 <mapper namespace="employee">
 	
 	<select id="getNewEmpList"  resultType="com.example.grp.model.EmpVO">
-		SELECT * FROM gw_employee WHERE emp_confirm = 'N' ORDER BY emp_num DESC
+		SELECT 
+			emp_num as emp_num,
+			emp_buseo as emp_buseo,
+			B.buseo_name as emp_buseo_name,
+			emp_id as emp_id,
+			emp_pwd as emp_pwd,
+			emp_name as emp_name,
+			emp_enter as emp_enter,
+			emp_regdate as emp_regdate,
+			emp_confirm as emp_confirm,
+			emp_auth as emp_auth 
+		 FROM gw_employee e, gw_buseo b WHERE emp_confirm = 'N' AND e.emp_buseo = b.buseo_id ORDER BY emp_num DESC
 	</select>
 	
 	<select id="getResignEmpList"  resultType="com.example.grp.model.EmpVO">
-		SELECT * FROM gw_employee WHERE emp_confirm = 'X' ORDER BY emp_num DESC
+		SELECT 
+			emp_num as emp_num,
+			emp_buseo as emp_buseo,
+			B.buseo_name as emp_buseo_name,
+			emp_id as emp_id,
+			emp_pwd as emp_pwd,
+			emp_name as emp_name,
+			emp_enter as emp_enter,
+			emp_regdate as emp_regdate,
+			emp_confirm as emp_confirm,
+			emp_auth as emp_auth 
+		 FROM gw_employee e, gw_buseo b WHERE emp_confirm = 'X' AND e.emp_buseo = b.buseo_id ORDER BY emp_num DESC
 	</select>
 	
 	<select id="getEmployeeCount" resultType="int">

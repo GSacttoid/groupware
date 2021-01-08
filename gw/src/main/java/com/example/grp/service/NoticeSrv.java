@@ -22,7 +22,24 @@ public class NoticeSrv {
 		return nDao.getSystemNotice(start, end);
 	}
 	
+	public List<NoticeVO> getNotice5(){
+		return nDao.getNotice5();
+	}
+
+	
 	public int getNoticeTotalCount() {
 		return nDao.getNoticeTotalCount();
+	}
+	
+	public void setNoticeDelete(NoticeVO nvo) {
+		nDao.setNoticeDelete(nvo);
+	}
+	
+	public void setNoticeUpdate(NoticeVO nvo) {
+		nDao.setNoticeUpdate(nvo);
+	}
+	
+	public NoticeVO getNoticeOne(NoticeVO nvo) {
+		return nDao.getNoticeOne(nvo);
 	}
 }

@@ -12,7 +12,7 @@
 	
 	<insert id="setEmpRegister" parameterType="com.example.grp.model.EmpVO">
 			INSERT INTO gw_employee SET 
-				emp_buseo 	= #{empBuseoCode},
+				emp_buseo 	= #{emp_buseo},
 				emp_id		= #{emp_id},
 				emp_name 	= #{emp_name},
 				emp_pwd 	= #{emp_pwd},

@@ -7,7 +7,10 @@ public class EmpVO {
 
 	private int emp_num;
 	private String emp_buseo;
+	private String emp_buseo_name;
 	private String emp_grade;
+	private String emp_grade_name;
+
 	private String emp_id;
 	private String emp_enter;
 	private String emp_name;
@@ -34,6 +37,23 @@ public class EmpVO {
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
+	
+	public String getEmp_buseo_name() {
+		return emp_buseo_name;
+	}
+
+	public void setEmp_buseo_name(String emp_buseo_name) {
+		this.emp_buseo_name = emp_buseo_name;
+	}
+
+	public String getEmp_grade_name() {
+		return emp_grade_name;
+	}
+
+	public void setEmp_grade_name(String emp_grade_name) {
+		this.emp_grade_name = emp_grade_name;
+	}
+	
 	public int getEmp_num() {
 		return emp_num;
 	}

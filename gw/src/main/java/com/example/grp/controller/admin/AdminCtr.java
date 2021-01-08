@@ -1,21 +1,30 @@
 package com.example.grp.controller.admin;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.example.grp.model.NoticeVO;
 import com.example.grp.service.NoticeSrv;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminCtr {
+	
 	@Autowired
 	NoticeSrv nSrv;
 	
 	//관리자 메뉴 메인페이지
 	@RequestMapping("/main")
-	public String getAdminMain() {
-		return "admin/gw_admin_main";
+	public ModelAndView getAdminMain() {
+		List<NoticeVO> list = nSrv.getNotice5();
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("admin/gw_admin_main");
+		return mav;
 	}
 	
 	//그룹웨어 정보 / 그룹웨어 사용정보

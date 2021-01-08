@@ -25,7 +25,7 @@
                     <div class="input-wrap">
                         <div class="pos">
                             <span class="form-icon"><i class="fas fa-building"></i></span>
-                            <select class="select" name="empBuseoCode" id="empBuseoCode" >
+                            <select class="select" name="emp_buseo" id="emp_buseo" >
          						
                             </select>
                         </div>
@@ -84,7 +84,7 @@
 			success	: function(responseData) {
 				//$("#buseo").append("<option value=''>부서를 선택하세요.</option>");
 				$.each(responseData, function(key, value) {
-					$("#empBuseoCode").append("<option value="+value.buseo_id+">"+value.buseo_name+"</option>");
+					$("#emp_buseo").append("<option value="+value.buseo_id+">"+value.buseo_name+"</option>");
 				});
 			},
 			error	: function() {

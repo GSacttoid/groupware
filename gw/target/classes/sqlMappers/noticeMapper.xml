@@ -6,6 +6,10 @@
 		SELECT * FROM gw_system_notice ORDER BY sn_num DESC LIMIT #{start}, #{end}
 	</select>
 	
+	<select id="getNotice5" resultType="com.example.grp.model.NoticeVO">
+		SELECT * FROM gw_system_notice ORDER BY sn_num DESC LIMIT 5
+	</select>
+	
 	<select id="getNoticeTotalCount"  resultType="int">
 		SELECT COUNT(*) FROM gw_system_notice 
 
@@ -23,6 +27,28 @@
 			sn_download	= #{sn_download},
 			sn_reply	= #{sn_reply}
 	</insert>
+	
+	<delete id="setNoticeDelete" parameterType="com.example.grp.model.NoticeVO">
+		DELETE FROM gw_system_notice WHERE sn_num = #{sn_num}
+	</delete>
+	
+	<update id="setNoticeModify" parameterType="com.example.grp.model.NoticeVO">
+		UPDATE gw_system_notice SET 
+			sn_maker	= #{sn_maker},
+			sn_title	= #{sn_title},
+			sn_content	= #{sn_content},
+			sn_regdate	= now(),
+			sn_type 	= #{sn_type},
+			sn_read		= #{sn_read},
+			sn_write	= #{sn_write},
+			sn_download	= #{sn_download},
+			sn_reply	= #{sn_reply}
+		WHERE sn_num = #{sn_num}
+	</update>
+	
+	<select id="getNoticeOne" parameterType="com.example.grp.model.NoticeVO" resultType="com.example.grp.model.NoticeVO">
+		SELECT * FROM gw_system_notice WHERE sn_num = #{sn_num}
+	</select>
 </mapper>
 
 

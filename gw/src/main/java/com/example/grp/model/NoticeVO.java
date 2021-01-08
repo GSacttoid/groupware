@@ -1,8 +1,5 @@
 package com.example.grp.model;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class NoticeVO {
 
 	private int sn_num;
@@ -17,8 +14,6 @@ public class NoticeVO {
 	private String sn_regdate;
 	private int sn_count;
 	private String sn_files;
-	
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public int getSn_num() {
 		return sn_num;
@@ -78,8 +73,8 @@ public class NoticeVO {
 	public String getSn_regdate() {
 		return sn_regdate;
 	}
-	public void setSn_regdate(Date sn_regdate) {
-		this.sn_regdate = sdf.format(sn_regdate);
+	public void setSn_regdate(String sn_regdate) {
+		this.sn_regdate = sn_regdate;
 	}
 	public int getSn_count() {
 		return sn_count;

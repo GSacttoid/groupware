@@ -46,53 +46,20 @@
                         </div>
                         <div class="main-right">
                             <div class="notice-title">
-                                <h3><a href="${pageContext.request.contextPath}/admin/gw_company_info" class="noto font16 under"><i class="fas fa-book"></i> 시스템 공지사항</a></h3>
+                                <h3><a href="${pageContext.request.contextPath}/admin/system_notice" class="noto font16 under"><i class="fas fa-book"></i> 시스템 공지사항</a></h3>
                             </div>
                             <hr />
-                            <div class="notice-content">
-                                <div class="notice-left">
-                                    <p class=""><span style="color: #d92550; margin-right: 10px;">[인사과 알림]</span>운영자 확인이 필요한 근태 정보가 있습니다. </p>
-                                </div>
-                                <div class="notice-right">
-                                    <span class="" style="font-size: 14px; color: #555;">2020.09.15</span>
-                                </div>
-                            </div>
+                            <c:forEach var="list" items="${list}" varStatus="status">
+	                            <div class="notice-content">
+	                                <div class="notice-left">
+	                                    <p class="noto"><span style="color: #d92550; margin-right: 10px;">[${list.sn_type}]</span>${list.sn_title} </p>
+	                                </div>
+	                                <div class="notice-right">
+	                                    <span class="" style="font-size: 14px; color: #555;">${list.sn_regdate}</span>
+	                                </div>
+	                            </div>
+                            </c:forEach>
 
-                            <div class="notice-content">
-                                <div class="notice-left">
-                                    <p class=""><span style="color: #d92550; margin-right: 10px;">[총무과 알림]</span>성과급 지급관련 공지글 </p>
-                                </div>
-                                <div class="notice-right">
-                                    <span class="" style="font-size: 14px; color: #555;">2020.09.14</span>
-                                </div>
-                            </div>
-
-                            <div class="notice-content">
-                                <div class="notice-left">
-                                    <p class=""><span style="color: #d92550; margin-right: 10px;">[전산과 알림]</span>그룹웨어 교육 (9/15) </p>
-                                </div>
-                                <div class="notice-right">
-                                    <span class="" style="font-size: 14px; color: #555;">2020.09.13</span>
-                                </div>
-                            </div>
-
-                            <div class="notice-content">
-                                <div class="notice-left">
-                                    <p class=""><span style="color: #d92550; margin-right: 10px;">[인사과 알림]</span>코로나 예방관련 안내 </p>
-                                </div>
-                                <div class="notice-right">
-                                    <span class="" style="font-size: 14px; color: #555;">2020.09.13</span>
-                                </div>
-                            </div>
-
-                            <div class="notice-content">
-                                <div class="notice-left">
-                                    <p class=""><span style="color: #d92550; margin-right: 10px;">[기획과 알림]</span>2020 하반기 긴급대책 회의 소집 </p>
-                                </div>
-                                <div class="notice-right">
-                                    <span class="" style="font-size: 14px; color: #555;">2020.09.12</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
     

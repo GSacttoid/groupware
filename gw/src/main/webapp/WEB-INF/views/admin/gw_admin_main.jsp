@@ -37,14 +37,16 @@
                                 <h3><a href="${pageContext.request.contextPath}/admin/system_notice" class="noto font16 under"><i class="fas fa-book"></i> 시스템 공지사항</a></h3>
                             </div>
                             <hr />
-                            <div class="notice-content">
-                                <div class="notice-left">
-                                    <p class=""><span style="color: #d92550; margin-right: 10px;">[공지사항]</span>2020/09/20 그룹웨어 정기정검안내 </p>
-                                </div>
-                                <div class="notice-right">
-                                    <span class="" style="font-size: 14px; color: #555;">2020.09.15</span>
-                                </div>
-                            </div>
+                            <c:forEach var="list" items="${list}" varStatus="status">
+	                            <div class="notice-content">
+	                                <div class="notice-left">
+	                                    <p class="noto"><span style="color: #d92550; margin-right: 10px;">[${list.sn_type}]</span>${list.sn_title} </p>
+	                                </div>
+	                                <div class="notice-right">
+	                                    <span class="" style="font-size: 14px; color: #555;">${list.sn_regdate}</span>
+	                                </div>
+	                            </div>
+                            </c:forEach>
                         </div>
                         <div class="main-right">
                             <div class="notice-title">

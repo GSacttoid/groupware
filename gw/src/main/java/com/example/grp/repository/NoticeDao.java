@@ -27,7 +27,23 @@ public class NoticeDao {
 		return sqlSession.selectList("notice.getNoticeList", map);
 	}
 	
+	public List<NoticeVO> getNotice5(){
+		return sqlSession.selectList("notice.getNotice5");
+	}
+	
 	public int getNoticeTotalCount() {
 		return sqlSession.selectOne("notice.getNoticeTotalCount");
+	}
+	
+	public void setNoticeDelete(NoticeVO nvo) {
+		sqlSession.delete("notice.setNoticeDelete", nvo);
+	}
+	
+	public void setNoticeUpdate(NoticeVO nvo) {
+		sqlSession.update("notice.setNoticeModify", nvo);
+	}
+	
+	public NoticeVO getNoticeOne(NoticeVO nvo) {
+		return sqlSession.selectOne("notice.getNoticeOne", nvo);
 	}
 }

@@ -79,8 +79,7 @@
 							<tr>
 								<td class="td-10 center weight700 noto font14 under bg-gray" style="border:1px solid #d5d5d5;">게시글 내용</td>
 								<td colspan="3" class="td-90"	style="">
-									<textarea name="sn_content" id="editor" 
-										style="width: 100%; height: 300px; padding: 10px; border-radius: 2px;" class="noto">
+									<textarea name="sn_content" id="editor" style="width: 100%; padding: 10px; border-radius: 2px;" class="ckeditor">
 									</textarea> 
 									<script>
 										CKEDITOR.replace('editor');
@@ -96,7 +95,7 @@
 							</tr>
 						</table>
 						<div class="btn-grp center m-t10">
-							<button type="submit" id="btn" name="btn" class="btn-normal" >공지작성</button>
+							<button type="submit" id="btn" name="btn" class="btn-normal" onClick="writeNotice();" >공지작성</button>
 							<button type="button" onClick="window.close();" class="btn-red">창닫기</button>
 						</div>
 					</form>
@@ -108,31 +107,29 @@
 
 <script>
 
-$("#btn").click(function(){
+function writeNotice(){
 	if( $.trim($("#sn_title").val()) == '' ) {
 		alert("게시판 제목을 입력하세요.");
 		$("#sn_title").focus();
 		return false;
-	}
-	
+	}	
+	CKEDITOR.instances.editor.updateElement();
 	var formData = $("#frm").serialize();
-	
 	$.ajax({
 		url		: "${pageContext.request.contextPath}/notice/system_notice_write",
 		type	: "POST",
 		data	: formData,
 		success	: function(resData) {
-			alert("공지사항이 등록되었습니다.");
+			if(resData == 'success'){
+				alert("공지사항이 등록되었습니다.");
+				opener.location.replace("${pageContext.request.contextPath}/admin/system_notice");
+				window.close();
+			}
 		},
 		error	:function() {
 			alert("시스템 에러");
-		},
-		complete:function(){
-			window.close();
 		}
 	});
-});
-
-
+}
 
 </script>
