@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.grp.model.EmpVO;
 import com.example.grp.model.NoticeVO;
+import com.example.grp.service.ComSrv;
 import com.example.grp.service.LoginSrv;
 import com.example.grp.service.NoticeSrv;
 import com.example.grp.service.RegisterSrv;
@@ -28,15 +29,24 @@ public class LoginCtr {
 	@Autowired
 	NoticeSrv nSrv;
 	
+	@Autowired
+	ComSrv cSrv;
+	
 	//로그인 페이지
 	@RequestMapping("/")
-	public String getLogin() {
-		return "login/gw_login";
+	public ModelAndView getLogin() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("logo", cSrv.getComInfo().getLogo_name());
+		mav.addObject("logoSub", cSrv.getComInfo().getLogo_sub_name());
+		
+		mav.setViewName("login/gw_login");
+		return mav;
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public ModelAndView setLogin(@ModelAttribute EmpVO evo, HttpSession httpSession) {
 		ModelAndView mav = new ModelAndView();
+
 		if( loginSrv.loginCheck(evo) != 0 ) {
 			String confirm = loginSrv.getEmpInfoOne(evo, httpSession).getEmp_confirm();
 			if( confirm.equals("Y") ) {

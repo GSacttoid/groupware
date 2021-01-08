@@ -12,11 +12,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/6ecca0b569.js" crossorigin="anonymous"></script>
 </head>
-
+<style>
+.logo{
+	width:300px;
+	height:140px;
+	cursor:pointer;
+	margin-left:30px;
+	line-height:0.1;
+	padding:20px;
+}
+</style>
 <body>
     <main>
-        <div class="logo">
-            <h1>GreenArt Company Groupware</h1>
+        <div class="logo" onClick="location.href='${pageContext.request.contextPath}/'">
+           	<h1 class="center noto weight900" style="color:#fff;">${logo}</h1>
+     		<h2 class="center" style="color:#787878;">${logoSub}</h2>
         </div>
         <div class="login-box" id="login-box"style="">
             <h2>계정 등록</h2>

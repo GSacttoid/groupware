@@ -137,7 +137,7 @@ td {
 			                     </tr>
 			                 </table>
 			                 <div class="btn-grp center m-t10">
-			                     <button id="btn" type="button" class="btn-on">저장</button>
+			                     <button id="btn" type="submit" class="btn-on" onClick="${pageContext.request.contextPath}/admin/company_info/modify">저장</button>
 			                     <button type="reset" class="btn-off">취소</button>
 			                 </div>
 			             </form>
@@ -175,4 +175,5 @@ $(function() {
 	comInfo();
 });
 </script>
+
 </html>

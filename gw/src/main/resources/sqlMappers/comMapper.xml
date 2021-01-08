@@ -2,13 +2,63 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="company">
 	
+		
+	<select id="getBuseo" resultType="com.example.grp.model.BuseoVO">
+		SELECT * FROM gw_buseo ORDER BY buseo_id
+	</select>
+	
+	<select id="getBuseoCnt" resultType="int">
+		SELECT COUNT(*) FROM gw_buseo
+	</select>
+	
+	<select id="getGrade" resultType="com.example.grp.model.GradeVO">
+		SELECT * FROM gw_grade ORDER BY grade_id
+	</select>
+	
 	<select id="getComInfo"  resultType="com.example.grp.model.ComVO">
 		SELECT * FROM gw_company_info
 	</select>
 	
-	<select id="getComInfo"  resultType="com.example.grp.model.ComVO">
+	<select id="getGwInfo"  resultType="com.example.grp.model.GwVO">
 		SELECT * FROM gw_info
 	</select>
+	
+	<update id="setCompanyInfoModify">
+		UPDATE gw_company_info SET 
+			com_name = #{com_name},
+			com_code = #{com_code},
+			com_ceo = #{com_ceo},
+			com_file = #{com_file},
+			com_logo_paper = #{com_logo_paper},
+			com_logo = #{com_logo},
+			com_tel = #{com_tel},
+			com_fax = #{com_fax},
+			com_address = #{com_address},
+			com_address_num = #{com_address_num},
+			com_start = #{com_start},
+			logo_name = #{logo_name},
+			logo_sub_name = #{logo_sub_name}
+		where com_num = 1
+	</update>
+	
+	<insert id="setBuseoInsert" parameterType="com.example.grp.model.BuseoVO">
+		INSERT INTO gw_buseo SET 
+			buseo_id = #{buseo_id},
+			buseo_name = #{buseo_name},
+			regdate = now()
+	</insert>
+	
+	<select id="buseoIdChk" resultType="int" parameterType="com.example.grp.model.BuseoVO">
+		SELECT COUNT(*) FROM gw_buseo WHERE buseo_id = #{buseo_id}
+	</select>
+	
+	<select id="buseoNameChk" resultType="int" parameterType="com.example.grp.model.BuseoVO">
+		SELECT COUNT(*) FROM gw_buseo WHERE buseo_name = #{buseo_name}
+	</select>
+	
+	<delete id="setBuseoDelete" parameterType="com.example.grp.model.BuseoVO">
+		DELETE FROM gw_buseo WHERE buseo_id = #{buseo_id}
+	</delete>
 </mapper>
 
 

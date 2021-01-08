@@ -3,6 +3,7 @@
 <!-- INCLUDE HEADER (ALL) -->
 <%@ include file="/WEB-INF/views/INCLUDE/GW_HEADER.jsp" %>
 <!-- /INCLUDE HEADER (ALL) -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
     ul>li::before {
         content: '';
@@ -84,68 +85,72 @@
 			            
 			            <div class="flex flex-justify">
 			            	<div style="width:100%; margin-right:10px;">
-			           	        <form method="post" id="buseoList" action="#">
+			           	        <form method="post" id="buseoList" >
 						            <div class="p10" style="border: 1px solid #c1c1c1;">
 						                <div class="">
 						                    <div class="noto font16 weight700 m-tb10">1. 등록된 부서 리스트</div>
-						                    <div class="noto font14 m-b10">사용중인 부서 : 6 개</div>
+						                    <div class="noto font14 m-b10">사용중인 부서 : ${buseoCnt} 개</div>
 						                    <div class="btn-grp m-b10">
-						                        <button class="depart-btn" type="button" >전체 선택</button>
-						                        <button class="depart-btn" type="button" style="background-color: #fc6468;">선택 삭제</button>
+						                        <button class="depart-btn" type="button" id="buseoDeleteAll" style="background-color: #fc6468;">선택 삭제</button>
 						                    </div>
 						                </div>
 						                <div>
 						                	<div class="">
 						                    	<table style="width:100%; border: 1px solid #c1c1c1; margin-bottom: 10px;">
 						                              <tr class="center noto font14 bg-gray" style="height: 40px; border: 1px solid #c1c1c1;">
-						                                  <td style="border: 1px solid #c1c1c1; width:10%">선택</td>
+						                                  <td style="border: 1px solid #c1c1c1; width:10%">
+														  	  <input type="checkbox" id="chkAll" />
+														  </td>
+						                                  <td style="border: 1px solid #c1c1c1; width:15%">부서코드</td>
 						                                  <td style="border: 1px solid #c1c1c1;">부서명</td>
-						                                  <td style="border: 1px solid #c1c1c1; width:20%">하위부서 설정</td>
 						                                  <td style="border: 1px solid #c1c1c1; width:20%">생성일</td>
 						                                  <td style="border: 1px solid #c1c1c1; width:15%">관리</td>
 						                              </tr>
-						                              <tr class="center noto font14">
-						                                  <td>
-						                                      <input type="checkbox"/>
-						                                  </td>
-						                                  <td>기획부</td>
-						                                  <td >
-						                                      <input type="button" class="depart-btn m-lr5" value="리스트"/>
-						                                  </td>
-						                                  <td>2020/09/16</td>
-						                                  <td>
-						                                  	<button class="s-btn-on" type="button">수정</button>
-						                                  	<button class="s-btn-off" type="button" style="background-color: #fc6468; color:#fff;">삭제</button>
-						                                  </td>
-						                              </tr>
-						                              
+						                              <c:forEach var="buseoList" items="${list}" varStatus="status">
+							                              <tr class="center noto font14">
+							                                  <td>
+							                                      <input type="checkbox" name="chk" class="chk" data-uid="${buseoList.buseo_id}" style="width:17px; height:17px;" />
+							                                  </td>
+							                                  <td>${buseoList.buseo_id}</td>
+							                                  <td>${buseoList.buseo_name}</td>
+							                                  <td>${buseoList.regdate}</td>
+							                                  <td>
+							                                  	<button class="s-btn-off" type="button" onClick="buseoDelete(${buseoList.buseo_id});" 
+							                                  	 style="background-color: #fc6468; color:#fff;">삭제</button>
+							                                  </td>
+							                              </tr>
+						                              </c:forEach>
 						                    	</table>
 						                   	</div>
-						                   	
-						             </div>
-						                <div class="btn-grp center m-t10">
-						                    <button type="submit" class="btn-on">저장</button>
-						                    <button type="reset" class="btn-off">취소</button>
-						                </div>
+						             	</div>
 						            </div>
 						        </form>
 			            	</div>
 			            	<div style="width:100%">
-			           	        <form method="post" id="buseoInsert" action="#">
+			           	        <form method="post" id="frm" autocomplete="off">
 						            <div class="p10" style="border: 1px solid #c1c1c1;">
 						            	<div class="noto font16 weight700 m-tb10">2. 부서 만들기</div>
 						                <table style="width:100%; border: 1px solid #c1c1c1; margin-bottom: 10px;" >
 						                    <tr class="m-t10">
-						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">부서 등록하기</td>
+						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">부서코드</td>
 						                        <td>
-						                            <input type="text" class="input-135" style="margin-left: 2px;" />
-						                            <button type="submit" class="btn-on" >등록</button>
+						                            <input type="text" class="input-135" name="buseo_id" id="buseo_id" style="margin-left: 2px;" />
+						                            <span class="noto font14 m-lr10" style="line-height:35px;">부서코드는 3자리 숫자로 입력해주세요.</span>
+						                        </td>
+						                    </tr>
+						                    <tr class="m-t10">
+						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">부서명</td>
+						                        <td>
+						                            <input type="text" class="input-135" name="buseo_name" id="buseo_name" style="margin-left: 2px;" />
 						                        </td>
 						                    </tr>
 						                </table>
+						                <div class="center font14">
+						                	<button type="button" class="btn-on" onClick="buseoInsert();" >등록</button>
+						                	<button type="reset" class="btn-off" >취소</button>
+						                </div>
 						            </div>
 						        </form>
-						        <br />
 			            	</div>
 			            </div>
 				    </div>
@@ -154,5 +159,103 @@
     	</main>
     </div>
 </body>
+<script>
+$(document).ready(function(){
+    $("#chkAll").click(function(){
+        if($("#chkAll").prop("checked")){
+            $("input[name=chk]").prop("checked",true);
+        }else{
+            $("input[name=chk]").prop("checked",false);
+        }
+    });
+})
+</script>
 
+<script>
+function buseoInsert(){
+	if( $.trim($("#buseo_id").val()) == '' ) {
+		alert("부서코드를 입력하세요.");
+		$("#buseo_id").focus();
+		return false;
+	}
+	if( $.trim($("#buseo_name").val()) == '' ) {
+		alert("부서명을 입력하세요.");
+		$("#buseo_name").focus();
+		return false;
+	}
+	var formData = $("#frm").serialize();
+	$.ajax({
+        url: "${pageContext.request.contextPath}/admin/buseo_insert",
+        type: "POST",
+        data: formData,
+        success: function (resData) {
+            if ($.trim(resData) == "success") {
+				alert("부서가 정상적으로 등록되었습니다.");
+				window.location.reload();
+            }else{
+                if($.trim(resData) == "failureID"){
+                   	alert("사용할 수 없는 부서코드입니다.\n확인 후 입력해주세요.");
+                   	$('#buseo_id').val("");
+                   	$('#buseo_id').focus();
+                }else{
+                	alert("사용할 수 없는 부서명입니다.\n확인 후 입력해주세요.");
+                	$('#buseo_name').val("");
+                	$('#buseo_name').focus();
+                }
+            }
+        }
+	});
+}
+</script>
+
+<script>
+function buseoDelete(buseo_id){
+	var str = confirm("선택하신 부서를 삭제하시겠습니까?");
+	if( str ) {
+		$.ajax({
+	        url: "${pageContext.request.contextPath}/buseo_delete",
+	        type: "POST",
+	        data: {buseo_id:buseo_id},
+	        success	: function (resData) {
+				alert("부서가 삭제되었습니다.");
+				window.location.reload();
+	        },
+	        error	: function (){
+	        	alert("시스템 오류!");
+	        }
+		});	
+	}
+}
+</script>
+
+<script>
+$("#buseoDeleteAll").click(function() {
+    var str = confirm("선택하신 부서를 삭제하시겠습니까?\n삭제된 부서는 복원이 불가능합니다.");
+    if( str ) {
+        var chkArr = new Array();
+        $(".chk:checked").each(function () {
+        	chkArr.push($(this).attr("data-uid"));
+        });
+
+        $.ajax({
+        	type : "POST",
+        	url : "${pageContext.request.contextPath}/buseo_delete_all",
+        	data : {chkArr : chkArr},
+        	success: function (data) {
+        		if( data == "success" ) {
+        			alert('선택하신 부서가 삭제 되었습니다.');
+                    window.location.reload();
+                    
+        		}else{
+        			alert('선택하신 부서가 삭제에 실패했습니다.');
+                    window.location.reload();
+        		}
+            },
+            error : function() {
+            	alert("선택하신 정보가 없습니다.");
+            }
+        });
+    }
+});
+</script>
 </html>

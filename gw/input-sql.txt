@@ -101,7 +101,24 @@ primary key(com_num)
 
 insert into gw_company_info value ('(주)그린아트컴퍼니','123-12-12123','홍그린','파일','파일','파일','055-333-3333','055-444-5555','경남 양산시 물금읍','GreenArt','Groupware System',now(), '56854');
 
+create table gw_info(
+info_num int not null auto_increment,
+info_domain varchar(30),
+info_gw_start date,
+info_gw_end date,
+info_gw_user int,
+info_total_volume int,
+info_total_volume_used int,
+info_mail_volume int,
+info_mail_volume_used int,
+info_webhard_volume int,
+info_webhard_volume_used int,
+info_gw_volume int,
+info_gw_volume_used int,
+primary key(info_num)
+);
 
+insert into gw_info value ('1', 'gw.greenart.kr', '2009-04-02', '2022-04-02', '200', '5000', '3000', '2000', '1000', '2000', '1000', '1000', '500');
 
 
 

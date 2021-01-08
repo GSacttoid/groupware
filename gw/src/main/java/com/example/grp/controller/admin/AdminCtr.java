@@ -27,18 +27,6 @@ public class AdminCtr {
 		return mav;
 	}
 	
-	//회사정보설정 / 부서등록
-	@RequestMapping("/buseo_insert")
-	public String getBuseoInsert() {
-		return "admin/admin_com_info/buseo_insert";
-	}
-	
-	//회사정보설정 / 직급등록
-	@RequestMapping("/grade_insert")
-	public String getGradeInsert() {
-		return "admin/admin_com_info/grade_insert";
-	}
-	
 	//사원 및 관리자 정보 관리 / 사원관리
 	@RequestMapping("/employee_list")
 	public String getEmpList() {

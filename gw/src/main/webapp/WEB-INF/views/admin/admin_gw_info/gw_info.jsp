@@ -53,16 +53,16 @@ td {
 							style="width: 100%; border: 1px solid #c1c1c1; margin-bottom: 10px;">
 							<tr>
 								<td style="width: 20%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">도메인 명</td>
-								<td style="width: 80%; font-weight: 500; padding: 5px 10px;">gw.greenart.kr</td>
+								<td style="width: 80%; font-weight: 500; padding: 5px 10px;">${gwInfo.info_domain}</td>
 							</tr>
 							<tr>
 								<td style="width: 20%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">그룹웨어 개설일</td>
-								<td style="width: 80%; font-weight: 500; padding: 5px 10px;">2009/04/02</td>
+								<td style="width: 80%; font-weight: 500; padding: 5px 10px;">${start}</td>
 							</tr>
 							<tr>
 								<td	style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">그룹웨어 이용정보</td>
 								<td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
-									<p style="margin-right: 20px;">2009/04/02 ~ 2020/12/15</p> 
+									<p style="margin-right: 20px;">${start} ~ ${end}</p> 
 									<span class="button noto font14 p-lr10 weight300 popup" onClick="gwInfo();">사용기간 연장하기</span>
 								</td>
 							</tr>
@@ -100,7 +100,7 @@ td {
 							<tr>
 								<td style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">최대 사용자</td>
 								<td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
-									<p style="margin-right: 20px;"><span>150</span> 명</p>
+									<p style="margin-right: 20px;"><span>${gwInfo.info_gw_user}</span> 명</p>
 									<span class="button noto font14 p-lr10 weight300 popup" onClick="gwInfo();">최대 사용자 변경하기</span>
 								</td>
 							</tr>
@@ -116,26 +116,26 @@ td {
 							<tr>
 								<td style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">총 용량</td>
 								<td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
-									<p style="margin-right: 20px;">1000 / 3000 MB [ 33% 사용중 ]</p>
+									<p style="margin-right: 20px;">${gwInfo.info_total_volume_used} / ${gwInfo.info_total_volume} MB [ 33% 사용중 ]</p>
 									<span class="button noto font14 p-lr10 weight300 popup"	onClick="gwInfo();">총 용량 변경 / 할당 용량 변경</span>
 								</td>
 							</tr>
 							<tr>
 								<td style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">메일 용량</td>
 								<td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
-									<p style="margin-right: 20px;">500 / 1000 MB [ 50% 사용중 ]</p>
+									<p style="margin-right: 20px;">${gwInfo.info_mail_volume_used} / ${gwInfo.info_mail_volume} MB [ 50% 사용중 ]</p>
 								</td>
 							</tr>
 							<tr>
 								<td	style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">웹하드 용량</td>
 								<td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
-									<p style="margin-right: 20px;">300 / 1000 MB [ 30% 사용중 ]</p>
+									<p style="margin-right: 20px;">${gwInfo.info_webhard_volume_used} / ${gwInfo.info_webhard_volume} MB [ 30% 사용중 ]</p>
 								</td>
 							</tr>
 							<tr>
 								<td style="width: 20%; height: 100%; text-align: center; background-color: #e2e2e2; font-weight: 700; padding: 5px 0;">그룹웨어 용량</td>
 								<td style="width: 100%; display: flex; font-weight: 500; padding: 5px 10px;">
-									<p style="margin-right: 20px;">200 / 1000 MB [ 20% 사용중 ]</p>
+									<p style="margin-right: 20px;">${gwInfo.info_gw_volume_used} / ${gwInfo.info_gw_volume} MB [ 20% 사용중 ]</p>
 								</td>
 							</tr>
 						</table>

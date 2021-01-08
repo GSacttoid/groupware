@@ -2,14 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="register">
 	
-	<select id="getBuseo" resultType="com.example.grp.model.BuseoVO">
-		SELECT * FROM gw_buseo ORDER BY buseo_id
-	</select>
-	
-	<select id="getGrade" resultType="com.example.grp.model.GradeVO">
-		SELECT * FROM gw_grade ORDER BY grade_id
-	</select>
-	
 	<insert id="setEmpRegister" parameterType="com.example.grp.model.EmpVO">
 			INSERT INTO gw_employee SET 
 				emp_buseo 	= #{emp_buseo},
