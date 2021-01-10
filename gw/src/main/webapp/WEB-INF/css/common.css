@@ -372,6 +372,13 @@ select{
     width: 55px;
     height: 35px;
 }
+.sel-75{
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 75px;
+    height: 35px;
+}
 .sel-135{
     font-size: 12px;
     border-radius: 2px;

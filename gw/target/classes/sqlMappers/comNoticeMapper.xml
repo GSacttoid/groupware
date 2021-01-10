@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="notice">
+<mapper namespace="comNotice">
 	
 	<select id="getNoticeList" parameterType="hashMap" resultType="com.example.grp.model.NoticeVO">
-		SELECT * FROM gw_system_notice ORDER BY sn_num DESC LIMIT #{start}, #{end}
+		SELECT * FROM company_notice ORDER BY sn_num DESC LIMIT #{start}, #{end}
 	</select>
 	
 	<select id="getNotice5" resultType="com.example.grp.model.NoticeVO">
-		SELECT * FROM gw_system_notice ORDER BY sn_num DESC LIMIT 5
-	</select>
-	
-	<select id="getComNotice5" resultType="com.example.grp.model.NoticeVO">
 		SELECT * FROM company_notice ORDER BY sn_num DESC LIMIT 5
 	</select>
 	
 	<select id="getNoticeTotalCount"  resultType="int">
-		SELECT COUNT(*) FROM gw_system_notice 
+		SELECT COUNT(*) FROM company_notice 
 
 	</select>
 	
 	<insert id="setNoticeInsert" parameterType="com.example.grp.model.NoticeVO">
-		INSERT INTO gw_system_notice SET 
+		INSERT INTO company_notice SET 
 			sn_maker	= #{sn_maker},
 			sn_title	= #{sn_title},
 			sn_content	= #{sn_content},
@@ -33,11 +29,11 @@
 	</insert>
 	
 	<delete id="setNoticeDelete" parameterType="com.example.grp.model.NoticeVO">
-		DELETE FROM gw_system_notice WHERE sn_num = #{sn_num}
+		DELETE FROM company_notice WHERE sn_num = #{sn_num}
 	</delete>
 	
 	<update id="setNoticeModify" parameterType="com.example.grp.model.NoticeVO">
-		UPDATE gw_system_notice SET 
+		UPDATE company_notice SET 
 			sn_maker	= #{sn_maker},
 			sn_title	= #{sn_title},
 			sn_content	= #{sn_content},
@@ -51,7 +47,7 @@
 	</update>
 	
 	<select id="getNoticeOne" parameterType="com.example.grp.model.NoticeVO" resultType="com.example.grp.model.NoticeVO">
-		SELECT * FROM gw_system_notice WHERE sn_num = #{sn_num}
+		SELECT * FROM company_notice WHERE sn_num = #{sn_num}
 	</select>
 </mapper>
 

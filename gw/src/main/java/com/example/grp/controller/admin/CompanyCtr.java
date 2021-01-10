@@ -15,6 +15,7 @@ import com.example.grp.model.BuseoVO;
 import com.example.grp.model.ComVO;
 import com.example.grp.model.EmpVO;
 import com.example.grp.model.GradeVO;
+import com.example.grp.pager.Pager;
 import com.example.grp.service.ComSrv;
 import com.example.grp.service.RegisterSrv;
 
@@ -63,12 +64,15 @@ public class CompanyCtr {
 	
 	//회사정보설정 / 부서등록
 	@RequestMapping(value="/admin/buseo_insert", method=RequestMethod.GET)
-	public ModelAndView getBuseoInsert(@ModelAttribute BuseoVO bvo) {
+	public ModelAndView getBuseoInsert() {
+		int count = cSrv.getBuseoCnt();
+		
 		ModelAndView mav = new ModelAndView();
-		List<BuseoVO> list = cSrv.getBuseo();
-		int buseoCnt = cSrv.getBuseoCnt();
+		List<BuseoVO> list = cSrv.getBuseoList();
+		
 		mav.addObject("list", list);
-		mav.addObject("buseoCnt", buseoCnt);
+		mav.addObject("count", count);
+		
 		mav.setViewName("admin/admin_com_info/buseo_insert");
 		return mav;
 	}
@@ -102,7 +106,7 @@ public class CompanyCtr {
 	
 	@RequestMapping(value="/buseo_delete_all",method=  RequestMethod.POST)
 	@ResponseBody
-	public String empDeleteAll(@ModelAttribute BuseoVO bvo, @RequestParam(value = "chkArr[]") List<String> chkArr) {
+	public String buseoDeleteAll(@ModelAttribute BuseoVO bvo, @RequestParam(value = "chkArr[]") List<String> chkArr) {
 		int buseo_id;
 		for(String list : chkArr) {
 			buseo_id = Integer.parseInt(list);
@@ -114,14 +118,57 @@ public class CompanyCtr {
 	}
 	
 	//회사정보설정 / 직급등록
-	@RequestMapping("/admin/grade_insert")
+	@RequestMapping(value="/admin/grade_insert", method=RequestMethod.GET)
 	public ModelAndView getGradeInsert() {
+		int count = cSrv.getGradeCnt();
+
 		ModelAndView mav = new ModelAndView();
-		List<GradeVO> list = cSrv.getGrade();
+		List<GradeVO> list = cSrv.getGradeList();
 		
 		mav.addObject("list", list);
+		mav.addObject("count", count);
+		
 		mav.setViewName("admin/admin_com_info/grade_insert");
 		return mav;
+	}
+	
+	@RequestMapping(value="/admin/grade_insert", method=RequestMethod.POST)
+	@ResponseBody
+	public String setGradeInsert(@ModelAttribute GradeVO gvo) {
+		int idChk = cSrv.gradeIdChk(gvo);
+		int nameChk = cSrv.gradeNameChk(gvo);
+		String msg;
+
+		if(idChk > 0) {
+			msg = "failureID";
+		}else {
+			if(nameChk > 0) {
+				msg = "failureNAME";
+			}else {
+				cSrv.setGradeInsert(gvo);
+				msg = "success";
+			}
+		}
+		return msg;
+	}
+	
+	@RequestMapping(value="/grade_delete", method=RequestMethod.POST)
+	@ResponseBody
+	public String setGradeDelete(@ModelAttribute GradeVO gvo) {
+		cSrv.setGradeDelete(gvo);
+		return "admin/admin_com_info/grade_insert";
+	}
+	
+	@RequestMapping(value="/grade_delete_all",method=  RequestMethod.POST)
+	@ResponseBody
+	public String gradeDeleteAll(@ModelAttribute GradeVO gvo, @RequestParam(value = "chkArr[]") List<String> chkArr) {
+		int gid;
+		for(String list : chkArr) {
+			gid = Integer.parseInt(list);
+			gvo.setGrade_id(gid);
+			cSrv.setGradeDelete(gvo);
+		}
+		return "success";
 	}
 	
 }

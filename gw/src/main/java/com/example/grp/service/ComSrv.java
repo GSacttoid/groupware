@@ -34,6 +34,10 @@ public class ComSrv {
 		return cDao.getBuseo();
 	}
 	
+	public List<BuseoVO> getBuseoList() {
+		return cDao.getBuseoList();
+	}
+	
 	public int getBuseoCnt() {
 		return cDao.getBuseoCnt();
 	}
@@ -56,5 +60,29 @@ public class ComSrv {
 	
 	public List<GradeVO> getGrade() {
 		return cDao.getGrade();
+	}
+	
+	public List<GradeVO> getGradeList() {
+		return cDao.getGradeList();
+	}
+	
+	public int getGradeCnt() {
+		return cDao.getGradeCnt();
+	}
+	
+	public void setGradeInsert(GradeVO gvo) {
+		cDao.setGradeInsert(gvo);
+	}
+	
+	public int gradeIdChk(GradeVO gvo) {
+		return cDao.gradeIdChk(gvo);
+	}
+	
+	public int gradeNameChk(GradeVO gvo) {
+		return cDao.gradeNameChk(gvo);
+	}
+	
+	public void setGradeDelete(GradeVO gvo) {
+		cDao.setGradeDelete(gvo);
 	}
 }

@@ -1,8 +1,12 @@
 package com.example.grp.model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class NoticeVO {
 
 	private int sn_num;
+	private String sn_code;
 	private String sn_maker;
 	private String sn_title;
 	private String sn_content;
@@ -11,9 +15,11 @@ public class NoticeVO {
 	private int sn_download;
 	private int sn_reply;
 	private String sn_type;
-	private String sn_regdate;
+	private Date sn_regdate;
 	private int sn_count;
 	private String sn_files;
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public int getSn_num() {
 		return sn_num;
@@ -21,7 +27,12 @@ public class NoticeVO {
 	public void setSn_num(int sn_num) {
 		this.sn_num = sn_num;
 	}
-
+	public String getSn_code() {
+		return sn_code;
+	}
+	public void setSn_code(String sn_code) {
+		this.sn_code = sn_code;
+	}
 	public String getSn_maker() {
 		return sn_maker;
 	}
@@ -71,9 +82,9 @@ public class NoticeVO {
 		this.sn_type = sn_type;
 	}
 	public String getSn_regdate() {
-		return sn_regdate;
+		return sdf.format(sn_regdate);
 	}
-	public void setSn_regdate(String sn_regdate) {
+	public void setSn_regdate(Date sn_regdate) {
 		this.sn_regdate = sn_regdate;
 	}
 	public int getSn_count() {

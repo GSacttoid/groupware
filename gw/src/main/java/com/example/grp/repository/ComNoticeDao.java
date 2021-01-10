@@ -11,43 +11,39 @@ import org.springframework.stereotype.Repository;
 import com.example.grp.model.NoticeVO;
 
 @Repository
-public class NoticeDao {
+public class ComNoticeDao {
 
 	@Autowired
 	SqlSession sqlSession;
 	
 	public void setNoticeInsert(NoticeVO nvo) {
-		sqlSession.insert("notice.setNoticeInsert", nvo);
+		sqlSession.insert("comNotice.setNoticeInsert", nvo);
 	}
 	
 	public List<NoticeVO> getSystemNotice(int start, int end) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
-		return sqlSession.selectList("notice.getNoticeList", map);
+		return sqlSession.selectList("comNotice.getNoticeList", map);
 	}
 	
 	public List<NoticeVO> getNotice5(){
-		return sqlSession.selectList("notice.getNotice5");
-	}
-	
-	public List<NoticeVO> getComNotice5(){
-		return sqlSession.selectList("notice.getComNotice5");
+		return sqlSession.selectList("comNotice.getNotice5");
 	}
 	
 	public int getNoticeTotalCount() {
-		return sqlSession.selectOne("notice.getNoticeTotalCount");
+		return sqlSession.selectOne("comNotice.getNoticeTotalCount");
 	}
 	
 	public void setNoticeDelete(NoticeVO nvo) {
-		sqlSession.delete("notice.setNoticeDelete", nvo);
+		sqlSession.delete("comNotice.setNoticeDelete", nvo);
 	}
 	
 	public void setNoticeUpdate(NoticeVO nvo) {
-		sqlSession.update("notice.setNoticeModify", nvo);
+		sqlSession.update("comNotice.setNoticeModify", nvo);
 	}
 	
 	public NoticeVO getNoticeOne(NoticeVO nvo) {
-		return sqlSession.selectOne("notice.getNoticeOne", nvo);
+		return sqlSession.selectOne("comNotice.getNoticeOne", nvo);
 	}
 }

@@ -2,7 +2,7 @@ package com.example.grp.pager;
 
 public class Pager {
 	int PAGE_SCALE = 10;
-	int BLOCK_SCALE = 10;
+	int BLOCK_SCALE = 5;
 	
 	int curPage;
 	int prevPage;

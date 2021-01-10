@@ -14,6 +14,13 @@ public class EmpDao {
 	@Autowired
 	SqlSession sqlSession;
 	
+	public List<EmpVO> getEmpList(int start, int end) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		return sqlSession.selectList("employee.getEmpList", map);
+	}
+	
 	public List<EmpVO> getNewEmp(int start, int end) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
@@ -51,4 +58,36 @@ public class EmpDao {
 	public EmpVO getEmpOne(EmpVO evo) {
 		return sqlSession.selectOne("employee.getEmpOne", evo);
 	}
+	
+	public void setEmpModify(EmpVO evo) {
+		sqlSession.update("employee.setEmpModify", evo);
+	}
+	
+	public void setEmpResign(EmpVO evo) {
+		sqlSession.update("employee.setEmpResign", evo);
+	}
+	
+	public void setEmpRegister(EmpVO evo) {
+		sqlSession.insert("employee.setEmpRegister", evo);
+	}
+	
+	public void setAdmin(EmpVO evo) {
+		sqlSession.update("employee.setAdmin",evo);
+	}
+	
+	public List<EmpVO> getAdminList(int start, int end) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		return sqlSession.selectList("employee.getAdminList", map);
+	}
+	
+	public EmpVO getAdminOne() {
+		return sqlSession.selectOne("employee.getAdminOne");
+	}
+
+	public int getAdminCount() {
+		return sqlSession.selectOne("employee.getAdminCount");
+	}
+	
 }

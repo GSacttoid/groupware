@@ -15,6 +15,10 @@ public class EmpSrv {
 
 	@Autowired
 	EmpDao eDao;
+
+	public List<EmpVO> getEmpList(int start, int end) {
+		return eDao.getEmpList(start, end);
+	}
 	
 	public List<EmpVO> getNewEmp(int start, int end) {
 		return eDao.getNewEmp(start, end);
@@ -48,4 +52,31 @@ public class EmpSrv {
 		return eDao.getEmpOne(evo);
 	}
 	
+	public void setEmpModify(EmpVO evo) {
+		eDao.setEmpModify(evo);
+	}
+	
+	public void setEmpResign(EmpVO evo) {
+		eDao.setEmpResign(evo);
+	}
+	
+	public void setEmpRegister(EmpVO evo) {
+		eDao.setEmpRegister(evo);
+	}
+	
+	public void setAdmin(EmpVO evo) {
+		eDao.setAdmin(evo);
+	}
+	
+	public List<EmpVO> getAdminList(int start, int end) {
+		return eDao.getAdminList(start, end);
+	}
+	
+	public EmpVO getAdminOne() {
+		return eDao.getAdminOne();
+	}
+	
+	public int getAdminCount() {
+		return eDao.getAdminCount();
+	}
 }

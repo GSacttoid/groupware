@@ -89,7 +89,7 @@
 						            <div class="p10" style="border: 1px solid #c1c1c1;">
 						                <div class="">
 						                    <div class="noto font16 weight700 m-tb10">1. 등록된 부서 리스트</div>
-						                    <div class="noto font14 m-b10">사용중인 부서 : ${buseoCnt} 개</div>
+						                    <div class="noto font14 m-b10">사용중인 부서 : ${count} 개</div>
 						                    <div class="btn-grp m-b10">
 						                        <button class="depart-btn" type="button" id="buseoDeleteAll" style="background-color: #fc6468;">선택 삭제</button>
 						                    </div>
@@ -113,7 +113,7 @@
 							                                  </td>
 							                                  <td>${buseoList.buseo_id}</td>
 							                                  <td>${buseoList.buseo_name}</td>
-							                                  <td>${buseoList.regdate}</td>
+							                                  <td>${buseoList.buseo_regdate}</td>
 							                                  <td>
 							                                  	<button class="s-btn-off" type="button" onClick="buseoDelete(${buseoList.buseo_id});" 
 							                                  	 style="background-color: #fc6468; color:#fff;">삭제</button>
@@ -121,6 +121,7 @@
 							                              </tr>
 						                              </c:forEach>
 						                    	</table>
+						                    	
 						                   	</div>
 						             	</div>
 						            </div>

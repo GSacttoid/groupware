@@ -10,6 +10,10 @@
 		SELECT * FROM gw_system_notice ORDER BY sn_num DESC LIMIT 5
 	</select>
 	
+	<select id="getComNotice5" resultType="com.example.grp.model.NoticeVO">
+		SELECT * FROM company_notice ORDER BY sn_num DESC LIMIT 5
+	</select>
+	
 	<select id="getNoticeTotalCount"  resultType="int">
 		SELECT COUNT(*) FROM gw_system_notice 
 

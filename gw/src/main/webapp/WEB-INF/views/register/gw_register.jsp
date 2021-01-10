@@ -126,7 +126,7 @@
 		
 		$("#btn").click(function() {
 			if( $("#emp_id").val() == '' ) {
-				alert("사원번호를 입력하세요.");
+				alert("사원아이디를 입력하세요.");
 				$("#emp_id").focus();
 				return false;
 			}

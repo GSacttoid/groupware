@@ -21,28 +21,12 @@ public class AdminCtr {
 	@RequestMapping("/main")
 	public ModelAndView getAdminMain() {
 		List<NoticeVO> list = nSrv.getNotice5();
+		List<NoticeVO> comList = nSrv.getComNotice5();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
+		mav.addObject("comList", comList);
 		mav.setViewName("admin/gw_admin_main");
 		return mav;
-	}
-	
-	//사원 및 관리자 정보 관리 / 사원관리
-	@RequestMapping("/employee_list")
-	public String getEmpList() {
-		return "admin/admin_emp_manage/employee_list";
-	}
-	
-	//사원 및 관리자 정보 관리 / 관리자 정보 관리
-	@RequestMapping("/gw_admin_info")
-	public String getAdminInfo() {
-		return "admin/admin_emp_manage/gw_admin_info";
-	}
-	
-	//커뮤니티 / 공지사항
-	@RequestMapping("/company_notice")
-	public String getComNoticeList() {
-		return "admin/admin_community/company_notice";
 	}
 	
 	//커뮤니티 / 회사메뉴 관리

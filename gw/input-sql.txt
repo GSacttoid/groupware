@@ -36,8 +36,11 @@ emp_buseo='',
 emp_grade='';
 
 create table gw_buseo(
-buseo_id varchar(5) not null,
-buseo_name varchar(20) not null
+bid int not null auto_increment,
+buseo_id int,
+buseo_name varchar(20),
+buseo_regdate date,
+primary key(bid)
 );
 
 insert into gw_buseo values('100','관리부');
@@ -49,8 +52,12 @@ insert into gw_buseo values('600','생산부');
 insert into gw_buseo values('700','자재부');
 
 create table gw_grade(
-grade_id varchar(2) not null,
-grade_name varchar(10) not null
+gid int not null auto_increment,
+grade_id int,
+grade_name varchar(10),
+grade_auth int,
+grade_regdate date,
+primary key (gid)
 );
 
 insert into gw_grade values('1','대표이사',1,now());
@@ -121,6 +128,22 @@ primary key(info_num)
 insert into gw_info value ('1', 'gw.greenart.kr', '2009-04-02', '2022-04-02', '200', '5000', '3000', '2000', '1000', '2000', '1000', '1000', '500');
 
 
+create table company_notice(
+sn_num int not null auto_increment,
+sn_code char(6),
+sn_maker varchar(10),
+sn_title varchar(50),
+sn_content text,
+sn_read int,
+sn_write int,
+sn_download int,
+sn_reply int,
+sn_type varchar(6),
+sn_regdate date,
+sn_count int,
+sn_files varchar(300),
+primary key(sn_num)
+);
 
 
 

@@ -1,5 +1,6 @@
 package com.example.grp.repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -33,6 +34,10 @@ public class ComDao {
 		return sqlSession.selectList("company.getBuseo");
 	}
 	
+	public List<BuseoVO> getBuseoList() {
+		return sqlSession.selectList("company.getBuseo");
+	}
+	
 	public int getBuseoCnt() {
 		return sqlSession.selectOne("company.getBuseoCnt");
 	}
@@ -55,5 +60,29 @@ public class ComDao {
 	
 	public List<GradeVO> getGrade() {
 		return sqlSession.selectList("company.getGrade");
+	}
+	
+	public List<GradeVO> getGradeList() {
+		return sqlSession.selectList("company.getGrade");
+	}
+	
+	public int getGradeCnt() {
+		return sqlSession.selectOne("company.getGradeCnt");
+	}
+	
+	public void setGradeInsert(GradeVO gvo) {
+		sqlSession.insert("company.setGradeInsert", gvo);
+	}
+	
+	public int gradeIdChk(GradeVO gvo) {
+		return sqlSession.selectOne("company.gradeIdChk", gvo);
+	}
+	
+	public int gradeNameChk(GradeVO gvo) {
+		return sqlSession.selectOne("company.gradeNameChk", gvo);
+	}
+	
+	public void setGradeDelete(GradeVO gvo) {
+		sqlSession.delete("company.setGradeDelete", gvo);
 	}
 }

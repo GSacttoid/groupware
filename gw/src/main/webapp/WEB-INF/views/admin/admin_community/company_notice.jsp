@@ -3,262 +3,196 @@
 <!-- INCLUDE HEADER (ALL) -->
 <%@ include file="/WEB-INF/views/INCLUDE/GW_HEADER.jsp" %>
 <!-- /INCLUDE HEADER (ALL) -->
-<style>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	<style>
+		tr{
+			height:40px;
+		}
+		td{
+			border:1px solid #d5d5d5;
+		}
 
-    .board-wrap tr:first-child{
-        background-color: #6f809a;
-        color: #fff;
-    }
-    .tr-even{
-        background-color: #eff3f9;
-    }
-    /* table tr 높이 */
-	tr {
-	    height:40px;
-	}
-	
-	/* table 선색 */
-	td {
-	    border:1px solid #d5d5d5;
-	}
-    .accordion-content {
-	    display: block;
-	}
-</style>
+		.tr-even{
+		    background-color: #eff3f9;
+		}
+		.accordion-content {
+			display: block;
+		}
+   </style>
 <body>
-	<div class="total-wrap">
-		<!-- INCLUDE LOGO (ALL) -->
-		<%@ include file="/WEB-INF/views/INCLUDE/GW_LOGO.jsp"%>
-		<!-- /INCLUDE LOGO (ALL) -->
-		<main>
-			<div class="container">
-				<!-- INCLUDE MENU (ALL) -->
-				<%@ include file="/WEB-INF/views/admin/ADMIN_MENU.jsp"%>
-				<!-- /INCLUDE MENU (ALL) -->
-				<div class="detail-wrap">
-					<!-- INCLUDE MENU_DETAIL (ADMIN) -->
-					<%@ include file="/WEB-INF/views/admin/ADMIN_MENU_DETAIL.jsp"%>
-					<!-- /INCLUDE MENU_DETAIL (ADMIN) -->
-				</div>
-				<div class="main-wrap noto font14" style="width: 100%">
-
-					<div class="p20">
-						<div class="notice-title font16 noto">
-							<h3>
-								<i class="fas fa-book m-lr5"></i>회사 공지사항
-							</h3>
-						</div>
-						<hr />
-
-						<div class="" style="display: block;">
-							<div class="search-wrap flex flex-justify m-b5">
-								<div class="m-b5">
-									<span class="btn-cancel" style="border: 1px solid #474747;">전체
-										게시물 수 40 개</span>
-								</div>
-
-								<div class="flex flex-justify">
-									<form method="post" action="grp_company_notice.html">
-										<select class="" name="searchOpt">
-											<option value="">-- 검색구분 --</option>
-											<option value="subject">제목</option>
-											<option value="writer">작성자</option>
-										</select> <input type="text" name="words" required
-											style="margin-left: -2px;" />
-										<button type="submit" class="btn-off"
-											style="margin-left: -2px;">게시글 검색</button>
-										<button type="button" class="btn-on"
-											onClick="location.href='${pageContext.request.contextPath}/admin/com_notice_insert'">게시글
-											작성</button>
-									</form>
-								</div>
+<div class="total-wrap">
+    	<!-- INCLUDE LOGO (ALL) -->
+        <%@ include file="/WEB-INF/views/INCLUDE/GW_LOGO.jsp" %>
+        <!-- /INCLUDE LOGO (ALL) -->
+        <main>
+            <div class="container">
+            	<!-- INCLUDE MENU (ALL) -->
+                <%@ include file="/WEB-INF/views/admin/ADMIN_MENU.jsp" %>
+                <!-- /INCLUDE MENU (ALL) -->
+                <div class="detail-wrap">
+                	<!-- INCLUDE MENU_DETAIL (ADMIN) -->
+                    <%@ include file="/WEB-INF/views/admin/ADMIN_MENU_DETAIL.jsp" %>
+                    <!-- /INCLUDE MENU_DETAIL (ADMIN) -->
+                </div>
+			    <div class="main-wrap noto font14" id="main" style="width:100%;">
+			        <div class="p20">
+			        	<div class="flex flex-justify" style="line-height:center;">
+			   	            <div class="notice-title font14 noto">
+				                <h2><i class="fas fa-book"></i> 회사 공지사항</h2>
+				            </div>
+				            <div>
+				            	<button class="btn-on" onClick="noticeInsertOne();">공지작성</button>
+				            </div>
+			        	</div>
+			
+			            <hr />
+			            <div class="list">
+			                <table class="noto font14 center" style="width:100%;">
+			                    <tr class="weight700" style="background-color: #6f809a; color: #fff;">
+			                        <td class="td-5">번호</td>
+			                        <td class="td-10">구분</td>
+			                        <td class="td-50">제목</td>
+			                        <td class="td-5">조회수</td>
+			                        <td class="td-10">작성자</td>
+			                        <td class="td-10">작성일</td>
+			                        <td class="td-10">관리</td>
+			                    </tr>
+			                    <c:forEach var="noticeList" items="${list}" varStatus="status">
+				                    <tr>
+				                        <td>${noticeList.sn_num}</td>
+				                        <td>
+				                        	<c:if test="${noticeList.sn_type == '공지사항'}">
+				                        		<div class="noto font14 p5 f6 m-lr20" style="background-color: #fc6468; border-radius: 2px;">${noticeList.sn_type}</div>
+				                        	</c:if>
+				                        	
+				                        	<c:if test="${noticeList.sn_type == '일반게시글'}">
+				                        		<div class="noto font14 weight500 p5 m-lr20 bg-gray" style="border-radius: 2px; border:1px solid #d5d5d5;">${noticeList.sn_type}</div>
+				                        	</c:if>
+			                        	</td>
+				                        <td>
+				                        	<div class="left p10 under weight700" 
+				                        	onClick="location.href='${pageContext.request.contextPath}/notice/company_notice_view?sn_num=${noticeList.sn_num}'">${noticeList.sn_title}</div>
+				                        </td>
+				                        <td>${noticeList.sn_count}</td>
+				                        <td>${noticeList.sn_maker}</td>
+				                        <td>${noticeList.sn_regdate}</td>
+				                        <td>
+				                        	<button class="s-btn-on" id="modifyNotice" onClick="location.href='${pageContext.request.contextPath}/notice/company_notice_modify?sn_num=${noticeList.sn_num}'">수정</button>
+				                        	<button class="s-btn-off" id="deleteNotice" onClick="noticeDelete('${noticeList.sn_num}');">삭제</button>
+				                        </td>
+				                    </tr>
+								</c:forEach>
+			                </table>
+							<div>
+								<c:if test = "${count > 0}">
+			                    	<div class="page-grp center m-t10">
+			                         	<c:choose>
+			                               	<c:when test = "${curPage > 1}">
+												<span class="page">
+			                                     	<a href="${pageContext.request.contextPath}/admin/company_notice?curPage=1"><i class="fas fa-angle-double-left"></i></a>
+			                                 	</span>
+			                             	</c:when>
+			                             	<c:otherwise>
+			                                	<span class="page">
+			                                		<i class="fas fa-angle-double-left"></i>
+			                                	</span>
+			                               	</c:otherwise>
+			                             </c:choose>
+			                              
+			                             <c:choose>
+			                               	<c:when test = "${curPage > 1}">
+			                               		<span class="page">
+			                                    	<a href="${pageContext.request.contextPath}/admin/company_notice?curPage=${curPage-1}"><i class="fas fa-angle-left"></i></a>
+			                                	</span>
+			                               	</c:when>
+			                             	<c:otherwise>
+				                               	<span class="page">
+				                               		<i class="fas fa-angle-left"></i>
+				                               	</span>
+			                           		</c:otherwise>
+			                           	</c:choose>
+			                           	<c:forEach begin="${blockBegin}" end = "${blockEnd}" var="num">
+			                           		<c:if test="${selected != num}">
+			                           			<a href="${pageContext.request.contextPath}/admin/company_notice?curPage=${num}">
+			                                		<span class="page">${num}</span>
+			                            		</a>
+			                            	</c:if>
+			                            
+			                            	<c:if test="${selected == num}">
+			                                	<span class="page page-active">
+			                                    	<a href="" class="f6">${num}</a>
+			                                	</span>
+			                            	</c:if>
+			                           </c:forEach>
+			                           <c:choose>
+			                               	<c:when test = "${curPage != totalPage }">
+			                               		<a href="${pageContext.request.contextPath}/admin/company_notice?curPage=${curPage+1}">
+			                               			<span class="page">
+			                                     		<i class="fas fa-angle-right"></i>
+			                                 		</span>
+			                             		</a>
+			                             	</c:when>
+			                             	<c:otherwise>
+			                             		<span class="page">
+			                               			<i class="fas fa-angle-right"></i>
+			                            		</span>
+			                             	</c:otherwise>
+			                     		</c:choose>
+			                     		<c:choose>
+			                               	<c:when test = "${curPage != totalPage }">
+			                               		<span class="page">
+			                                   		<a href="${pageContext.request.contextPath}/admin/company_notice?curPage=${totalPage}"><i class="fas fa-angle-double-right"></i></a>
+			                               		</span>
+			                             	</c:when>
+			                             	<c:otherwise>
+			                               		<span class="page">
+			                               			<i class="fas fa-angle-double-right"></i>
+			                            		</span>
+			                             	</c:otherwise>
+			                     		</c:choose>
+			                         </div>
+								</c:if>
 							</div>
-
-							<div class="board-wrap" style="width: 100%;">
-								<table style="width: 100%;">
-									<tr class="center tr-color font14 weight700">
-										<td class="td-5">번호</td>
-										<td class="td-5">분류</td>
-										<td class="td-55">게시물 제목</td>
-										<td class="td-10">작성자</td>
-										<td class="td-5">조회</td>
-										<td class="td-10">날짜</td>
-										<td class="td-10">관리</td>
-									</tr>
-									<tr class="center font14">
-										<td>40</td>
-										<td>공지</td>
-										<td class="left p-lr10"><a href="grp_board_view.html"
-											class="under weight700"><i class="fas fa-bullhorn m-lr5"
-												style="color: #fc6468;"></i>2020/09/20 - 창립 100주년 행사 안내</a></td>
-										<td>관리자</td>
-										<td>12</td>
-										<td>2020.09.09</td>
-										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_board_modify.html?id=10'">수정</button>
-											<button type="button" class="s-btn-off">삭제</button>
-										</td>
-									<tr class="center font14">
-										<td>39</td>
-										<td>공지</td>
-										<td class="left p-lr10"><a href="grp_board_view.html"
-											class="under weight700"><i class="fas fa-bullhorn m-lr5"
-												style="color: #fc6468;"></i>2020/09/16 - 승진자 명단</a></td>
-										<td>관리자</td>
-										<td>12</td>
-										<td>2020.09.06</td>
-										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_board_modify.html?id=10'">수정</button>
-											<button type="button" class="s-btn-off">삭제</button>
-										</td>
-									</tr>
-
-									<tr class="center font14">
-										<td>38</td>
-										<td>공지</td>
-										<td class="left p-lr10"><a href="grp_board_view.html"
-											class="under weight700"><i class="fas fa-bullhorn m-lr5"
-												style="color: #fc6468;"></i>2020/09/20 - 창립 100주년 행사 안내</a></td>
-										<td>관리자</td>
-										<td>12</td>
-										<td>2020.09.09</td>
-										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_board_modify.html?id=10'">수정</button>
-											<button type="button" class="s-btn-off">삭제</button>
-										</td>
-									<tr class="center font14">
-										<td>37</td>
-										<td>공지</td>
-										<td class="left p-lr10"><a href="grp_board_view.html"
-											class="under weight700"><i class="fas fa-bullhorn m-lr5"
-												style="color: #fc6468;"></i>2020/09/16 - 승진자 명단</a></td>
-										<td>관리자</td>
-										<td>12</td>
-										<td>2020.09.06</td>
-										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_board_modify.html?id=10'">수정</button>
-											<button type="button" class="s-btn-off">삭제</button>
-										</td>
-									</tr>
-
-									<tr class="center font14">
-										<td>36</td>
-										<td>공지</td>
-										<td class="left p-lr10"><a href="grp_board_view.html"
-											class="under weight700"><i class="fas fa-bullhorn m-lr5"
-												style="color: #fc6468;"></i>2020/09/20 - 창립 100주년 행사 안내</a></td>
-										<td>관리자</td>
-										<td>12</td>
-										<td>2020.09.09</td>
-										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_board_modify.html?id=10'">수정</button>
-											<button type="button" class="s-btn-off">삭제</button>
-										</td>
-									<tr class="center font14">
-										<td>35</td>
-										<td>공지</td>
-										<td class="left p-lr10"><a href="grp_board_view.html"
-											class="under weight700"><i class="fas fa-bullhorn m-lr5"
-												style="color: #fc6468;"></i>2020/09/16 - 승진자 명단</a></td>
-										<td>관리자</td>
-										<td>12</td>
-										<td>2020.09.06</td>
-										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_board_modify.html?id=10'">수정</button>
-											<button type="button" class="s-btn-off">삭제</button>
-										</td>
-									</tr>
-
-									<tr class="center font14">
-										<td>34</td>
-										<td>공지</td>
-										<td class="left p-lr10"><a href="grp_board_view.html"
-											class="under weight700"><i class="fas fa-bullhorn m-lr5"
-												style="color: #fc6468;"></i>2020/09/20 - 창립 100주년 행사 안내</a></td>
-										<td>관리자</td>
-										<td>12</td>
-										<td>2020.09.09</td>
-										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_board_modify.html?id=10'">수정</button>
-											<button type="button" class="s-btn-off">삭제</button>
-										</td>
-									<tr class="center font14">
-										<td>33</td>
-										<td>공지</td>
-										<td class="left p-lr10"><a href="grp_board_view.html"
-											class="under weight700"><i class="fas fa-bullhorn m-lr5"
-												style="color: #fc6468;"></i>2020/09/16 - 승진자 명단</a></td>
-										<td>관리자</td>
-										<td>12</td>
-										<td>2020.09.06</td>
-										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_board_modify.html?id=10'">수정</button>
-											<button type="button" class="s-btn-off">삭제</button>
-										</td>
-									</tr>
-
-									<tr class="center font14">
-										<td>32</td>
-										<td>공지</td>
-										<td class="left p-lr10"><a href="grp_board_view.html"
-											class="under weight700"><i class="fas fa-bullhorn m-lr5"
-												style="color: #fc6468;"></i>2020/09/20 - 창립 100주년 행사 안내</a></td>
-										<td>관리자</td>
-										<td>12</td>
-										<td>2020.09.09</td>
-										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_board_modify.html?id=10'">수정</button>
-											<button type="button" class="s-btn-off">삭제</button>
-										</td>
-									<tr class="center font14">
-										<td>31</td>
-										<td>공지</td>
-										<td class="left p-lr10"><a href="grp_board_view.html"
-											class="under weight700"><i class="fas fa-bullhorn m-lr5"
-												style="color: #fc6468;"></i>2020/09/16 - 승진자 명단</a></td>
-										<td>관리자</td>
-										<td>12</td>
-										<td>2020.09.06</td>
-										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_board_modify.html?id=10'">수정</button>
-											<button type="button" class="s-btn-off">삭제</button>
-										</td>
-									</tr>
-
-								</table>
-							</div>
-							<div class="page-grp center m-t10">
-								<span class="page"><a href=""><i
-										class="fas fa-angle-double-left"></i></a></span> <span class="page"><a
-									href=""><i class="fas fa-angle-left"></i></a></span> <span
-									class="page page-active"><a href="" class="f6">1</a></span> <span
-									class="page"><a href="">2</a></span> <span class="page"><a
-									href="">3</a></span> <span class="page"><a href="">4</a></span> <span
-									class="page"><a href="">5</a></span> <span class="page"><a
-									href=""><i class="fas fa-angle-right"></i></a></span> <span
-									class="page"><a href=""><i
-										class="fas fa-angle-double-right"></i></a></span>
-							</div>
-						</div>
+			            </div>
 					</div>
-				</div>
-			</div>
-		</main>
-	</div>
+			    </div>
+  			</div>
+ 		</main>
+  	</div>
 </body>
 <script>
     $(function () {
-        $("tr:nth-child(2n+3)").addClass("tr-even");
+        $(".list tr:nth-child(2n+3)").addClass("tr-even");
     });
+
+    function noticeInsertOne(){
+   	 //window.open(주소, 별명, 넓이/높이/위치/스코롤바)
+   	 var url 	="${pageContext.request.contextPath}/notice/company_notice_insert";
+   	 var nick	="notice";
+   	 var opt	="width=1300, height=750, top=100, left=100";
+   	 window.open(url,nick,opt);
+    } 
+    
+    function noticeDelete(sn_num) {
+    	var str = confirm("삭제 후 복구는 불가능합니다.\n선택하신 정보를 삭제하시겠습니까?");
+        if( str ) {   
+            $.ajax({
+            	url 	: "${pageContext.request.contextPath}/notice/company_notice_delete",
+            	type 	: "POST", 	
+            	data 	: { sn_num : sn_num },
+            	success	: function (resData) {
+            		alert("삭제되었습니다.");
+    	    		window.location.href="${pageContext.request.contextPath}/admin/company_notice";
+                },
+                error 	: function() {
+                	alert("시스템 오류!");
+                }
+            });
+        }
+    }
+
 </script>
+
+
+
 </html>

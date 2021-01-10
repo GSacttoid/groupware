@@ -31,7 +31,7 @@
 						</div>
 						<div class="page-member-bottom">
 							<div class="page-content">
-								<form method="post" id="frm" action="${pageContext.request.contextPath}/register/myInfo_register" enctype="multipart/form-data">
+								<form method="post" id="frm" action="${pageContext.request.contextPath}/myInfo_register" enctype="multipart/form-data">
 									<div class="member-info flex">
 										<div class="member-left">
 											<div class="photo-area">
