@@ -22,8 +22,8 @@ public class NoticeSrv {
 		return nDao.getSystemNotice(start, end);
 	}
 	
-	public List<NoticeVO> getNotice5(){
-		return nDao.getNotice5();
+	public List<NoticeVO> getSysNotice5(){
+		return nDao.getSysNotice5();
 	}
 
 	public List<NoticeVO> getComNotice5(){

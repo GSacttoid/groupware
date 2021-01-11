@@ -30,8 +30,11 @@ public class EmpCtr {
 	
 	//사원 및 관리자 정보 관리 / 사원관리
 	@RequestMapping("/admin/employee_list")
-	public ModelAndView getEmpList(@RequestParam(defaultValue = "1") int curPage) {
-		int count = eSrv.getTotalEmpCount();
+	public ModelAndView getEmpList(
+			@RequestParam(defaultValue = "") String words, 
+			@RequestParam(defaultValue = "emp_name") String searchOpt,
+			@RequestParam(defaultValue = "1") int curPage) {
+		int count = eSrv.getTotalEmpCount(searchOpt, words);
 		int countNew = eSrv.getNewEmpCount();
 		int countResign = eSrv.getResignEmpCount();
 		
@@ -42,7 +45,7 @@ public class EmpCtr {
 		
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("list", eSrv.getEmpList(start, end));
+		mav.addObject("list", eSrv.getEmpList(start, end, searchOpt, words));
 		mav.addObject("countNew", countNew);
 		mav.addObject("countResign", countResign);
 		mav.addObject("count", count);
@@ -197,8 +200,13 @@ public class EmpCtr {
 	}
 	
 	@RequestMapping(value="/admin_info/admin_insert",method= RequestMethod.GET)
-	public ModelAndView getAdminInsert(@RequestParam(defaultValue = "1") int curPage) {
-		int count = eSrv.getTotalEmpCount();
+	public ModelAndView getAdminInsert(			
+			@RequestParam(defaultValue = "") String words, 
+			@RequestParam(defaultValue = "emp_name") String searchOpt,
+			@RequestParam(defaultValue = "1") int curPage) {
+		int count = eSrv.getTotalEmpCount(searchOpt, words);
+		int countNew = eSrv.getNewEmpCount();
+		int countResign = eSrv.getResignEmpCount();
 		
 		Pager pager = new Pager(count, curPage);
 		
@@ -207,7 +215,7 @@ public class EmpCtr {
 		
 		ModelAndView mav = new ModelAndView();
 
-		mav.addObject("list", eSrv.getEmpList(start, end));
+		mav.addObject("list", eSrv.getEmpList(start, end, searchOpt, words));
 		mav.addObject("count", count);
 		mav.addObject("start", start);
 		mav.addObject("end", end);
@@ -230,11 +238,6 @@ public class EmpCtr {
 		eSrv.setAdmin(evo);
 
 		return "success";
-	}
-	
-	@RequestMapping(value="/my_info", method={RequestMethod.GET, RequestMethod.POST})
-	public String myInfo() {
-		return "admin/admin_emp_manage/employee_view";
 	}
 	
 	@RequestMapping(value="/admin/employee_modify", method=RequestMethod.GET)

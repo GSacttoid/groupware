@@ -51,8 +51,11 @@ public class LoginCtr {
 			String confirm = loginSrv.getEmpInfoOne(evo, httpSession).getEmp_confirm();
 			if( confirm.equals("Y") ) {
 				loginSrv.getEmpInfoOne(evo, httpSession);
-				List<NoticeVO> list = nSrv.getNotice5();
-				mav.addObject("list", list);
+				List<NoticeVO> sysNoticeList = nSrv.getSysNotice5();
+				List<NoticeVO> comNoticeList = nSrv.getComNotice5();
+				
+				mav.addObject("sysNoticeList", sysNoticeList);
+				mav.addObject("comNoticeList", comNoticeList);
 				mav.setViewName("home/gw_home_main");
 			}else {
 				mav.addObject("msg", "관리자의 승인이 필요합니다.");

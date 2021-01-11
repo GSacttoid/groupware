@@ -21,6 +21,7 @@ public class LoginSrv {
 	public EmpVO getEmpInfoOne(EmpVO evo, HttpSession httpSession) {
 		EmpVO result = loginDao.getEmpInfoOne(evo);
 		if(result != null) {
+			httpSession.setAttribute("empNum", result.getEmp_num());
 			httpSession.setAttribute("empAuth", result.getEmp_auth());
 			httpSession.setAttribute("empId", result.getEmp_id());
 			httpSession.setAttribute("empName", result.getEmp_name());

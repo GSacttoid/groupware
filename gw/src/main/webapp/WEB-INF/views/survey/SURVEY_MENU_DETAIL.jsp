@@ -49,9 +49,6 @@
 	</div>
 	<div class="accordion-header" >진행중인 설문조사</div>
 	<div class="accordion-approval">
-		<div style="">
-			<a style="cursor:pointer; color:#5ebfd9;" onClick="">전체 설문조사</a>
-		</div>
 		<div>
 			<a style="cursor:pointer;" onClick="">회사 설문조사</a>
 		</div>
@@ -61,9 +58,6 @@
 	</div>
 	<div class="accordion-header">종료된 설문조사</div>
 	<div class="accordion-approval">
-		<div style="">
-			<a style="cursor:pointer; color:#5ebfd9;" onClick="">전체 설문조사</a>
-		</div>
 		<div>
 			<a style="cursor:pointer;" onClick="">회사 설문조사</a>
 		</div>

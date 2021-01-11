@@ -49,13 +49,13 @@
                                 <h3><a href="${pageContext.request.contextPath}/admin/system_notice" class="noto font16 under"><i class="fas fa-book"></i> 시스템 공지사항</a></h3>
                             </div>
                             <hr />
-                            <c:forEach var="list" items="${list}" varStatus="status">
+                            <c:forEach var="sysNoticeList" items="${sysNoticeList}" varStatus="status">
 	                            <div class="notice-content">
 	                                <div class="notice-left">
-	                                    <p class="noto"><span style="color: #d92550; margin-right: 10px;">[${list.sn_type}]</span>${list.sn_title} </p>
+	                                    <p class="noto"><span style="color: #d92550; margin-right: 10px;">[${sysNoticeList.sn_type}]</span>${sysNoticeList.sn_title} </p>
 	                                </div>
 	                                <div class="notice-right">
-	                                    <span class="" style="font-size: 14px; color: #555;">${list.sn_regdate}</span>
+	                                    <span class="" style="font-size: 14px; color: #555;">${sysNoticeList.sn_regdate}</span>
 	                                </div>
 	                            </div>
                             </c:forEach>
@@ -80,17 +80,19 @@
                         </div>
                         <div class="main-right">
                             <div class="notice-title">
-                                <h3><a href="${pageContext.request.contextPath}/admin/gw_company_info" class="noto font16 under"><i class="fas fa-book"></i> 회사 공지사항</a></h3>
+                                <h3><a href="${pageContext.request.contextPath}/admin/company_notice" class="noto font16 under"><i class="fas fa-book"></i> 회사 공지사항</a></h3>
                             </div>
                             <hr />
-                            <div class="notice-content">
-                                <div class="notice-left">
-                                    <p class=""><span style="color: #d92550; margin-right: 10px;">[인사과 알림]</span>운영자 확인이 필요한 근태 정보가 있습니다. </p>
-                                </div>
-                                <div class="notice-right">
-                                    <span class="" style="font-size: 14px; color: #555;">2020.09.15</span>
-                                </div>
-                            </div>
+                            <c:forEach var="comNoticeList" items="${comNoticeList}" varStatus="status">
+	                            <div class="notice-content">
+	                                <div class="notice-left">
+	                                    <p class="noto"><span style="color: #d92550; margin-right: 10px;">[${comNoticeList.sn_type}]</span>${comNoticeList.sn_title} </p>
+	                                </div>
+	                                <div class="notice-right">
+	                                    <span class="" style="font-size: 14px; color: #555;">${comNoticeList.sn_regdate}</span>
+	                                </div>
+	                            </div>
+                            </c:forEach>
 
                         </div>
                     </div>

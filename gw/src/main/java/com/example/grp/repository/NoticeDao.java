@@ -27,8 +27,8 @@ public class NoticeDao {
 		return sqlSession.selectList("notice.getNoticeList", map);
 	}
 	
-	public List<NoticeVO> getNotice5(){
-		return sqlSession.selectList("notice.getNotice5");
+	public List<NoticeVO> getSysNotice5(){
+		return sqlSession.selectList("notice.getSysNotice5");
 	}
 	
 	public List<NoticeVO> getComNotice5(){

@@ -2,6 +2,8 @@ package com.example.grp.repository;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,10 +16,12 @@ public class EmpDao {
 	@Autowired
 	SqlSession sqlSession;
 	
-	public List<EmpVO> getEmpList(int start, int end) {
+	public List<EmpVO> getEmpList(int start, int end, String searchOpt, String words) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
+		map.put("searchOpt", searchOpt);
+		map.put("words", words);
 		return sqlSession.selectList("employee.getEmpList", map);
 	}
 	
@@ -35,8 +39,11 @@ public class EmpDao {
 		return sqlSession.selectList("employee.getResignEmpList", map);
 	}
 
-	public int getTotalEmpCount() {
-		return sqlSession.selectOne("employee.getTotalEmpCount");
+	public int getTotalEmpCount(String searchOpt, String words) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("searchOpt", searchOpt);
+		map.put("words", words);
+		return sqlSession.selectOne("employee.getTotalEmpCount", map);
 	}
 	
 	public int getNewEmpCount() {

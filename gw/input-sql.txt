@@ -146,6 +146,53 @@ primary key(sn_num)
 );
 
 
+create table gw_approval(
+app_num int not null auto_increment,
+app_writer varchar(20),
+app_regdate date,
+app_end_date date,
+app_storage varchar(30),
+app_sign1 varchar(30),
+app_sign2 varchar(30),
+app_sign3 varchar(30),
+app_sign4 varchar(30),
+app_sign5 varchar(30),
+app_ref varchar(300),
+app_file varchar(300),
+app_file_ori varchar(300),
+app_sign_img varchar(300),
+app_auth int not null default 1,
+app_before_sign char(1) not null default 'N',
+app_other_sign char(1) not null default 'Y',
+app_after_sign char(1) not null default 'N',
+app_return char(1) not null default 'N',
+app_view char(1) not null default 'Y',
+app_cencle char(1) not null default 'N',
+primary key(app_num)
+);
 
+create table approval_set(
+app_num int not null,
+app_A_auth int,
+app_B_auth int,
+app_before_sign char(1) not null default 'N',
+app_other_sign char(1) not null default 'Y',
+app_after_sign char(1) not null default 'N',
+app_return char(1) not null default 'N',
+app_view char(1) not null default 'Y',
+app_cencle char(1) not null default 'N',
+primary key(app_num)
+);
 
+insert into approval_set SET 
+app_num = 1,
+app_A_auth = 6,
+app_B_auth = 4,
+app_before_sign = 'N',
+app_other_sign = 'Y',
+app_after_sign = 'N',
+app_return = 'N',
+app_view = 'Y',
+app_cencle = 'N'
+;
 

@@ -22,10 +22,13 @@ public class HomeCtr {
 	//그룹웨어 홈 메뉴 메인페이지
 	@RequestMapping("/main")
 	public ModelAndView getHomeMain() {
-		List<NoticeVO> list = nSrv.getNotice5();
+		List<NoticeVO> sysNoticeList = nSrv.getSysNotice5();
+		List<NoticeVO> comNoticeList = nSrv.getComNotice5();
+		
 		
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", list);
+		mav.addObject("sysNoticeList", sysNoticeList);
+		mav.addObject("comNoticeList", comNoticeList);
 		
 		mav.setViewName("home/gw_home_main");
 		return mav;

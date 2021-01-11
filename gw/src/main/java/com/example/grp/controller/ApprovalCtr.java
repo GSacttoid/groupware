@@ -12,4 +12,6 @@ public class ApprovalCtr {
 	public String getApprovalMain() {
 		return "approval/approval_main";
 	}
+	
+	
 }

@@ -73,9 +73,7 @@ td {
 											style="margin-left: -2px;" />
 										<button type="submit" class="btn-off"
 											style="margin-left: -2px;">게시글 검색</button>
-										<button type="button" class="btn-on"
-											onClick="location.href='grp_approval_form_make.html'">새양식
-											작성</button>
+										<button type="button" class="btn-on">새양식 작성</button>
 									</form>
 								</div>
 							</div>
@@ -97,15 +95,14 @@ td {
 									<tr class="center font14">
 										<td>30</td>
 										<td>공용</td>
-										<td>계획서</td>
-										<td class="noto font14 weight700 under">연차 계획서</td>
+										<td>문서</td>
+										<td class="noto font14 weight700 under">구매 청구서</td>
 										<td>김그린</td>
 										<td>13</td>
 										<td>2020/09/22</td>
-										<td>5등급</td>
+										<td>2등급</td>
 										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_approval_form_modify.html?num=30'">수정</button>
+											<button type="button" class="s-btn-on">수정</button>
 											<button type="button" class="s-btn-off">삭제</button>
 										</td>
 									</tr>
@@ -113,15 +110,14 @@ td {
 									<tr class="center font14">
 										<td>29</td>
 										<td>공용</td>
-										<td>계획서</td>
-										<td class="noto font14 weight700 under">연차 계획서</td>
+										<td>문서</td>
+										<td class="noto font14 weight700 under">매각 청구서</td>
 										<td>김그린</td>
 										<td>13</td>
 										<td>2020/09/22</td>
-										<td>5등급</td>
+										<td>4등급</td>
 										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_approval_form_modify.html?num=29'">수정</button>
+											<button type="button" class="s-btn-on">수정</button>
 											<button type="button" class="s-btn-off">삭제</button>
 										</td>
 									</tr>
@@ -129,15 +125,14 @@ td {
 									<tr class="center font14">
 										<td>28</td>
 										<td>공용</td>
-										<td>계획서</td>
-										<td class="noto font14 weight700 under">연차 계획서</td>
+										<td>문서</td>
+										<td class="noto font14 weight700 under">차량 관리 (배차신청서)</td>
 										<td>김그린</td>
 										<td>13</td>
 										<td>2020/09/22</td>
-										<td>5등급</td>
+										<td>2등급</td>
 										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_approval_form_modify.html?num=28'">수정</button>
+											<button type="button" class="s-btn-on">수정</button>
 											<button type="button" class="s-btn-off">삭제</button>
 										</td>
 									</tr>
@@ -145,15 +140,14 @@ td {
 									<tr class="center font14">
 										<td>27</td>
 										<td>공용</td>
-										<td>계획서</td>
-										<td class="noto font14 weight700 under">연차 계획서</td>
+										<td>문서</td>
+										<td class="noto font14 weight700 under">휴가 계획서</td>
 										<td>김그린</td>
 										<td>13</td>
 										<td>2020/09/22</td>
-										<td>5등급</td>
+										<td>2등급</td>
 										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_approval_form_modify.html?num=27'">수정</button>
+											<button type="button" class="s-btn-on">수정</button>
 											<button type="button" class="s-btn-off">삭제</button>
 										</td>
 									</tr>
@@ -161,15 +155,14 @@ td {
 									<tr class="center font14">
 										<td>26</td>
 										<td>공용</td>
-										<td>계획서</td>
+										<td>문서</td>
 										<td class="noto font14 weight700 under">연차 계획서</td>
 										<td>김그린</td>
 										<td>13</td>
 										<td>2020/09/22</td>
-										<td>5등급</td>
+										<td>2등급</td>
 										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_approval_form_modify.html?num=26'">수정</button>
+											<button type="button" class="s-btn-on">수정</button>
 											<button type="button" class="s-btn-off">삭제</button>
 										</td>
 									</tr>
@@ -177,15 +170,14 @@ td {
 									<tr class="center font14">
 										<td>25</td>
 										<td>공용</td>
-										<td>계획서</td>
-										<td class="noto font14 weight700 under">연차 계획서</td>
+										<td>문서</td>
+										<td class="noto font14 weight700 under">입찰 계약서</td>
 										<td>김그린</td>
 										<td>13</td>
 										<td>2020/09/22</td>
 										<td>5등급</td>
 										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_approval_form_modify.html?num=25'">수정</button>
+											<button type="button" class="s-btn-on">수정</button>
 											<button type="button" class="s-btn-off">삭제</button>
 										</td>
 									</tr>
@@ -193,15 +185,14 @@ td {
 									<tr class="center font14">
 										<td>24</td>
 										<td>공용</td>
-										<td>계획서</td>
-										<td class="noto font14 weight700 under">연차 계획서</td>
+										<td>문서</td>
+										<td class="noto font14 weight700 under">견적서</td>
 										<td>김그린</td>
 										<td>13</td>
 										<td>2020/09/22</td>
 										<td>5등급</td>
 										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_approval_form_modify.html?num=24'">수정</button>
+											<button type="button" class="s-btn-on">수정</button>
 											<button type="button" class="s-btn-off">삭제</button>
 										</td>
 									</tr>
@@ -209,15 +200,14 @@ td {
 									<tr class="center font14">
 										<td>23</td>
 										<td>공용</td>
-										<td>계획서</td>
-										<td class="noto font14 weight700 under">연차 계획서</td>
+										<td>문서</td>
+										<td class="noto font14 weight700 under">연차 제출서</td>
 										<td>김그린</td>
 										<td>13</td>
 										<td>2020/09/22</td>
 										<td>5등급</td>
 										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_approval_form_modify.html?num=23'">수정</button>
+											<button type="button" class="s-btn-on">수정</button>
 											<button type="button" class="s-btn-off">삭제</button>
 										</td>
 									</tr>
@@ -225,15 +215,14 @@ td {
 									<tr class="center font14">
 										<td>22</td>
 										<td>공용</td>
-										<td>계획서</td>
-										<td class="noto font14 weight700 under">연차 계획서</td>
+										<td>문서</td>
+										<td class="noto font14 weight700 under">품의서</td>
 										<td>김그린</td>
 										<td>13</td>
 										<td>2020/09/22</td>
-										<td>5등급</td>
+										<td>3등급</td>
 										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_approval_form_modify.html?num=22'">수정</button>
+											<button type="button" class="s-btn-on">수정</button>
 											<button type="button" class="s-btn-off">삭제</button>
 										</td>
 									</tr>
@@ -241,15 +230,14 @@ td {
 									<tr class="center font14">
 										<td>21</td>
 										<td>공용</td>
-										<td>계획서</td>
-										<td class="noto font14 weight700 under">연차 계획서</td>
+										<td>문서</td>
+										<td class="noto font14 weight700 under">휴가 계획서</td>
 										<td>김그린</td>
 										<td>13</td>
 										<td>2020/09/22</td>
-										<td>5등급</td>
+										<td>2등급</td>
 										<td>
-											<button type="button" class="s-btn-on"
-												onclick="location.href='grp_approval_form_modify.html?num=21'">수정</button>
+											<button type="button" class="s-btn-on">수정</button>
 											<button type="button" class="s-btn-off">삭제</button>
 										</td>
 									</tr>
@@ -257,16 +245,12 @@ td {
 								</table>
 							</div>
 							<div class="page-grp center m-t10">
-								<span class="page"><a href=""><i
-										class="fas fa-angle-double-left"></i></a></span> <span class="page"><a
-									href=""><i class="fas fa-angle-left"></i></a></span> <span
-									class="page page-active"><a href="" class="f6">1</a></span> <span
-									class="page"><a href="">2</a></span> <span class="page"><a
-									href="">3</a></span> <span class="page"><a href="">4</a></span> <span
-									class="page"><a href="">5</a></span> <span class="page"><a
-									href=""><i class="fas fa-angle-right"></i></a></span> <span
-									class="page"><a href=""><i
-										class="fas fa-angle-double-right"></i></a></span>
+								<span class="page"><a href=""><i class="fas fa-angle-double-left"></i></a></span> 
+								<span class="page"><a href=""><i class="fas fa-angle-left"></i></a></span> 
+								<span class="page page-active"><a href="" class="f6">1</a></span> 
+								<span class="page"><a href="">2</a></span> 
+								<span class="page"><a href="">3</a></span>  
+								<span class="page"><a href=""><i class="fas fa-angle-double-right"></i></a></span>
 							</div>
 						</div>
 					</div>

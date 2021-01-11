@@ -86,21 +86,20 @@ input[type="radio"] {
 								</div>
 								<div class="">
 									<div class="btn-grp m-b10">
-										<button class="depart-btn" type="button">전체 선택</button>
 										<button class="depart-btn" type="button"
 											style="background-color: #fc6468;">선택 삭제</button>
 									</div>
 									<table
 										style="width: 100%; border: 1px solid #c1c1c1; margin-bottom: 10px;">
 										<tr class="center noto font14">
-											<td class="td-10">선택</td>
+											<td class="td-10"><input type="checkbox" id="chkAll" /></td>
 											<td class="td-30">휴가명</td>
 											<td class="td-30">현재 설정</td>
 											<td class="td-30">차감 설정</td>
 										</tr>
 
 										<tr class="center noto font14">
-											<td><input type="checkbox" /></td>
+											<td><input type="checkbox" name="chk" class="chk" data-uid="${list.emp_num}" style="width:17px; height:17px;" /></td>
 											<td class="">정기 휴가계</td>
 											<td class="" style="color: #f00;">휴가 차감함</td>
 											<td><select>
@@ -111,7 +110,7 @@ input[type="radio"] {
 										</tr>
 
 										<tr class="center noto font14">
-											<td><input type="checkbox" /></td>
+											<td><input type="checkbox" name="chk" class="chk" data-uid="${list.emp_num}" style="width:17px; height:17px;" /></td>
 											<td class="">결근 (병가)계</td>
 											<td class="" style="color: #f00;">휴가 차감함</td>
 											<td><select>
@@ -122,7 +121,7 @@ input[type="radio"] {
 										</tr>
 
 										<tr class="center noto font14">
-											<td><input type="checkbox" /></td>
+											<td><input type="checkbox" name="chk" class="chk" data-uid="${list.emp_num}" style="width:17px; height:17px;" /></td>
 											<td class="">보건 휴가계</td>
 											<td class="" style="color: #f00;">휴가 차감함</td>
 											<td><select>
@@ -133,7 +132,7 @@ input[type="radio"] {
 										</tr>
 
 										<tr class="center noto font14">
-											<td><input type="checkbox" /></td>
+											<td><input type="checkbox" name="chk" class="chk" data-uid="${list.emp_num}" style="width:17px; height:17px;" /></td>
 											<td class="">조퇴계</td>
 											<td class="" style="color: #000;">휴가 차감 안함</td>
 											<td><select>
@@ -144,7 +143,7 @@ input[type="radio"] {
 										</tr>
 
 										<tr class="center noto font14">
-											<td><input type="checkbox" /></td>
+											<td><input type="checkbox" name="chk" class="chk" data-uid="${list.emp_num}" style="width:17px; height:17px;" /></td>
 											<td class="">경조사 휴가계</td>
 											<td class="" style="color: #f00;">휴가 차감함</td>
 											<td><select>
@@ -155,7 +154,7 @@ input[type="radio"] {
 										</tr>
 
 										<tr class="center noto font14">
-											<td><input type="checkbox" /></td>
+											<td><input type="checkbox" name="chk" class="chk" data-uid="${list.emp_num}" style="width:17px; height:17px;" /></td>
 											<td class="">교육/훈련계</td>
 											<td class="" style="color: #000;">휴가 차감 안함</td>
 											<td><select>
@@ -166,7 +165,7 @@ input[type="radio"] {
 										</tr>
 
 										<tr class="center noto font14">
-											<td><input type="checkbox" /></td>
+											<td><input type="checkbox" name="chk" class="chk" data-uid="${list.emp_num}" style="width:17px; height:17px;" /></td>
 											<td class="">출산 휴가계</td>
 											<td class="" style="color: #f00;">휴가 차감함</td>
 											<td><select>
@@ -177,7 +176,7 @@ input[type="radio"] {
 										</tr>
 
 										<tr class="center noto font14">
-											<td><input type="checkbox" /></td>
+											<td><input type="checkbox" name="chk" class="chk" data-uid="${list.emp_num}" style="width:17px; height:17px;" /></td>
 											<td class="">사유서계</td>
 											<td class="" style="color: #f00;">휴가 차감함</td>
 											<td><select>
@@ -188,7 +187,7 @@ input[type="radio"] {
 										</tr>
 
 										<tr class="center noto font14">
-											<td><input type="checkbox" /></td>
+											<td><input type="checkbox" name="chk" class="chk" data-uid="${list.emp_num}" style="width:17px; height:17px;" /></td>
 											<td class="">연차</td>
 											<td class="" style="color: #f00;">휴가 차감함</td>
 											<td><select>
@@ -199,7 +198,7 @@ input[type="radio"] {
 										</tr>
 
 										<tr class="center noto font14">
-											<td><input type="checkbox" /></td>
+											<td><input type="checkbox" name="chk" class="chk" data-uid="${list.emp_num}" style="width:17px; height:17px;" /></td>
 											<td class="">월차</td>
 											<td class="" style="color: #f00;">휴가 차감함</td>
 											<td><select>
@@ -226,5 +225,16 @@ input[type="radio"] {
 	$(function() {
 		$("tr:nth-child(2n+3)").addClass("tr-even");
 	});
+</script>
+<script>
+$(document).ready(function(){
+    $("#chkAll").click(function(){
+        if($("#chkAll").prop("checked")){
+            $("input[name=chk]").prop("checked",true);
+        }else{
+            $("input[name=chk]").prop("checked",false);
+        }
+    })
+})
 </script>
 </html>

@@ -16,8 +16,8 @@ public class EmpSrv {
 	@Autowired
 	EmpDao eDao;
 
-	public List<EmpVO> getEmpList(int start, int end) {
-		return eDao.getEmpList(start, end);
+	public List<EmpVO> getEmpList(int start, int end, String searchOpt, String words) {
+		return eDao.getEmpList(start, end, searchOpt, words);
 	}
 	
 	public List<EmpVO> getNewEmp(int start, int end) {
@@ -28,8 +28,8 @@ public class EmpSrv {
 		return eDao.getResignEmp(start, end);
 	}
 	
-	public int getTotalEmpCount() {
-		return eDao.getTotalEmpCount();
+	public int getTotalEmpCount(String searchOpt, String words) {
+		return eDao.getTotalEmpCount(searchOpt, words);
 	}
 
 	public int getNewEmpCount() {

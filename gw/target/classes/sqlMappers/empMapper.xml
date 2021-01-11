@@ -2,7 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="employee">
 
-	<select id="getEmpList"  resultType="com.example.grp.model.EmpVO">
+	<sql id="searchData">
+		${searchOpt} LIKE CONCAT('%', #{words}, '%')
+	</sql>
+	
+	<select id="getEmpList" parameterType="hashmap"  resultType="com.example.grp.model.EmpVO">
 		SELECT 
 			emp_num as emp_num,
 			emp_buseo as emp_buseo,
@@ -17,7 +21,9 @@
 			emp_regdate as emp_regdate,
 			emp_confirm as emp_confirm,
 			emp_auth as emp_auth 
-		 FROM gw_employee e, gw_buseo b, gw_grade g WHERE emp_confirm = 'Y' AND e.emp_buseo = b.buseo_id AND e.emp_grade = g.grade_id ORDER BY emp_num DESC LIMIT #{start}, #{end}
+		 FROM gw_employee e, gw_buseo b, gw_grade g WHERE e.emp_confirm = 'Y' AND e.emp_buseo = b.buseo_id AND e.emp_grade = g.grade_id 
+		  AND <include refid="searchData"></include>  
+		  ORDER BY emp_num DESC LIMIT #{start}, #{end}
 	</select>
 	
 	<select id="getNewEmpList"  resultType="com.example.grp.model.EmpVO">
@@ -51,7 +57,7 @@
 	</select>
 	
 	<select id="getTotalEmpCount" resultType="int">
-		SELECT COUNT(*) FROM gw_employee WHERE emp_confirm = 'Y' AND emp_num > 1
+		SELECT COUNT(*) FROM gw_employee WHERE emp_confirm = 'Y' AND emp_num > 1 AND <include refid="searchData"></include>  
 	</select>
 	
 	<select id="getNewEmpCount" resultType="int">

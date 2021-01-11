@@ -51,7 +51,8 @@
      </div>
 
     <div class="icons">
-        <div class="icon" title="사용자 정보" onClick="myInfo();" style="cursor:pointer;"><i class="fas fa-user f6"></i></div>
+        <div class="icon" title="사용자 정보" onClick="location.href='${pageContext.request.contextPath}/address/employee_info?emp_num=${sessionScope.empNum}'" 
+             style="cursor:pointer;"><i class="fas fa-user f6"></i></div>
         <div class="icon"><a href="${pageContext.request.contextPath}/gw_setting" title="환경설정"><i class="fas fa-cogs f6"></i></a></div>
         <div class="icon"><a href="${pageContext.request.contextPath}/gw_logout" title="로그아웃"><i class="fas fa-sign-out-alt f6" id="logout"></i></a></div>
     </div>

@@ -27,8 +27,10 @@ public class GwInfoCtr {
     
 	//그룹웨어 정보 / 그룹웨어 사용정보
 	@RequestMapping("/admin/gw_info")
-	public ModelAndView getGwInfoMain() {
-		int TotalEmpCount = eSrv.getTotalEmpCount();
+	public ModelAndView getGwInfoMain(
+			@RequestParam(defaultValue = "") String words, 
+			@RequestParam(defaultValue = "emp_name") String searchOpt) {
+		int TotalEmpCount = eSrv.getTotalEmpCount(searchOpt, words);
 		int NewEmpCount = eSrv.getNewEmpCount();
 		int ResignEmpCount = eSrv.getResignEmpCount();
 		
@@ -49,8 +51,10 @@ public class GwInfoCtr {
 	}
 	
 	@RequestMapping(value="/gw_info",method= {RequestMethod.GET, RequestMethod.POST})
-	public ModelAndView getGwInfo() {
-		int TotalEmpCount = eSrv.getTotalEmpCount();
+	public ModelAndView getGwInfo(
+			@RequestParam(defaultValue = "") String words, 
+			@RequestParam(defaultValue = "emp_name") String searchOpt) {
+		int TotalEmpCount = eSrv.getTotalEmpCount(searchOpt, words);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String start = sdf.format(cSrv.getGwInfo().getInfo_gw_start());

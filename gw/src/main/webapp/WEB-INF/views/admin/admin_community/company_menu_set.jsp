@@ -78,80 +78,84 @@
 											<li>회사메뉴의 모든 메뉴는 모든 직원에게 공개됩니다.</li>
 											<li>사용하고 싶은 메뉴를 선택하여 추가하거나, 삭제하실 수 있으며, 메뉴이름도 변경하실 수
 												있습니다.</li>
-											<li>추가/삭제/이름 변경 시에는 반드시 [저장]버튼을 눌러주셔야만 적용이 됩니다.</li>
+											<li>추가 시에는 반드시 [저장]버튼을 눌러주셔야만 적용이 됩니다.</li>
 										</ul>
 									</div>
 								</td>
 							</tr>
 						</table>
 						<br />
-						<form method="post" action="#">
-							<div class="p10" style="border: 1px solid #c1c1c1;">
-								<div class="noto font16 weight700 m-tb10">1. 회사 메뉴 만들기</div>
-								<table
-									style="width: 100%; border: 1px solid #c1c1c1; margin-bottom: 10px;">
-									<tr class="m-t10">
-										<td class="font14 td-20 center p-10"
-											style="background-color: #e2e2e2;">회사 메뉴 등록하기</td>
-										<td><select class="sel-135" name=""
-											style="margin-left: 2px;">
-												<option value="">--메뉴 종류--</option>
-												<option value="board">게시판</option>
-												<option value="album">앨범</option>
-												<option value="library">자료실</option>
-										</select> <input type="text" class="input-135"
-											style="margin-left: 2px;" placeholder="메뉴이름을 적어주세요." />
-											<button type="submit" class="btn-on">등록</button></td>
-									</tr>
-								</table>
-							</div>
-						</form>
-						<br />
-
-						<form method="post" action="#">
-							<div class="p10" style="border: 1px solid #c1c1c1;">
-								<div class="">
-									<div class="noto font16 weight700 m-tb10">2. 회사 메뉴 리스트</div>
-									<div class="noto font14 m-b10">사용중인 회사 메뉴 : 5 개</div>
-									<div class="btn-grp m-b10">
-										<button class="depart-btn" type="button">전체 선택</button>
-										<button class="depart-btn" type="button"
-											style="background-color: #fc6468;">선택 삭제</button>
-									</div>
-								</div>
-								<div class="">
-									<table
-										style="width: 100%; border: 1px solid #c1c1c1; margin-bottom: 10px;">
-										<tr class="center noto font14 bg-gray">
-											<td class="" style="width: 5%;">선택</td>
-											<td class="" style="width: 10%;">순서</td>
-											<td class="" style="width: 10%;">메뉴 종류</td>
-											<td class="">메뉴 이름</td>
-											<td class="" style="width: 15%;">생성일</td>
-											<td class="" style="width: 15%;">관리 [메뉴 속성]</td>
-										</tr>
-										<tr class="center noto font14">
-											<td><input type="checkbox" /></td>
-											<td>1</td>
-											<td>게시판</td>
-											<td>토론 게시판</td>
-											<td>2020/09/16</td>
-											<td>
-												<button type="button" class="s-btn-on">수정</button>
-												<button type="button" class="s-btn-off"
-													style="background-color: #fc6468; color: #fff;">삭제</button>
-											</td>
-
-										</tr>
-
-									</table>
-								</div>
-								<div class="btn-grp center m-t10">
-									<button type="submit" class="btn-on">저장</button>
-									<button type="button" class="btn-off">취소</button>
-								</div>
-							</div>
-						</form>
+						<div class="flex flex-justify">
+			            	<div style="width:100%; margin-right:10px;">
+			           	        <form method="post" id="buseoList" >
+						            <div class="p10" style="border: 1px solid #c1c1c1;">
+						                <div class="">
+						                    <div class="noto font16 weight700 m-tb10">1. 회사 메뉴 리스트</div>
+						                    <div class="noto font14 m-b10">사용중인 메뉴 : ${count} 개</div>
+						                    <div class="btn-grp m-b10">
+						                        <button class="depart-btn" type="button" id="menuDeleteAll" style="background-color: #fc6468;">선택 삭제</button>
+						                    </div>
+						                </div>
+						                <div>
+						                	<div class="">
+						                    	<table style="width:100%; border: 1px solid #c1c1c1; margin-bottom: 10px;">
+						                              <tr class="center noto font14 bg-gray" style="height: 40px; border: 1px solid #c1c1c1;">
+						                                  <td style="border: 1px solid #c1c1c1; width:10%">
+														  	  <input type="checkbox" id="chkAll" />
+														  </td>
+						                                  <td style="border: 1px solid #c1c1c1; width:15%">메뉴종류</td>
+						                                  <td style="border: 1px solid #c1c1c1;">메뉴명</td>
+						                                  <td style="border: 1px solid #c1c1c1; width:20%">생성일</td>
+						                                  <td style="border: 1px solid #c1c1c1; width:15%">관리</td>
+						                              </tr>
+						                              <c:forEach var="comMenuList" items="${list}" varStatus="status">
+							                              <tr class="center noto font14">
+							                                  <td>
+							                                      <input type="checkbox" name="chk" class="chk" data-uid="" style="width:17px; height:17px;" />
+							                                  </td>
+							                                  <td></td>
+							                                  <td></td>
+							                                  <td></td>
+							                                  <td>
+							                                  	<button class="s-btn-off" type="button" onClick="menuDelete(});" 
+							                                  	 style="background-color: #fc6468; color:#fff;">삭제</button>
+							                                  </td>
+							                              </tr>
+						                              </c:forEach>
+						                    	</table>
+						                    	
+						                   	</div>
+						             	</div>
+						            </div>
+						        </form>
+			            	</div>
+			            	<div style="width:100%">
+			           	        <form method="post" id="frm" autocomplete="off">
+						            <div class="p10" style="border: 1px solid #c1c1c1;">
+						            	<div class="noto font16 weight700 m-tb10">2. 회사 메뉴 만들기</div>
+						                <table style="width:100%; border: 1px solid #c1c1c1; margin-bottom: 10px;" >
+						                    <tr class="m-t10">
+						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">메뉴 종류</td>
+						                        <td>
+						                            <input type="text" class="input-135" name="menu_kind" id="menu_kind" style="margin-left: 2px;" />
+						                            <span class="noto font14 m-lr10" style="line-height:35px;"></span>
+						                        </td>
+						                    </tr>
+						                    <tr class="m-t10">
+						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">메뉴명</td>
+						                        <td>
+						                            <input type="text" class="input-135" name="menu_name" id="menu_name" style="margin-left: 2px;" />
+						                        </td>
+						                    </tr>
+						                </table>
+						                <div class="center font14">
+						                	<button type="button" class="btn-on" onClick="menuInsert();" >등록</button>
+						                	<button type="reset" class="btn-off" >취소</button>
+						                </div>
+						            </div>
+						        </form>
+			            	</div>
+			            </div>
 					</div>
 				</div>
 			</div>

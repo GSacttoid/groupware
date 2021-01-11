@@ -5,9 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.grp.model.ApprovalSetVO;
+import com.example.grp.model.GradeVO;
 import com.example.grp.model.NoticeVO;
+import com.example.grp.service.ApprovalSrv;
+import com.example.grp.service.ComSrv;
 import com.example.grp.service.NoticeSrv;
 
 @Controller
@@ -17,10 +23,16 @@ public class AdminCtr {
 	@Autowired
 	NoticeSrv nSrv;
 	
+	@Autowired
+	ComSrv cSrv;
+	
+	@Autowired
+	ApprovalSrv aSrv;
+	
 	//관리자 메뉴 메인페이지
 	@RequestMapping("/main")
 	public ModelAndView getAdminMain() {
-		List<NoticeVO> list = nSrv.getNotice5();
+		List<NoticeVO> list = nSrv.getSysNotice5();
 		List<NoticeVO> comList = nSrv.getComNotice5();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
@@ -66,9 +78,21 @@ public class AdminCtr {
 	}
 	
 	//전자 결제 / 전자결제 설정
-	@RequestMapping("/approval_set")
-	public String getApprovalSet() {
-		return "admin/admin_approval/approval_set";
+	@RequestMapping(value = "/approval_set", method = RequestMethod.GET)
+	public ModelAndView getApprovalSet() {
+		
+		ModelAndView mav = new ModelAndView();
+		ApprovalSetVO avo = aSrv.getAppSet();
+		mav.addObject("list", avo);
+		mav.setViewName("admin/admin_approval/approval_set");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/approval_set", method = RequestMethod.POST)
+	@ResponseBody
+	public String setApprovalSet(ApprovalSetVO avo) {
+		aSrv.setAppSet(avo);
+		return "success";
 	}
 	
 	//자료실 설정 / 자료실 설정

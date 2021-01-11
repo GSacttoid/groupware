@@ -49,11 +49,11 @@
 	</div>
 	<div class="accordion-header" >회사 메뉴</div>
 	<div class="accordion-approval">
-		<div style="">
-			<a style="cursor:pointer; color:#5ebfd9;" onClick="">전체</a>
+		<div>
+			<a style="cursor:pointer;" onClick="">시스템 공지사항</a>
 		</div>
 		<div>
-			<a style="cursor:pointer;" onClick="">공지사항</a>
+			<a style="cursor:pointer;" onClick="">회사 공지사항</a>
 		</div>
 		<div>
 			<a style="cursor:pointer;" onClick="">건의사항</a>
@@ -67,9 +67,6 @@
 	</div>
 	<div class="accordion-header">부서 메뉴</div>
 	<div class="accordion-approval">
-		<div style="">
-			<a style="cursor:pointer; color:#5ebfd9;" onClick="">전체</a>
-		</div>
 		<div>
 			<a style="cursor:pointer;" onClick="">건의사항</a>
 		</div>
