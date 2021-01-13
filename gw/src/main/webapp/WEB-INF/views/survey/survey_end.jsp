@@ -86,7 +86,7 @@
 			                        	<td>${survey_ing.survey_way}</td>
 				                        <td>
 				                        	<div class="left p10 under weight700" 
-				                        	onClick="location.href='${pageContext.request.contextPath}/survey/survey_view?survey_id=${survey_ing.survey_id}'">${survey_ing.survey_title}</div>
+				                        	onClick="survey_result('${survey_ing.survey_id}');">${survey_ing.survey_title}</div>
 				                        </td>
 				                        <td>${survey_ing.survey_total}</td>
 				                        <td>${survey_ing.survey_maker}</td>

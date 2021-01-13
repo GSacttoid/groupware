@@ -69,7 +69,7 @@
                         <div class="main-left">
                             <div class="notice-title">
                                 <h3><a href="${pageContext.request.contextPath}/survey/main" class="noto font16 under">
-                                <i class="fas fa-book"></i> 설문조사</a></h3>
+                                <i class="fas fa-vote-yea"></i> 설문조사</a></h3>
                             </div>
                             <hr />
                             <div class="notice-content">

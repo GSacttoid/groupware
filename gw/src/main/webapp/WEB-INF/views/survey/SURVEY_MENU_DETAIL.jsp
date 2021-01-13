@@ -49,12 +49,12 @@
 		style="width:100%; background-color:#347765;">설문조사 등록하기</button>
 	</div>
 	<div class="accordion-header" >
-		<a class="f6 font16" href="${pageContext.request.contextPath}/survey/survey_list/total_ing">진행중인 설문조사</a>
+		<a class="f6 font16" href="${pageContext.request.contextPath}/survey/survey_list/total_ing">진행중인 설문</a>
 		<span class="m-lr3" style="color:#f00;">[${openCount}]</span>
 	</div>
 
 	<div class="accordion-header">
-		<a class="f6 font16" href="${pageContext.request.contextPath}/survey/survey_list/total_end">종료된 설문조사</a>
+		<a class="f6 font16" href="${pageContext.request.contextPath}/survey/survey_list/total_end">종료된 설문</a>
 		<span class="m-lr3" style="color:#f00;">[${closeCount}]</span>
 	</div>
 
