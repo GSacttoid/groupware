@@ -114,7 +114,7 @@ td {
 						</table>
 						<br />
 
-						<form method="post" action="#">
+						
 							<div class="p10" style="border: 1px solid #c1c1c1;">
 								<div class="">
 									<div class="flex m-b10">
@@ -140,14 +140,14 @@ td {
 											</div>
 										</div>
 										<div class="">
-											<select class="" name="searchOpt">
-												<option value="">--검색 조건--</option>
-												<option value="name">이름</option>
-												<option value="grade">직급</option>
-											</select> 
-											<input type="text" name="words" required style="margin-left: -2px;" />
-											<button type="submit" class="btn-off" style="margin-left: -2px;">직원 검색</button>
-											<button type="button" class="btn-on" onClick="location.href='${pageContext.request.contextPath}/admin/employee_register'">사원 등록</button>
+											<form method="post" action="${pageContext.request.contextPath}/admin/employee_list">
+												<select class="sel-75 noto weight500" name="searchOpt" id="searchOpt">
+													<option value="emp_name" <c:if test="${searchOpt eq 'emp_name'}">selected</c:if> >이름</option>
+													<option value="emp_id" <c:if test="${searchOpt eq 'emp_id'}">selected</c:if> >아이디</option>
+												</select> 
+												<input type="text" name="words" autocomplete="off" value="${words}" style="margin-left: -2px;" />
+												<button type="submit" class="btn-on" style="margin-left: -2px;">검색</button>
+											</form>
 										</div>
 									</div>
 								</div>
@@ -280,7 +280,7 @@ td {
 								</c:if>
 								<!-- PAGER -->
 							</div>
-						</form>
+						
 					</div>
 				</div>
 			</div>

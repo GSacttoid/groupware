@@ -3,7 +3,21 @@
 <mapper namespace="login">
 
 	<select id="getEmpInfoOne" parameterType="String" resultType="com.example.grp.model.EmpVO">
-		SELECT * FROM gw_employee WHERE emp_id = #{emp_id}
+		SELECT 
+			emp_num as emp_num,
+			emp_buseo as emp_buseo,
+			B.buseo_name as emp_buseo_name,
+			g.grade_name as emp_grade_name,
+			emp_id as emp_id,
+			emp_pwd as emp_pwd,
+			emp_name as emp_name,
+			emp_enter as emp_enter,
+			emp_phone as emp_phone,
+			emp_company_tel as emp_company_tel,
+			emp_regdate as emp_regdate,
+			emp_confirm as emp_confirm,
+			emp_auth as emp_auth 
+		 FROM gw_employee e, gw_buseo b, gw_grade g  WHERE emp_id = #{emp_id} AND e.emp_buseo = b.buseo_id AND e.emp_grade = g.grade_id
 	</select>
 	
 	<select id="loginCheck" parameterType="com.example.grp.model.EmpVO" resultType="int">

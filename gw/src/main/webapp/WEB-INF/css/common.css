@@ -147,7 +147,7 @@ button{
 .btn-cancel{
     display: inline-block;
     padding: 9.5px 10px;
-    background-color: #edeff5;
+    background-color: #c0c0c0;
     border-radius: 2px;
     color: #000;
     font-weight: 700;
@@ -517,6 +517,9 @@ select{
 /* align */
 .left{
     text-align: left;
+}
+.right{
+    text-align: right;
 }
 .center{
     text-align: center;

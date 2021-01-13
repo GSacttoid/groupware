@@ -26,7 +26,10 @@ public class LoginSrv {
 			httpSession.setAttribute("empId", result.getEmp_id());
 			httpSession.setAttribute("empName", result.getEmp_name());
 			httpSession.setAttribute("empBuseoCode", result.getEmp_buseo());
+			httpSession.setAttribute("empBuseoName", result.getEmp_buseo_name());
 			httpSession.setAttribute("empGender", result.getEmp_gender());
+			httpSession.setAttribute("empGradeCode", result.getEmp_grade());
+			httpSession.setAttribute("empGradeName", result.getEmp_grade_name());
 			httpSession.setAttribute("empConfirm", result.getEmp_confirm());
 		}
 		return result;

@@ -24,7 +24,7 @@
 <div class="accordion">
 	<div class="p10 m-b10" style="width:100%; background-color:#347765; border-radius:3px; ">
 		<button class="noto font18 weight700 f6 center p-tb5" style="width:100%; background-color:#347765;"
-		 onClick="location.href='${pageContext.request.contextPath}/address/employee_info?emp_num=${sessionScope.empNum}'">내정보 상세보기</button>
+		 onClick="location.href='${pageContext.request.contextPath}/address/employee_my?emp_num=${sessionScope.empNum}'">내정보 상세보기</button>
 	</div>
 	<div class="accordion-header" onClick="location.href='${pageContext.request.contextPath}/address/main'">
 		직원 주소록

@@ -196,3 +196,21 @@ app_view = 'Y',
 app_cencle = 'N'
 ;
 
+create table gw_survey(
+survey_id int not null auto_increment,
+survey_status varchar(10),
+survey_buseo varchar(10),
+survey_grade varchar(10),
+survey_way varchar(5),
+survey_view varchar(10),
+survey_result varchar(10),
+survey_startDate date,
+survey_endDate date,
+survey_maker varchar(10),
+survey_title varchar(50),
+survey_content text,
+survey_example varchar(300),
+survey_ex_cnt varchar(50),
+survey_regdate date,
+primary key(survey_id)
+);

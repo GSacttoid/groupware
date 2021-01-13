@@ -31,7 +31,8 @@
                     <div class="main-admin-notice">
                         <div class="main-left">
                             <div class="notice-title">
-                                <h3><a href="${pageContext.request.contextPath}/admin/system_notice" class="noto font16 under"><i class="fas fa-book"></i> 결제 내역</a></h3>
+                                <h3><a href="${pageContext.request.contextPath}/approval/main" class="noto font16 under">
+                                <i class="fas fa-file-signature"></i> 전자결재 시스템</a></h3>
                             </div>
                             <hr />
                             <div class="notice-content">
@@ -46,7 +47,8 @@
                         </div>
                         <div class="main-right">
                             <div class="notice-title">
-                                <h3><a href="${pageContext.request.contextPath}/admin/system_notice" class="noto font16 under"><i class="fas fa-book"></i> 시스템 공지사항</a></h3>
+                                <h3><a href="${pageContext.request.contextPath}/board/system_notice" class="noto font16 under">
+                                <i class="fas fa-book"></i> 시스템 공지사항</a></h3>
                             </div>
                             <hr />
                             <c:forEach var="sysNoticeList" items="${sysNoticeList}" varStatus="status">
@@ -66,7 +68,8 @@
                     <div class="main-admin-notice">
                         <div class="main-left">
                             <div class="notice-title">
-                                <h3><a href="${pageContext.request.contextPath}/admin/system_notice" class="noto font16 under"><i class="fas fa-book"></i> 설문조사</a></h3>
+                                <h3><a href="${pageContext.request.contextPath}/survey/main" class="noto font16 under">
+                                <i class="fas fa-book"></i> 설문조사</a></h3>
                             </div>
                             <hr />
                             <div class="notice-content">
@@ -80,7 +83,8 @@
                         </div>
                         <div class="main-right">
                             <div class="notice-title">
-                                <h3><a href="${pageContext.request.contextPath}/admin/company_notice" class="noto font16 under"><i class="fas fa-book"></i> 회사 공지사항</a></h3>
+                                <h3><a href="${pageContext.request.contextPath}/board/company_notice" class="noto font16 under">
+                                <i class="fas fa-book"></i> 회사 공지사항</a></h3>
                             </div>
                             <hr />
                             <c:forEach var="comNoticeList" items="${comNoticeList}" varStatus="status">

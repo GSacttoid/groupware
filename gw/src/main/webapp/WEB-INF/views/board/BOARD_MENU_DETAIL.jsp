@@ -44,37 +44,34 @@
 </div>
 
 <div class="accordion">
-	<div class="p10 m-b10" style="width:100%; background-color:#347765; border-radius:3px; ">
-		<button class="noto font18 weight700 f6 center p-tb5" style="width:100%; background-color:#347765;">게시글 작성하기</button>
-	</div>
 	<div class="accordion-header" >회사 메뉴</div>
 	<div class="accordion-approval">
 		<div>
-			<a style="cursor:pointer;" onClick="">시스템 공지사항</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">시스템 공지사항</a>
 		</div>
 		<div>
-			<a style="cursor:pointer;" onClick="">회사 공지사항</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">회사 공지사항</a>
 		</div>
 		<div>
-			<a style="cursor:pointer;" onClick="">건의사항</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">건의사항</a>
 		</div>
 		<div>
-			<a style="cursor:pointer;" onClick="">일반 게시판</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">일반 게시판</a>
 		</div>
 		<div>
-			<a style="cursor:pointer;" onClick="">앨범 게시판</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">앨범 게시판</a>
 		</div>
 	</div>
 	<div class="accordion-header">부서 메뉴</div>
 	<div class="accordion-approval">
 		<div>
-			<a style="cursor:pointer;" onClick="">건의사항</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">건의사항</a>
 		</div>
 		<div>
-			<a style="cursor:pointer;" onClick="">일반 게시판</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">일반 게시판</a>
 		</div>
 		<div>
-			<a style="cursor:pointer;" onClick="">앨범 게시판</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">앨범 게시판</a>
 		</div>
 	</div>
 	<div class="accordion-header" >임시보관 게시글</div>

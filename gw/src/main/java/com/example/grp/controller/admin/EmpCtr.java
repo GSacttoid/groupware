@@ -31,8 +31,8 @@ public class EmpCtr {
 	//사원 및 관리자 정보 관리 / 사원관리
 	@RequestMapping("/admin/employee_list")
 	public ModelAndView getEmpList(
-			@RequestParam(defaultValue = "") String words, 
 			@RequestParam(defaultValue = "emp_name") String searchOpt,
+			@RequestParam(defaultValue = "") String words, 
 			@RequestParam(defaultValue = "1") int curPage) {
 		int count = eSrv.getTotalEmpCount(searchOpt, words);
 		int countNew = eSrv.getNewEmpCount();
@@ -51,6 +51,8 @@ public class EmpCtr {
 		mav.addObject("count", count);
 		mav.addObject("start", start);
 		mav.addObject("end", end);
+		mav.addObject("searchOpt", searchOpt);
+		mav.addObject("words", words);
 		mav.addObject("blockBegin", pager.getBlockBegin());
 		mav.addObject("blockEnd", pager.getBlockEnd());
 		mav.addObject("curBlock", pager.getCurBlock());

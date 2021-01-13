@@ -64,4 +64,14 @@ public class AddressCtr {
 		mav.setViewName("address/employee_view");
 		return mav;
 	}
+	
+	@RequestMapping(value="/employee_my", method=RequestMethod.GET)
+	public ModelAndView empMyInfo(@ModelAttribute EmpVO evo) {
+		EmpVO vo = eSrv.getEmpOne(evo);
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", vo);
+		mav.setViewName("address/employee_my");
+		return mav;
+	}
 }

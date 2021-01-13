@@ -49,9 +49,6 @@
 	</div>
 	<div class="accordion-header" >승인요청 중인 서류</div>
 	<div class="accordion-approval">
-		<div style="">
-			<a style="cursor:pointer; color:#5ebfd9;" onClick="">전체 서류</a>
-		</div>
 		<div>
 			<a style="cursor:pointer;" onClick="">개인 서류</a>
 		</div>
@@ -64,9 +61,6 @@
 	</div>
 	<div class="accordion-header">검토할 서류</div>
 	<div class="accordion-approval">
-		<div style="">
-			<a style="cursor:pointer; color:#5ebfd9;" onClick="">전체 서류</a>
-		</div>
 		<div>
 			<a style="cursor:pointer;" onClick="">개인 서류</a>
 		</div>

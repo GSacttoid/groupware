@@ -79,11 +79,4 @@
 		</div>
 	</div>
 
-	<div class="accordion-header">자료실 관리</div>
-	<div class="accordion-content">
-		<div>
-			<a href="${pageContext.request.contextPath}/admin/gw_library_set">자료실 설정</a>
-		</div>
-	</div>
-
 </div>

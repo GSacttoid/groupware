@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="survey">
+
+	<insert id="setSurveyInsert" parameterType="com.example.grp.model.SurveyVO">
+		INSERT INTO gw_survey SET 
+		survey_status 		= #{survey_status},
+		survey_view 		= #{survey_view},
+		survey_result 		= #{survey_result},
+		survey_way 			= #{survey_way},
+		survey_startDate 	= #{survey_startDate},
+		survey_endDate		= #{survey_endDate},
+		survey_maker		= #{survey_maker},
+		survey_title		= #{survey_title},
+		survey_example		= #{survey_ex},
+		survey_ex_cnt		= #{survey_ex_cnt},
+		survey_regdate		= now() 
+		<choose>
+			<when test="survey_view=='부서'">
+				,survey_buseo = #{survey_buseo}
+			</when>
+			<when test="survey_view=='직급'">
+				,survey_grade = #{survey_grade}
+			</when>
+		</choose>
+	</insert>
+	
+	<select id="getSurveyOpen" resultType="com.example.grp.model.SurveyVO">
+		SELECT * FROM gw_survey WHERE survey_status IN ('설문진행중', '설문대기중') ORDER BY survey_endDate ASC LIMIT #{start}, #{end}
+	</select>
+	
+	<select id="getSurveyOpen5" resultType="com.example.grp.model.SurveyVO">
+		SELECT * FROM gw_survey WHERE survey_status IN ('설문진행중', '설문대기중') ORDER BY survey_endDate ASC LIMIT 5
+	</select>
+	
+	<select id="getSurveyOpenCnt" resultType="int">
+		SELECT COUNT(*) FROM gw_survey WHERE survey_status IN ('설문진행중', '설문대기중')
+	</select>
+	
+	<select id="getSurveyClose" resultType="com.example.grp.model.SurveyVO">
+		SELECT * FROM gw_survey WHERE survey_status = '설문종료' ORDER BY survey_endDate DESC LIMIT #{start}, #{end}
+	</select>
+	
+	<select id="getSurveyClose5" resultType="com.example.grp.model.SurveyVO">
+		SELECT * FROM gw_survey WHERE survey_status = '설문종료' ORDER BY survey_endDate DESC LIMIT 5
+	</select>
+	
+	<select id="getSurveyCloseCnt" resultType="int">
+		SELECT COUNT(*) FROM gw_survey WHERE survey_status = '설문종료'
+	</select>
+	
+	<select id="getSurveyResult" parameterType="int" resultType="com.example.grp.model.SurveyVO">
+		SELECT *, survey_example AS survey_ex FROM gw_survey WHERE survey_id = #{survey_id}
+	</select>
+	
+	<update id="setSurveyDo" parameterType="com.example.grp.model.SurveyVO">
+		UPDATE gw_survey SET survey_ex_cnt = #{survey_ex_cnt} WHERE survey_id = #{survey_id}
+	</update>
+	
+	<update id="setSurveyStatus" parameterType="com.example.grp.model.SurveyVO">
+		UPDATE gw_survey SET survey_status = #{survey_status} WHERE survey_id = #{survey_id}
+	</update>
+	
+	<delete id="setSurveyDelete" parameterType="com.example.grp.model.SurveyVO">
+		DELETE FROM gw_survey WHERE survey_id = #{survey_id}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
