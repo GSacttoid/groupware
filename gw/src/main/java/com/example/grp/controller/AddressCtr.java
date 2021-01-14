@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.grp.model.EmpVO;
 import com.example.grp.pager.Pager;
+import com.example.grp.service.AddressSrv;
 import com.example.grp.service.EmpSrv;
 
 @Controller
@@ -18,6 +19,9 @@ public class AddressCtr {
 	
 	@Autowired
 	EmpSrv eSrv;
+	
+	@Autowired
+	AddressSrv aSrv;
 
 	//주소록 메뉴 메인페이지
 	@RequestMapping("/main")
@@ -73,5 +77,44 @@ public class AddressCtr {
 		mav.addObject("list", vo);
 		mav.setViewName("address/employee_my");
 		return mav;
+	}
+	
+	@RequestMapping("/mail_address")
+	public ModelAndView getMailAddress(
+			@RequestParam(defaultValue = "emp_name") String searchOpt,
+			@RequestParam(defaultValue = "") String words, 
+			@RequestParam(defaultValue = "1") int curPage) {
+		int count = aSrv.getMailAddressCount(searchOpt, words);
+		
+		Pager pager = new Pager(count, curPage);
+		
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		
+		ModelAndView mav = new ModelAndView();
+
+		mav.addObject("list", aSrv.getMailAddress(start, end, searchOpt, words));
+		mav.addObject("count", count);
+		mav.addObject("start", start);
+		mav.addObject("end", end);
+		mav.addObject("searchOpt", searchOpt);
+		mav.addObject("words", words);
+		mav.addObject("blockBegin", pager.getBlockBegin());
+		mav.addObject("blockEnd", pager.getBlockEnd());
+		mav.addObject("curBlock", pager.getCurBlock());
+		mav.addObject("totalBlock", pager.getTotBlock());
+		mav.addObject("prevPage", pager.getPrevPage());
+		mav.addObject("nextPage", pager.getNextPage());
+		mav.addObject("totalPage", pager.getTotPage());
+		mav.addObject("curPage", pager.getCurPage());
+		mav.addObject("selected", pager.getCurPage());
+		
+		mav.setViewName("address/mail_address");
+		
+		return mav;
+	}
+	@RequestMapping("/mail_address_insert")
+	public String getMailAddressInsert() {
+		return "address/mail_address_insert";
 	}
 }

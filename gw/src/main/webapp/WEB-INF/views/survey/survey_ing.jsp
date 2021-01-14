@@ -47,7 +47,7 @@
 			                        <td class="td-5">번호</td>
 			                        <td class="td-5">설문대상</td>
 			                        <td class="td-8">대상상세</td>
-			                        <td class="td-8">설문상태</td>
+			                        <td class="td-10">설문상태</td>
 			                        <td class="td-10">설문방법</td>
 			                        <td >설문제목</td>
 			                        <td class="td-5">참여자수</td>

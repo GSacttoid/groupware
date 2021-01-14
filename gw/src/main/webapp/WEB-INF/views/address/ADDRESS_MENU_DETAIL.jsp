@@ -27,7 +27,10 @@
 		 onClick="location.href='${pageContext.request.contextPath}/address/employee_my?emp_num=${sessionScope.empNum}'">내정보 상세보기</button>
 	</div>
 	<div class="accordion-header" onClick="location.href='${pageContext.request.contextPath}/address/main'">
-		직원 주소록
+		사원 리스트
+	</div>
+	<div class="accordion-header" onClick="location.href='${pageContext.request.contextPath}/address/mail_address'">
+		메일 주소록 관리
 	</div>
 
 	<div class="accordion-header-ver2" style="border-bottom: 1px solid #6d6d6d;">

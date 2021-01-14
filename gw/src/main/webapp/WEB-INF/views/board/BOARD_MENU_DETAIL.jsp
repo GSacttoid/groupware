@@ -47,10 +47,10 @@
 	<div class="accordion-header" >회사 메뉴</div>
 	<div class="accordion-approval">
 		<div>
-			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">시스템 공지사항</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/company_notice">회사 공지사항</a>
 		</div>
 		<div>
-			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">회사 공지사항</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/system_notice">시스템 공지사항</a>
 		</div>
 		<div>
 			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">건의사항</a>
@@ -76,16 +76,6 @@
 	</div>
 	<div class="accordion-header" >임시보관 게시글</div>
 
-	<div class="accordion-header-ver2" ><i class="far fa-trash-alt"></i> 휴지통</div>
 	<div class="accordion-header-ver2" style="border-bottom: 1px solid #6d6d6d;"><i class="fas fa-cogs"></i> 환경설정</div>
 </div>
 
-<script>
-function writeApproval(){
-  	 //window.open(주소, 별명, 넓이/높이/위치/스코롤바)
-  	 var url 	="${pageContext.request.contextPath}/approval/write_approval";
-  	 var nick	="approval";
-  	 var opt	="width=1300, height=700, top=100, left=100";
-  	 window.open(url,nick,opt);
-}
-</script>

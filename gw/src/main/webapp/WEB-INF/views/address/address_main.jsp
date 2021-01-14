@@ -10,6 +10,9 @@
 	        background-color: #c1c1c1;
 	        cursor: pointer;
 	    }
+	    .tr-even {
+			background-color: #eff3f9;
+		}
 	</style>
 <body>
     <div class="total-wrap">
@@ -30,7 +33,7 @@
 					<div class="p20">
 						<div class="notice-title font16 noto">
 							<h3>
-								<i class="fas fa-info-circle m-lr5"></i>직원 주소록
+								<i class="fas fa-info-circle m-lr5"></i> 사원 리스트
 							</h3>
 						</div>
 						<hr />
@@ -175,5 +178,9 @@
         </main>
     </div>
 </body>
-
+<script>
+	$(function() {
+		$("tr:nth-child(2n+3)").addClass("tr-even");
+	});
+</script>
 </html>

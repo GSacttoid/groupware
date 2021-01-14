@@ -34,10 +34,10 @@
                     <div class="main-admin-notice">
                         <div class="main-left">
                             <div class="notice-title">
-                                <h3><a href="${pageContext.request.contextPath}/admin/system_notice" class="noto font16 under"><i class="fas fa-book"></i> 시스템 공지사항</a></h3>
+                                <h3><a href="${pageContext.request.contextPath}/admin/company_notice" class="noto font16 under"><i class="fas fa-book"></i> 회사 공지사항</a></h3>
                             </div>
                             <hr />
-                            <c:forEach var="list" items="${list}" varStatus="status">
+                            <c:forEach var="list" items="${comList}" varStatus="status">
 	                            <div class="notice-content">
 	                                <div class="notice-left">
 	                                    <p class="noto"><span style="color: #d92550; margin-right: 10px;">[${list.sn_type}]</span>${list.sn_title} </p>
@@ -49,11 +49,11 @@
                             </c:forEach>
                         </div>
                         <div class="main-right">
-                            <div class="notice-title">
-                                <h3><a href="${pageContext.request.contextPath}/admin/company_notice" class="noto font16 under"><i class="fas fa-book"></i> 회사 공지사항</a></h3>
+                        	<div class="notice-title">
+                                <h3><a href="${pageContext.request.contextPath}/admin/system_notice" class="noto font16 under"><i class="fas fa-book"></i> 시스템 공지사항</a></h3>
                             </div>
                             <hr />
-                            <c:forEach var="list" items="${comList}" varStatus="status">
+                            <c:forEach var="list" items="${list}" varStatus="status">
 	                            <div class="notice-content">
 	                                <div class="notice-left">
 	                                    <p class="noto"><span style="color: #d92550; margin-right: 10px;">[${list.sn_type}]</span>${list.sn_title} </p>

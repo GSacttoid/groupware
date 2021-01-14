@@ -49,7 +49,7 @@ public class SurveyCtr {
 			
 			Date today = new Date();
 			long chkEndDate = today.getTime() - e_date.getTime() - (1000*60*60*24);
-			long chkStartDate = today.getTime() - s_date.getTime() - (1000*60*60*24);
+			long chkStartDate = today.getTime() - s_date.getTime();
 			
 			if(chkEndDate>0) {
 				surOpenList.get(i).setSurvey_status("설문종료");

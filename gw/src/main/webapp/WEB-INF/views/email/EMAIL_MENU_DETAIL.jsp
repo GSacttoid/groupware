@@ -32,7 +32,7 @@
 	<div class="accordion-header" style="border-bottom: 1px solid #6d6d6d;" onClick="location.href='${pageContext.request.contextPath}/email/email_myself'">내게쓴메일함</div>
 	<div class="accordion-header-ver2" onClick="location.href='${pageContext.request.contextPath}/email/email_spam'"><i class="far fa-times-circle"></i> 스팸메일함</div>
 	<div class="accordion-header-ver2" onClick="location.href='${pageContext.request.contextPath}/email/email_trash'"><i class="far fa-trash-alt"></i> 휴지통</div>
-	<div class="accordion-header-ver2" onClick="location.href='${pageContext.request.contextPath}/email/email_address'"><i class="far fa-address-book"></i> 주소록</div>
+	<div class="accordion-header-ver2" onClick="location.href='${pageContext.request.contextPath}/address/mail_address'"><i class="far fa-address-book"></i> 주소록</div>
 	<div class="accordion-header-ver2" style="border-bottom: 1px solid #6d6d6d;" onClick="location.href='${pageContext.request.contextPath}/email/email_set'"><i class="fas fa-cogs"></i> 환경설정</div>
 </div>
 

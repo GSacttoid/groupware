@@ -23,19 +23,19 @@ import com.example.grp.service.ComNoticeSrv;
 @Controller
 public class CompanyNoticeCtr {
 	@Autowired
-	ComNoticeSrv nSrv;
+	ComNoticeSrv cSrv;
 		
 	//그룹웨어 정보 / 시스템 공지사항
 	@RequestMapping("/admin/company_notice" )
-	public ModelAndView getSystemNotice(@RequestParam(defaultValue = "1") int curPage) { 
+	public ModelAndView getCompanyNotice(@RequestParam(defaultValue = "1") int curPage) { 
 	
-		int count = nSrv.getNoticeTotalCount();
+		int count = cSrv.getNoticeTotalCount();
 		Pager pager = new Pager(count, curPage);
 		
 		int start = pager.getPageBegin();
 		int end = pager.getPageEnd();
 		
-		List<NoticeVO> list = nSrv.getSystemNotice(start, end);
+		List<NoticeVO> list = cSrv.getCompanyNotice(start, end);
 	
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
@@ -64,14 +64,14 @@ public class CompanyNoticeCtr {
 	@RequestMapping(value="/notice/company_notice_write", method = RequestMethod.POST)
 	@ResponseBody
 	public String setNoticeInsert(@ModelAttribute NoticeVO nvo) {
-		nSrv.setNoticeInsert(nvo);
+		cSrv.setNoticeInsert(nvo);
 		return "success";
 	}
 	
 	@RequestMapping(value="/notice/company_notice_delete", method = RequestMethod.POST)
 	@ResponseBody
 	public String setNoticeDelete(@ModelAttribute NoticeVO nvo) {
-		nSrv.setNoticeDelete(nvo);
+		cSrv.setNoticeDelete(nvo);
 		return "success";
 	}
 	
@@ -86,7 +86,7 @@ public class CompanyNoticeCtr {
 	public ModelAndView getNoticeModify(@ModelAttribute NoticeVO nvo) {
 
 		ModelAndView mav = new ModelAndView();
-		NoticeVO vo = nSrv.getNoticeOne(nvo);
+		NoticeVO vo = cSrv.getNoticeOne(nvo);
 		
 		mav.addObject("notice", vo);
 
@@ -97,7 +97,7 @@ public class CompanyNoticeCtr {
 	@RequestMapping(value="/notice/company_notice_modify", method = RequestMethod.POST)
 	@ResponseBody
 	public String setNoticeUpdate(@ModelAttribute NoticeVO nvo) {
-		nSrv.setNoticeUpdate(nvo);
+		cSrv.setNoticeUpdate(nvo);
 		return "success";
 	}
 
@@ -106,7 +106,7 @@ public class CompanyNoticeCtr {
 
 		ModelAndView mav = new ModelAndView();
 		
-		NoticeVO vo = nSrv.getNoticeOne(nvo);
+		NoticeVO vo = cSrv.getNoticeOne(nvo);
 		mav.addObject("notice", vo);
 		mav.setViewName("admin/admin_community/company_notice_view");
 		return mav;

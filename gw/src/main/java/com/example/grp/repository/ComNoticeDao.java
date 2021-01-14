@@ -20,7 +20,7 @@ public class ComNoticeDao {
 		sqlSession.insert("comNotice.setNoticeInsert", nvo);
 	}
 	
-	public List<NoticeVO> getSystemNotice(int start, int end) {
+	public List<NoticeVO> getCompanyNotice(int start, int end) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);

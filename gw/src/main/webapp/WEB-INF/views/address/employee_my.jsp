@@ -30,11 +30,11 @@
 		<main>
 			<div class="container">
 				<!-- INCLUDE MENU (ALL) -->
-				<%@ include file="/WEB-INF/views/admin/ADMIN_MENU.jsp"%>
+				<%@ include file="/WEB-INF/views/address/ADDRESS_MENU.jsp"%>
 				<!-- /INCLUDE MENU (ALL) -->
 				<div class="detail-wrap">
 					<!-- INCLUDE MENU_DETAIL (ADMIN) -->
-					<%@ include file="/WEB-INF/views/admin/ADMIN_MENU_DETAIL.jsp"%>
+					<%@ include file="/WEB-INF/views/address/ADDRESS_MENU_DETAIL.jsp"%>
 					<!-- /INCLUDE MENU_DETAIL (ADMIN) -->
 				</div>
 				<div class="main-wrap bg-white ">
@@ -186,7 +186,7 @@
 											<div class="member-right center">
 												<button type="button" class="btn-on" id="btn" onClick="noticeModify('${list.emp_id}');">내용저장</button>
 												<button type="reset" class="btn-off" id="">새로고침</button>
-												<a type="button" class="btn-red" id="" href="${pageContext.request.contextPath}/admin/employee_list">목록으로</a>
+												<a type="button" class="btn-red" id="" href="${pageContext.request.contextPath}/address/main">목록으로</a>
 											</div>
 										</div>
 									</form>

@@ -51,7 +51,7 @@
 	                                    
 	                                    <h2 class="m-t10">${surOpenList.survey_title}</h2>
 	                                    <p>${surOpenList.survey_startDate}~${surOpenList.survey_endDate}</p>
-	                                    <p>설문대상: ${surOpenList.survey_view} 
+	                                    <p style="color:#f00;" class="font14 weight700 noto">설문대상: ${surOpenList.survey_view} 
 	                                    <c:choose>
 	                                    	<c:when test="${surOpenList.survey_view == '부서'}">[${surOpenList.survey_buseo}]</c:when>
 	                                    	<c:when test="${surOpenList.survey_view == '직급'}">[${surOpenList.survey_grade}]</c:when>
@@ -78,7 +78,7 @@
 	                                    <span class="btn-cancel" >설문상태: ${surCloseList.survey_status}</span>
 	                                    <h2 class="m-t10">${surCloseList.survey_title}</h2>
 	                                    <p>${surCloseList.survey_startDate}~${surCloseList.survey_endDate}</p>
-	                                    <p>설문대상: ${surCloseList.survey_view} 
+	                                    <p style="color:#f00;" class="font14 weight700 noto">설문대상: ${surCloseList.survey_view} 
 	                                    <c:choose>
 	                                    	<c:when test="${surCloseList.survey_view == '부서'}">[${surCloseList.survey_buseo}]</c:when>
 	                                    	<c:when test="${surCloseList.survey_view == '직급'}">[${surCloseList.survey_grade}]</c:when>

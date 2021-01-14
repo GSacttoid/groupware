@@ -6,13 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.grp.model.ApprovalSetVO;
+import com.example.grp.model.BoardVO;
+import com.example.grp.model.BuseoVO;
 import com.example.grp.model.GradeVO;
 import com.example.grp.model.NoticeVO;
+import com.example.grp.pager.Pager;
 import com.example.grp.service.ApprovalSrv;
+import com.example.grp.service.BoardSrv;
 import com.example.grp.service.ComSrv;
 import com.example.grp.service.NoticeSrv;
 
@@ -29,6 +34,9 @@ public class AdminCtr {
 	@Autowired
 	ApprovalSrv aSrv;
 	
+	@Autowired
+	BoardSrv bSrv;
+	
 	//관리자 메뉴 메인페이지
 	@RequestMapping("/main")
 	public ModelAndView getAdminMain() {
@@ -43,14 +51,66 @@ public class AdminCtr {
 	
 	//커뮤니티 / 회사메뉴 관리
 	@RequestMapping("/company_menu_set")
-	public String getMenuComSet() {
-		return "admin/admin_community/company_menu_set";
+	public ModelAndView getMenuComSet(@RequestParam(defaultValue = "1") int curPage) {
+		
+		int count = bSrv.getBoardCount();
+		Pager pager = new Pager(count, curPage);
+		
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		
+		List<BoardVO> list = bSrv.getBoardList(start, end);
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.addObject("count", count);
+		mav.addObject("start", start);
+		mav.addObject("end", end);
+		mav.addObject("blockBegin", pager.getBlockBegin());
+		mav.addObject("blockEnd", pager.getBlockEnd());
+		mav.addObject("curBlock", pager.getCurBlock());
+		mav.addObject("totalBlock", pager.getTotBlock());
+		mav.addObject("prevPage", pager.getPrevPage());
+		mav.addObject("nextPage", pager.getNextPage());
+		mav.addObject("totalPage", pager.getTotPage());
+		mav.addObject("curPage", pager.getCurPage());
+		mav.addObject("selected", pager.getCurPage());
+		
+		mav.setViewName("admin/admin_community/company_menu_set");
+		return mav;
 	}
 	
 	//커뮤니티 / 부서메뉴 관리
 	@RequestMapping("/buseo_menu_set")
-	public String getMenuBuseoSet() {
-		return "admin/admin_community/buseo_menu_set";
+	public ModelAndView getMenuBuseoSet(@RequestParam(defaultValue = "1") int curPage) {
+		int count = bSrv.getBuseoBoardCount();
+		
+		Pager pager = new Pager(count, curPage);
+		
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		
+		List<BoardVO> buseoMenuList = bSrv.getBuseoBoardList(start, end);
+		List<BuseoVO> buseoList = cSrv.getBuseo();
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("buseoMenuList", buseoMenuList);
+		mav.addObject("count", count);
+		mav.addObject("start", start);
+		mav.addObject("end", end);
+		mav.addObject("blockBegin", pager.getBlockBegin());
+		mav.addObject("blockEnd", pager.getBlockEnd());
+		mav.addObject("curBlock", pager.getCurBlock());
+		mav.addObject("totalBlock", pager.getTotBlock());
+		mav.addObject("prevPage", pager.getPrevPage());
+		mav.addObject("nextPage", pager.getNextPage());
+		mav.addObject("totalPage", pager.getTotPage());
+		mav.addObject("curPage", pager.getCurPage());
+		mav.addObject("selected", pager.getCurPage());
+		mav.addObject("buseoList",buseoList);
+		mav.setViewName("admin/admin_community/buseo_menu_set");
+		return mav;
 	}
 	
 	//인사 관리 / 출퇴근 설정

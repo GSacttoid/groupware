@@ -1,5 +1,6 @@
 package com.example.grp.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SurveyVO {
@@ -26,6 +27,7 @@ public class SurveyVO {
 	private int survey_total; //ex_cnt 값을 변환해서 전체 투표 수
 	private String survey_ex; //survey_example 값을 변환하여 임시로 저장하는 변수
 	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public String getSurvey_startDate() {
 		return survey_startDate;
@@ -39,8 +41,8 @@ public class SurveyVO {
 	public void setSurvey_endDate(String survey_endDate) {
 		this.survey_endDate = survey_endDate;
 	}
-	public Date getSurvey_regdate() {
-		return survey_regdate;
+	public String getSurvey_regdate() {
+		return sdf.format(survey_regdate);
 	}
 	public void setSurvey_regdate(Date survey_regdate) {
 		this.survey_regdate = survey_regdate;

@@ -76,7 +76,6 @@
                         				<td class="td-90 p-lr3">
                         					<select name="survey_way" class="sel-135">
                         						<option value="단일투표">단일투표</option><!-- radio 버튼 방식으로 투표 -->
-                        						<option value="다중투표">다중투표</option><!-- checkbox 버튼 방식으로 투표 -->
                         					</select>
                         				</td>
                         			</tr>

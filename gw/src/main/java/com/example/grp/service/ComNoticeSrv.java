@@ -18,8 +18,8 @@ public class ComNoticeSrv {
 		nDao.setNoticeInsert(nvo);
 	}
 	
-	public List<NoticeVO> getSystemNotice(int start, int end) {
-		return nDao.getSystemNotice(start, end);
+	public List<NoticeVO> getCompanyNotice(int start, int end) {
+		return nDao.getCompanyNotice(start, end);
 	}
 	
 	public List<NoticeVO> getNotice5(){
