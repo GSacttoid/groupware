@@ -67,8 +67,7 @@
 		<c:forEach var="buseoMenuList" items="${buseoMenuList}" varStatus="status">
 			<c:if test="${buseoMenuList.menu_buseo == sessionScope.empBuseoName}">
 				<div>
-					<a style="cursor:pointer;" 
-					href="${pageContext.request.contextPath}/article/article_list?menu_code=${buseoMenuList.menu_code}">${buseoMenuList.menu_name}</a>
+					<a style="cursor:pointer;" href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${buseoMenuList.menu_code}">${buseoMenuList.menu_name}</a>
 				</div>
 			</c:if>
 		</c:forEach>

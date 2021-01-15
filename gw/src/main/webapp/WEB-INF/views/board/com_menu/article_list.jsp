@@ -92,7 +92,7 @@
 						                        </td>
 						                        <td>
 							                        <c:if test = "${articleList.division eq 'Y'}">
-							                        	<span class="notice">공지사항</span>
+							                        	<span class="notice">알림글</span>
 							                        </c:if>
 							                        <c:if test = "${articleList.division eq 'N'}">
 							                        	<span class="normal">일반</span>

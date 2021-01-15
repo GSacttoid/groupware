@@ -258,3 +258,5 @@ menu_download int,
 menu_maker varchar(20),
 menu_regdate date
 );
+
+

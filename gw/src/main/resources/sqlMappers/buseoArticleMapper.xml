@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="buseoArticle">
+
+	<sql id="search">
+		<choose>
+			<when test = "searchOpt == 'all'">
+				WHERE subject LIKE CONCAT('%', #{words}, '%') 
+				OR writer LIKE CONCAT('%', #{words}, '%') 
+			</when>
+			<otherwise> 
+				WHERE ${searchOpt} LIKE CONCAT('%', #{words}, '%')
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<select id="getArticleList" parameterType="hashMap" resultType="com.example.grp.model.ArticleVO">
+		SELECT 	division, aid, subject, writer, hit, fileOriName, ref, re_step, re_level, regdate,
+				(SELECT count(*) FROM buseo_comment_${menu_code} c WHERE c.aid = a.aid ) AS cnt 
+		FROM buseo_article_${menu_code} a 
+		<include refid = "search"></include>
+		ORDER BY division DESC, ref DESC, re_step ASC LIMIT #{start}, #{end}
+	</select>
+	
+	<select id="getArticleCount" resultType="int">
+		SELECT COUNT(*) FROM buseo_article_${menu_code} <include refid = "search"></include>
+	</select>
+	
+	<select id="getBoardOne" resultType="com.example.grp.model.BoardVO">
+		SELECT * FROM buseo_board WHERE menu_code = #{menu_code}
+	</select>
+
+	<insert id="setArticle" >
+		<selectKey resultType="int" keyProperty="ref" order="BEFORE">
+			SELECT IFNULL(MAX(ref), 0) + 1 FROM buseo_article_${menu_code}			  
+		</selectKey>
+		INSERT INTO buseo_article_${menu_code} SET 
+			division = #{division}, 
+			subject = #{subject}, 
+			content = #{content}, 
+			writer = #{writer}, 
+			regdate = NOW(), 
+			fileName = #{fileName}, 
+			fileOriName = #{fileOriName}, 
+			fileUrl = #{fileUrl},
+			ref = #{ref}, 
+			re_step = 0, 
+			re_level = 0
+	</insert>
+	
+	<select id="getArticleOne" resultType="com.example.grp.model.ArticleVO">
+		SELECT * FROM buseo_article_${menu_code} WHERE aid = #{aid}
+	</select>
+	
+	<delete id="setArticleDelete" parameterType="hashMap">
+		DELETE FROM buseo_article_${menu_code} WHERE aid = #{aid}
+	</delete>
+	
+	<update id="hitUp">
+		UPDATE buseo_article_${menu_code} SET hit = hit + 1 WHERE aid = #{aid}
+	</update>
+	
+	<update id="setArticleModify" >
+		UPDATE buseo_article_${menu_code} SET 
+			division = #{division},
+			subject = #{subject}, 
+			content = #{content}, 
+			regdate = now(), 
+			fileName = #{fileName}, 
+			fileOriName = #{fileOriName}, 
+			fileUrl = #{fileUrl}
+		WHERE aid = #{aid}
+	</update>
+	
+	<delete id="setArticleDeleteAll">
+		DELETE FROM buseo_article_${menu_code} WHERE aid = #{aid}
+	</delete>
+	
+	<select id="getArticleReplyInfo" resultType="com.example.grp.model.ArticleVO">
+		SELECT aid, ref, re_step, re_level
+	    FROM buseo_article_${menu_code}
+	    WHERE aid = #{aid}
+	</select>
+	
+	<update id="setArticleRef" parameterType="com.example.grp.model.ArticleVO">
+		UPDATE buseo_article_${menu_code}
+		   SET re_step = re_step + 1, regdate = NOW()
+		 WHERE ref = #{ref} AND re_step > #{re_step}	
+	</update>
+	
+	<insert id="setArticleReply" >	
+		INSERT INTO buseo_article_${menu_code} SET 
+			division=#{division},
+			subject = #{subject}, 
+			content = #{content}, 
+			writer = #{writer}, 
+			regdate = NOW(), 
+			fileName = #{fileName}, 
+			fileOriName = #{fileOriName}, 
+			fileUrl = #{fileUrl},
+			ref = #{ref}, 
+			re_step = #{re_step} + 1, 
+			re_level = #{re_step} + 1
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

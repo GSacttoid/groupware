@@ -29,7 +29,7 @@
 									</h3>
 								</div>
 								<div class="board-insert">
-									<form id="frm" method="post" action="${pageContext.request.contextPath}/article/com_article_modify"
+									<form id="frm" method="post" action="${pageContext.request.contextPath}/buseo_article/buseo_article_modify"
 										enctype="multipart/form-data" autocomplete="off">
 										<input type="hidden" name="menu_code" value="${menu_code}" />
 										<input type="hidden" name="aid" value="${modifyArticle.aid}" />
@@ -78,7 +78,7 @@
 											<c:if test="${modifyArticle.fileOriName != null}">
 						                        <tr>
 						                            <td colspan="3" class="td-90 p-lr3 weight700">
-														<span class="kr">기존 파일 : <a href="/article/download?aid=${modifyArticle.aid}&menu_code=${menu_code}">${modifyArticle.fileOriName}</a></span>
+														<span class="kr">기존 파일 : <a href="/buseo_article/buseo_article_download?aid=${modifyArticle.aid}&menu_code=${menu_code}">${modifyArticle.fileOriName}</a></span>
 						                            </td>
 						                        </tr>
 					                        </c:if>
@@ -86,7 +86,7 @@
 										<div class="btn-grp center m-t10">
 											<button type="submit" class="btn-on">게시글수정</button>
 											<button type="button"
-												onClick="location.href='${pageContext.request.contextPath}/article/article_list?menu_code=${menu_code}'"
+												onClick="location.href='${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}'"
 												class="btn-red">게시글목록</button>
 										</div>
 									</form>

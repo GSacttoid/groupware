@@ -93,7 +93,7 @@
 															</c:when>
 															<c:otherwise>
 																<span>
-																	<a href="${pageContext.request.contextPath}/article/com_article_download?menu_code=${menu_code}&aid=${article.aid}">
+																	<a href="${pageContext.request.contextPath}/buseo_article/buseo_article_download?menu_code=${menu_code}&aid=${article.aid}">
 																		${article.fileOriName}</a>
 																</span>
 															</c:otherwise>
@@ -109,51 +109,52 @@
 										</table>
 										<div class="btn-grp center m-t10">
 											<button type="button" class="btn-normal" 
-											 onClick="location.href='${pageContext.request.contextPath}/article/com_article_reply?menu_code=${menu_code}&aid=${article.aid}'">게시글답글</button>
+											 onClick="location.href='${pageContext.request.contextPath}/buseo_article/buseo_article_reply?menu_code=${menu_code}&aid=${article.aid}'">게시글답글</button>
 											<button type="button" class="btn-normal" 
-											onClick="location.href='${pageContext.request.contextPath}/article/com_article_modify?menu_code=${menu_code}&aid=${article.aid}'">게시글수정</button>
+											onClick="location.href='${pageContext.request.contextPath}/buseo_article/buseo_article_modify?menu_code=${menu_code}&aid=${article.aid}'">게시글수정</button>
 											<button type="button" class="btn-cancel" onClick="articleDelete('${menu_code}', ${article.aid});">게시글삭제</button>
 											<button type="button" class="btn-red"
-												onClick="location.href='${pageContext.request.contextPath}/article/article_list?menu_code=${menu_code}'">게시글목록</button>
+												onClick="location.href='${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}'">게시글목록</button>
 										</div>
 										
 									</form>
 								</div>
 							</div>
 						</div>
+						
+						<!-- 댓글 화면 구성 -->
+						<hr style="margin: 5px 0; border: 1px solid #d5d5d5;" />
+						<!-- 댓글 쓰기 화면 -->
+						<div class="p-lr20" style="background-color: #fff;">
+							<div id="commentList"></div>
+							<hr style="margin: 5px 0; border: 1px solid #f7f7f7;" />
+							<div style="margin-top: 5px;">
+								<form id="frm">
+									<!-- ajax로 자료 전체 전송하기(input -> name을 사용) 위한 id -->
+									<input type="hidden" id="menu_code" name="menu_code" value="${menu_code}" /> 
+									<input type="hidden" name="aid" value="${article.aid}" />
+									<input type="hidden" name="who" value="${sessionScope.empName}" readonly />
+									<textarea id="comment" name="comment" style="border: 1px solid #d5d5d5; width: 100%; height: 100px; background-color: #fffbe6;"
+										placeholder="댓글 내용을 입력하세요." class="p10 noto font16"></textarea>
+									<div class="flex flex-justify p10" >
+										<!-- 비밀 댓글 & 댓글 저장 버튼-->
+										<div class="">
+											<input type="checkbox" name="" /> 비밀댓글
+										</div>
+										<div class="">
+											<button id="btn" style="padding: 5px 10px; background-color: #29302e; color: #fff; border-radius: 3px;"
+												class="noto font14 weight500" type="button">댓글등록</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<!-- 댓글 쓰기 화면 -->
+						<!-- //댓글 화면 구성 -->
 					</div>
 				</div>
 			</main>
 		</div>
-		<!-- 댓글 화면 구성 -->
-			<hr style="margin: 30px 0; border: 1px solid #eee;" />
-			<!-- 댓글 쓰기 화면 -->
-			<div class="p-lr20" style="background-color: #fff;">
-				<div id="commentList"></div>
-				<hr style="margin: 30px 0; border: 1px solid #f7f7f7;" />
-				<div style="margin-top: 20px;">
-					<form id="frm">
-						<!-- ajax로 자료 전체 전송하기(input -> name을 사용) 위한 id -->
-						<input type="hidden" id="menu_code" name="menu_code" value="${menu_code}" /> 
-						<input type="hidden" name="aid" value="${article.aid}" />
-						<input type="hidden" name="who" value="${sessionScope.empName}" readonly />
-						<textarea id="comment" name="comment" style="border: 1px solid #e7e7e7; width: 100%; height: 100px;"
-							placeholder="댓글 내용을 입력하세요." class="p10 noto font16"></textarea>
-						<div class="flex flex-justify p10">
-							<!-- 비밀 댓글 & 댓글 저장 버튼-->
-							<div class="">
-								<input type="checkbox" name="" /> 비밀댓글
-							</div>
-							<div class="">
-								<button id="btn" style="padding: 20px 25px; background-color: #3f51b5; color: #fff; border-radius: 3px;"
-									class="noto font20 weight700" type="button">댓글등록</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-	<!-- 댓글 쓰기 화면 -->
-	<!-- //댓글 화면 구성 -->
 </body>
 
 <script>
@@ -165,7 +166,7 @@ function articleDelete(menu_code, aid) {
 	};
     if( str ) {        
         $.ajax({
-        	url 	: "${pageContext.request.contextPath}/article/com_article_delete",
+        	url 	: "${pageContext.request.contextPath}/buseo_article/buseo_article_delete",
         	type 	: "POST", 	
         	data 	: formData,
         	success	: function (resData) {
