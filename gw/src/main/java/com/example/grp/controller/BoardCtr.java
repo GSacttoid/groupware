@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.grp.model.BoardVO;
+import com.example.grp.model.EmpVO;
 import com.example.grp.model.NoticeVO;
 import com.example.grp.pager.Pager;
 import com.example.grp.service.BoardSrv;
@@ -30,13 +31,16 @@ public class BoardCtr {
 
 	@Autowired
 	BoardSrv boardSrv;
-	
+		
 	//게시판 메뉴 메인페이지
 	@RequestMapping("/main")
-	public ModelAndView getBoardMain() { 
-	
+	public ModelAndView getBoardMain(@ModelAttribute EmpVO evo) {
+		List<BoardVO> comMenuList = boardSrv.getComMenuList();
+		List<BoardVO> buseoMenuList = boardSrv.getBuseoMenuList();
 		ModelAndView mav = new ModelAndView();
 		
+		mav.addObject("comMenuList", comMenuList);
+		mav.addObject("buseoMenuList", buseoMenuList);
 		mav.setViewName("board/board_main");
 		return mav;
 	}
@@ -44,6 +48,9 @@ public class BoardCtr {
 	@RequestMapping("/system_notice")
 	public ModelAndView getSystemNotice(@RequestParam(defaultValue = "1") int curPage) { 
 	
+		List<BoardVO> comMenuList = boardSrv.getComMenuList();
+		List<BoardVO> buseoMenuList = boardSrv.getBuseoMenuList();
+		
 		int count = nSrv.getNoticeTotalCount();
 		Pager pager = new Pager(count, curPage);
 		
@@ -66,6 +73,8 @@ public class BoardCtr {
 		mav.addObject("totalPage", pager.getTotPage());
 		mav.addObject("curPage", pager.getCurPage());
 		mav.addObject("selected", pager.getCurPage());
+		mav.addObject("comMenuList", comMenuList);
+		mav.addObject("buseoMenuList", buseoMenuList);
 		
 		mav.setViewName("board/system_notice");
 		return mav;
@@ -74,6 +83,9 @@ public class BoardCtr {
 	@RequestMapping("/company_notice")
 	public ModelAndView getCompanyNotice(@RequestParam(defaultValue = "1") int curPage) { 
 	
+		List<BoardVO> comMenuList = boardSrv.getComMenuList();
+		List<BoardVO> buseoMenuList = boardSrv.getBuseoMenuList();
+		
 		int count = nSrv.getNoticeTotalCount();
 		Pager pager = new Pager(count, curPage);
 		
@@ -96,6 +108,8 @@ public class BoardCtr {
 		mav.addObject("totalPage", pager.getTotPage());
 		mav.addObject("curPage", pager.getCurPage());
 		mav.addObject("selected", pager.getCurPage());
+		mav.addObject("comMenuList", comMenuList);
+		mav.addObject("buseoMenuList", buseoMenuList);
 		
 		mav.setViewName("board/company_notice");
 		return mav;

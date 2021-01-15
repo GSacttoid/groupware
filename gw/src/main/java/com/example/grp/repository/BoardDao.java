@@ -94,6 +94,13 @@ public class BoardDao {
 		return sqlSession.selectOne("board.getBoardExist", menu_code);
 	}
 	
+	public List<BoardVO> getComMenuList(){
+		return sqlSession.selectList("board.getComMenuList");
+	}
+	
+	
+	
+	
 	
 	public void setBuseoBoard(BoardVO bvo) {
 		sqlSession.insert("board.setBuseoBoard", bvo);
@@ -167,5 +174,9 @@ public class BoardDao {
 	
 	public int getBuseoBoardCheck(String menu_code) {
 		return sqlSession.selectOne("board.getBuseoBoardExist", menu_code);
+	}
+	
+	public List<BoardVO> getBuseoMenuList(){
+		return sqlSession.selectList("board.getBuseoMenuList");
 	}
 }

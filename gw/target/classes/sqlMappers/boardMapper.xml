@@ -104,6 +104,13 @@
 		DELETE FROM	buseo_board WHERE	menu_code = #{menu_code}
 	</delete>
 	
+	<select id="getComMenuList" resultType="com.example.grp.model.BoardVO">
+		SELECT * FROM com_board
+	</select>
+	
+	<select id="getBuseoMenuList" resultType="com.example.grp.model.BoardVO">
+		SELECT * FROM buseo_board
+	</select>
 </mapper>
 
 

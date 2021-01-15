@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
 .accordion-header-ver2 {
     font-weight: 700;
@@ -44,7 +45,7 @@
 </div>
 
 <div class="accordion">
-	<div class="accordion-header" >회사 메뉴</div>
+	<div class="accordion-header" >공지 사항</div>
 	<div class="accordion-approval">
 		<div>
 			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/company_notice">회사 공지사항</a>
@@ -52,27 +53,25 @@
 		<div>
 			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/system_notice">시스템 공지사항</a>
 		</div>
-		<div>
-			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">건의사항</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">일반 게시판</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">앨범 게시판</a>
-		</div>
+	</div>
+	<div class="accordion-header" >회사 메뉴</div>
+	<div class="accordion-approval">
+		<c:forEach var="comMenuList" items="${comMenuList}" varStatus="status">
+			<div>
+				<a style="cursor:pointer;" href="${pageContext.request.contextPath}/article/article_list?menu_code=${comMenuList.menu_code}">${comMenuList.menu_name}</a>
+			</div>
+		</c:forEach>
 	</div>
 	<div class="accordion-header">부서 메뉴</div>
 	<div class="accordion-approval">
-		<div>
-			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">건의사항</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">일반 게시판</a>
-		</div>
-		<div>
-			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/main">앨범 게시판</a>
-		</div>
+		<c:forEach var="buseoMenuList" items="${buseoMenuList}" varStatus="status">
+			<c:if test="${buseoMenuList.menu_buseo == sessionScope.empBuseoName}">
+				<div>
+					<a style="cursor:pointer;" 
+					href="${pageContext.request.contextPath}/article/article_list?menu_code=${buseoMenuList.menu_code}">${buseoMenuList.menu_name}</a>
+				</div>
+			</c:if>
+		</c:forEach>
 	</div>
 	<div class="accordion-header" >임시보관 게시글</div>
 

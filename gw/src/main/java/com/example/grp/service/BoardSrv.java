@@ -60,6 +60,11 @@ public class BoardSrv {
 		return boardDao.getBoardCheck(menu_code);
 	}
 	
+	public List<BoardVO> getComMenuList(){
+		return boardDao.getComMenuList();
+	}
+	
+	
 	
 
 	public List<BoardVO> getBuseoBoardList(int start, int end) {
@@ -101,5 +106,9 @@ public class BoardSrv {
 	
 	public int getBuseoBoardCheck(String menu_code) {
 		return boardDao.getBuseoBoardCheck(menu_code);
+	}
+	
+	public List<BoardVO> getBuseoMenuList(){
+		return boardDao.getBuseoMenuList();
 	}
 }
