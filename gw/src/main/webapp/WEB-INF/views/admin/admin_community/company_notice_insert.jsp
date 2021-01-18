@@ -24,7 +24,7 @@
 					</h3>
 				</div>
 				<div class="board-insert p10">
-					<form id="frm" method="post" enctype="multipart/form-data" autocomplete="off">
+					<form id="frm" method="post" enctype="multipart/form-data" autocomplete="off" onsubmit="return false;">
 						<table style="border:1px solid #d5d5d5;">
 							<tr>
 								<td class="td-10 center weight700 noto font14 under bg-gray" style="border:1px solid #d5d5d5;">게시글 분류</td>

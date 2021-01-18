@@ -21,12 +21,13 @@ import com.example.grp.pager.Pager;
 import com.example.grp.service.ComNoticeSrv;
 
 @Controller
+@RequestMapping("/admin")
 public class CompanyNoticeCtr {
 	@Autowired
 	ComNoticeSrv cSrv;
 		
 	//그룹웨어 정보 / 시스템 공지사항
-	@RequestMapping("/admin/company_notice" )
+	@RequestMapping("/company_notice" )
 	public ModelAndView getCompanyNotice(@RequestParam(defaultValue = "1") int curPage) { 
 	
 		int count = cSrv.getNoticeTotalCount();
@@ -56,19 +57,19 @@ public class CompanyNoticeCtr {
 		return mav;
 	}
 	
-	@RequestMapping(value="/notice/company_notice_insert",method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/company_notice_insert",method= {RequestMethod.GET, RequestMethod.POST})
 	public String getNoticeInsert() {
 		return "admin/admin_community/company_notice_insert";
 	}
 	
-	@RequestMapping(value="/notice/company_notice_write", method = RequestMethod.POST)
+	@RequestMapping(value="/company_notice_write", method = RequestMethod.POST)
 	@ResponseBody
 	public String setNoticeInsert(@ModelAttribute NoticeVO nvo) {
 		cSrv.setNoticeInsert(nvo);
 		return "success";
 	}
 	
-	@RequestMapping(value="/notice/company_notice_delete", method = RequestMethod.POST)
+	@RequestMapping(value="/company_notice_delete", method = RequestMethod.POST)
 	@ResponseBody
 	public String setNoticeDelete(@ModelAttribute NoticeVO nvo) {
 		cSrv.setNoticeDelete(nvo);
@@ -82,7 +83,7 @@ public class CompanyNoticeCtr {
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
 	}
 	
-	@RequestMapping(value="/notice/company_notice_modify", method = RequestMethod.GET)
+	@RequestMapping(value="/company_notice_modify", method = RequestMethod.GET)
 	public ModelAndView getNoticeModify(@ModelAttribute NoticeVO nvo) {
 
 		ModelAndView mav = new ModelAndView();
@@ -94,14 +95,14 @@ public class CompanyNoticeCtr {
 		return mav;
 	}
 	
-	@RequestMapping(value="/notice/company_notice_modify", method = RequestMethod.POST)
+	@RequestMapping(value="/company_notice_modify", method = RequestMethod.POST)
 	@ResponseBody
 	public String setNoticeUpdate(@ModelAttribute NoticeVO nvo) {
 		cSrv.setNoticeUpdate(nvo);
 		return "success";
 	}
 
-	@RequestMapping(value="/notice/company_notice_view", method = RequestMethod.GET)
+	@RequestMapping(value="/company_notice_view", method = RequestMethod.GET)
 	public ModelAndView getNoticeView(@ModelAttribute NoticeVO nvo) {
 
 		ModelAndView mav = new ModelAndView();

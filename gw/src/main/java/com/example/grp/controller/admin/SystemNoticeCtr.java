@@ -21,12 +21,13 @@ import com.example.grp.pager.Pager;
 import com.example.grp.service.NoticeSrv;
 
 @Controller
+@RequestMapping("/admin")
 public class SystemNoticeCtr {
 	@Autowired
 	NoticeSrv nSrv;
 		
 	//그룹웨어 정보 / 시스템 공지사항
-	@RequestMapping("/admin/system_notice" )
+	@RequestMapping("/system_notice" )
 	public ModelAndView getSystemNotice(@RequestParam(defaultValue = "1") int curPage) { 
 	
 		int count = nSrv.getNoticeTotalCount();
@@ -56,19 +57,19 @@ public class SystemNoticeCtr {
 		return mav;
 	}
 	
-	@RequestMapping(value="/notice/system_notice_insert",method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/system_notice_insert",method= {RequestMethod.GET, RequestMethod.POST})
 	public String getNoticeInsert() {
 		return "admin/admin_gw_info/gw_system_notice_insert";
 	}
 	
-	@RequestMapping(value="/notice/system_notice_write", method = RequestMethod.POST)
+	@RequestMapping(value="/system_notice_write", method = RequestMethod.POST)
 	@ResponseBody
 	public String setNoticeInsert(@ModelAttribute NoticeVO nvo) {
 		nSrv.setNoticeInsert(nvo);
 		return "success";
 	}
 	
-	@RequestMapping(value="/notice/system_notice_delete", method = RequestMethod.POST)
+	@RequestMapping(value="/system_notice_delete", method = RequestMethod.POST)
 	@ResponseBody
 	public String setNoticeDelete(@ModelAttribute NoticeVO nvo) {
 		nSrv.setNoticeDelete(nvo);
@@ -82,7 +83,7 @@ public class SystemNoticeCtr {
 	    binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
 	}
 	
-	@RequestMapping(value="/notice/system_notice_modify", method = RequestMethod.GET)
+	@RequestMapping(value="/system_notice_modify", method = RequestMethod.GET)
 	public ModelAndView getNoticeModify(@ModelAttribute NoticeVO nvo) {
 
 		ModelAndView mav = new ModelAndView();
@@ -94,14 +95,14 @@ public class SystemNoticeCtr {
 		return mav;
 	}
 	
-	@RequestMapping(value="/notice/system_notice_modify", method = RequestMethod.POST)
+	@RequestMapping(value="/system_notice_modify", method = RequestMethod.POST)
 	@ResponseBody
 	public String setNoticeUpdate(@ModelAttribute NoticeVO nvo) {
 		nSrv.setNoticeUpdate(nvo);
 		return "success";
 	}
 
-	@RequestMapping(value="/notice/system_notice_view", method = RequestMethod.GET)
+	@RequestMapping(value="/system_notice_view", method = RequestMethod.GET)
 	public ModelAndView getNoticeView(@ModelAttribute NoticeVO nvo) {
 
 		ModelAndView mav = new ModelAndView();

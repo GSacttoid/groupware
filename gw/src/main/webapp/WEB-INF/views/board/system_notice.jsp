@@ -33,9 +33,7 @@
 				                <h2><i class="fas fa-book"></i> 시스템 공지사항</h2>
 				            </div>
 				            <div>
-				            	<c:if test = "${sessionScope.empId != null && sessionScope.empAuth > 9}">
-				            		<button class="btn-on" onClick="noticeInsertOne();">공지작성</button>
-				            	</c:if>
+
 				            </div>
 			        	</div>
 			
@@ -49,10 +47,6 @@
 			                        <td class="td-5">조회수</td>
 			                        <td class="td-10">작성자</td>
 			                        <td class="td-10">작성일</td>
-			                        
-			                        <c:if test = "${sessionScope.empId != null && sessionScope.empAuth > 9}">
-			                        	<td class="td-10">관리</td>
-			                        </c:if>
 			                        
 			                    </tr>
 			                    <c:forEach var="noticeList" items="${list}" varStatus="status">
@@ -74,16 +68,16 @@
 				                        <td>${noticeList.sn_count}</td>
 				                        <td>${noticeList.sn_maker}</td>
 				                        <td>${noticeList.sn_regdate}</td>
-				                        <c:if test = "${sessionScope.empId != null && sessionScope.empAuth > 9}">
-					                        <td>
-					                        	<button class="s-btn-on" id="modifyNotice" onClick="location.href='${pageContext.request.contextPath}/notice/system_notice_modify?sn_num=${noticeList.sn_num}'">수정</button>
-					                        	<button class="s-btn-off" id="deleteNotice" onClick="noticeDelete('${noticeList.sn_num}');">삭제</button>
-					                        </td>
-				                        </c:if>
+
 				                    </tr>
 								</c:forEach>
 			                </table>
 							<div>
+								<c:if test = "${count eq 0}">
+						        	<div style="width:100%;">
+						        		<p class="center noto font16 weight500" style="margin: 0 auto;">등록된 공지가 없습니다.</p>
+						        	</div>
+								</c:if>
 								<c:if test = "${count > 0}">
 			                    	<div class="page-grp center m-t10">
 			                         	<c:choose>
@@ -182,7 +176,7 @@
             	data 	: { sn_num : sn_num },
             	success	: function (resData) {
             		alert("삭제되었습니다.");
-    	    		window.location.href="${pageContext.request.contextPath}/board/main";
+    	    		window.location.href="${pageContext.request.contextPath}/notice/system_notice";
                 },
                 error 	: function() {
                 	alert("시스템 오류!");

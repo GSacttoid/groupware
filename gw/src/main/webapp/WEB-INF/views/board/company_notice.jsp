@@ -33,9 +33,7 @@
 				                <h2><i class="fas fa-book"></i> 회사 공지사항</h2>
 				            </div>
 				            <div>
-				            	<c:if test = "${sessionScope.empId != null && sessionScope.empAuth > 9}">
-				            		<button class="btn-on" onClick="noticeInsertOne();">공지작성</button>
-				            	</c:if>
+
 				            </div>
 			        	</div>
 			
@@ -49,11 +47,7 @@
 			                        <td class="td-5">조회수</td>
 			                        <td class="td-10">작성자</td>
 			                        <td class="td-10">작성일</td>
-			                        
-			                        <c:if test = "${sessionScope.empId != null && sessionScope.empAuth > 9}">
-			                        	<td class="td-10">관리</td>
-			                        </c:if>
-			                        
+			                        			                        
 			                    </tr>
 			                    <c:forEach var="noticeList" items="${list}" varStatus="status">
 				                    <tr>
@@ -69,21 +63,21 @@
 			                        	</td>
 				                        <td>
 				                        	<div class="left p10 under weight700" 
-				                        	onClick="location.href='${pageContext.request.contextPath}/notice/system_notice_view?sn_num=${noticeList.sn_num}'">${noticeList.sn_title}</div>
+				                        	onClick="location.href='${pageContext.request.contextPath}/notice/company_notice_view?sn_num=${noticeList.sn_num}'">${noticeList.sn_title}</div>
 				                        </td>
 				                        <td>${noticeList.sn_count}</td>
 				                        <td>${noticeList.sn_maker}</td>
 				                        <td>${noticeList.sn_regdate}</td>
-				                        <c:if test = "${sessionScope.empId != null && sessionScope.empAuth > 9}">
-					                        <td>
-					                        	<button class="s-btn-on" id="modifyNotice" onClick="location.href='${pageContext.request.contextPath}/notice/system_notice_modify?sn_num=${noticeList.sn_num}'">수정</button>
-					                        	<button class="s-btn-off" id="deleteNotice" onClick="noticeDelete('${noticeList.sn_num}');">삭제</button>
-					                        </td>
-				                        </c:if>
+
 				                    </tr>
 								</c:forEach>
 			                </table>
 							<div>
+								<c:if test = "${count eq 0}">
+						        	<div style="width:100%;">
+						        		<p class="center noto font16 weight500" style="margin: 0 auto;">등록된 공지가 없습니다.</p>
+						        	</div>
+								</c:if>
 								<c:if test = "${count > 0}">
 			                    	<div class="page-grp center m-t10">
 			                         	<c:choose>
@@ -167,7 +161,7 @@
 
     function noticeInsertOne(){
    	 //window.open(주소, 별명, 넓이/높이/위치/스코롤바)
-   	 var url 	="${pageContext.request.contextPath}/notice/system_notice_insert";
+   	 var url 	="${pageContext.request.contextPath}/notice/company_notice_insert";
    	 var nick	="notice";
    	 var opt	="width=1300, height=750, top=100, left=100";
    	 window.open(url,nick,opt);
@@ -177,12 +171,12 @@
     	var str = confirm("삭제 후 복구는 불가능합니다.\n선택하신 정보를 삭제하시겠습니까?");
         if( str ) {   
             $.ajax({
-            	url 	: "${pageContext.request.contextPath}/notice/system_notice_delete",
+            	url 	: "${pageContext.request.contextPath}/notice/company_notice_delete",
             	type 	: "POST", 	
             	data 	: { sn_num : sn_num },
             	success	: function (resData) {
             		alert("삭제되었습니다.");
-    	    		window.location.href="${pageContext.request.contextPath}/board/main";
+    	    		window.location.href="${pageContext.request.contextPath}/board/company_notice";
                 },
                 error 	: function() {
                 	alert("시스템 오류!");

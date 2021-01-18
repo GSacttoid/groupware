@@ -32,7 +32,7 @@
                         <div class="main-left">
                         	<div>
 								<div class="notice-title">
-	                                <h3><a href="${pageContext.request.contextPath}/board/company_notice" class="noto font16 under">
+	                                <h3><a href="${pageContext.request.contextPath}/notice/company_notice" class="noto font16 under">
 	                                <i class="fas fa-book"></i> 회사 공지사항</a></h3>
 	                            </div>
 	                            <hr />
@@ -51,7 +51,7 @@
                         <div class="main-right">
                         	<div>
 	                            <div class="notice-title">
-	                                <h3><a href="${pageContext.request.contextPath}/board/system_notice" class="noto font16 under">
+	                                <h3><a href="${pageContext.request.contextPath}/notice/system_notice" class="noto font16 under">
 	                                <i class="fas fa-book"></i> 시스템 공지사항</a></h3>
 	                            </div>
 	                            <hr />
@@ -80,7 +80,7 @@
 	                                <div class="notice-left flex">
 	                                    <p class="m-lr10 m-b10">진행중인 설문: <span style="color:#f00;">${openCount}개</span></p>
 	                                </div>
-	                                <div class="flex flex-justify" style="width:100%;">
+	                                <div class="flex" style="width:100%;">
 	                                    <c:forEach var="surOpenList" items="${surOpenList}" varStatus="status">
 				                            <div class="page-survey-wrap td-20 m-lr5" style="border: 1px solid #e7e7e7;">
 				                                <div class="survey p10 noto" style="width: 100%; line-height: 1.8;">

@@ -48,10 +48,10 @@
 	<div class="accordion-header" >공지 사항</div>
 	<div class="accordion-approval">
 		<div>
-			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/company_notice">회사 공지사항</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/notice/company_notice">회사 공지사항</a>
 		</div>
 		<div>
-			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/board/system_notice">시스템 공지사항</a>
+			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/notice/system_notice">시스템 공지사항</a>
 		</div>
 	</div>
 	<div class="accordion-header" >회사 메뉴</div>

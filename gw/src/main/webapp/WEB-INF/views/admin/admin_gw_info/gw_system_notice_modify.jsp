@@ -52,7 +52,7 @@
 									</h3>
 								</div>
 								<div class="board-insert p10">
-									<form id="frm" name="frm" method="post" enctype="multipart/form-data" autocomplete="off">
+									<form id="frm" name="frm" method="post" enctype="multipart/form-data" onsubmit="return false;" autocomplete="off">
 										<table style="border:1px solid #d5d5d5;">
 											<tr>
 												<td class="td-10 center weight700 noto font14 under bg-gray" style="border:1px solid #d5d5d5;">게시글 분류</td>
@@ -146,7 +146,7 @@ function noticeModify(){
 		CKEDITOR.instances.editor.updateElement();
 		var formData = $("#frm").serialize();
 		$.ajax({
-			url		: "${pageContext.request.contextPath}/notice/system_notice_modify",
+			url		: "${pageContext.request.contextPath}/admin/system_notice_modify",
 			type	: "POST",
 			data	: formData,
 			success	: function(resData) {
