@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comment">
+
+	<insert id="setCommentWrite" parameterType="com.example.grp.model.CommentVO">
+		INSERT INTO com_comment_${menu_code} SET 
+			aid = #{aid},
+			who	= #{who},
+			comment	= #{comment},
+			regdate = now()
+	</insert>
+	
+	<select id="getCommentList" parameterType="com.example.grp.model.CommentVO" resultType="com.example.grp.model.CommentVO">
+		SELECT * FROM com_comment_${menu_code} ORDER BY regdate DESC
+	</select>
+	
+	<select id="getCommentListCount" parameterType="com.example.grp.model.CommentVO" resultType="int">
+		SELECT COUNT(*) FROM com_comment_${menu_code}
+	</select>
+	
+	<delete id="setCommentDelete" parameterType="com.example.grp.model.CommentVO">
+		DELETE FROM com_comment_${menu_code} WHERE cid = #{cid}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
