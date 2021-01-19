@@ -37,7 +37,7 @@
 
 	<!-- 업로드 패스 설정 -->
 	<beans:bean class="java.lang.String" id="uploadPath">
-		<beans:constructor-arg value="C:\\upload" />
+		<beans:constructor-arg value="C:\\Users\actto\git\gw\gw\src\main\webapp\WEB-INF\upload" />
 	</beans:bean>
 
 	<!-- 일반 파일 업로드 경로 -->

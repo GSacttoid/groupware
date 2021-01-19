@@ -147,6 +147,7 @@ td {
 												</select> 
 												<input type="text" name="words" autocomplete="off" value="${words}" style="margin-left: -2px;" />
 												<button type="submit" class="btn-on" style="margin-left: -2px;">검색</button>
+												<button type="button" class="btn-on" style="margin-left: -2px;" onClick="location.href='${pageContext.request.contextPath}/admin/employee_register'">사원등록</button>
 											</form>
 										</div>
 									</div>
@@ -183,14 +184,14 @@ td {
 												<td>
 													<select class="sel-75" style="width:75px;">
 														<option value="10" <c:if test="${list.emp_auth eq '10'}">selected</c:if> >10등급</option>
-														<option value="9" <c:if test="${list.emp_auth eq '9'}">selected</c:if> >8등급</option>
-														<option value="8" <c:if test="${list.emp_auth eq '8'}">selected</c:if> >7등급</option>
-														<option value="7" <c:if test="${list.emp_auth eq '7'}">selected</c:if> >6등급</option>
-														<option value="6" <c:if test="${list.emp_auth eq '6'}">selected</c:if> >5등급</option>
-														<option value="5" <c:if test="${list.emp_auth eq '5'}">selected</c:if> >4등급</option>
-														<option value="4" <c:if test="${list.emp_auth eq '4'}">selected</c:if> >3등급</option>
-														<option value="3" <c:if test="${list.emp_auth eq '3'}">selected</c:if> >2등급</option>
-														<option value="2" <c:if test="${list.emp_auth eq '2'}">selected</c:if> >1등급</option>
+														<option value="9" <c:if test="${list.emp_auth eq '9'}">selected</c:if> >9등급</option>
+														<option value="8" <c:if test="${list.emp_auth eq '8'}">selected</c:if> >8등급</option>
+														<option value="7" <c:if test="${list.emp_auth eq '7'}">selected</c:if> >7등급</option>
+														<option value="6" <c:if test="${list.emp_auth eq '6'}">selected</c:if> >6등급</option>
+														<option value="5" <c:if test="${list.emp_auth eq '5'}">selected</c:if> >5등급</option>
+														<option value="4" <c:if test="${list.emp_auth eq '4'}">selected</c:if> >4등급</option>
+														<option value="3" <c:if test="${list.emp_auth eq '3'}">selected</c:if> >3등급</option>
+														<option value="2" <c:if test="${list.emp_auth eq '2'}">selected</c:if> >2등급</option>
 														<option value="1" <c:if test="${list.emp_auth eq '1'}">selected</c:if> >1등급</option>
 													</select>
 												</td>

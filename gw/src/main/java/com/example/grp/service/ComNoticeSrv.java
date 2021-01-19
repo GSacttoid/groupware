@@ -42,4 +42,8 @@ public class ComNoticeSrv {
 	public NoticeVO getNoticeOne(NoticeVO nvo) {
 		return nDao.getNoticeOne(nvo);
 	}
+	
+	public void setHitUp(NoticeVO nvo) {
+		nDao.setHitUp(nvo);
+	}
 }

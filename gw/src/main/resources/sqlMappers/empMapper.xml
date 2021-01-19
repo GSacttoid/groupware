@@ -21,7 +21,7 @@
 			emp_regdate as emp_regdate,
 			emp_confirm as emp_confirm,
 			emp_auth as emp_auth 
-		 FROM gw_employee e, gw_buseo b, gw_grade g WHERE e.emp_confirm = 'Y' AND e.emp_buseo = b.buseo_id AND e.emp_grade = g.grade_id 
+		 FROM gw_employee e, gw_buseo b, gw_grade g WHERE e.emp_confirm = 'Y' AND e.emp_buseo = b.buseo_id AND e.emp_grade = g.grade_id AND emp_num > 1 
 		  AND <include refid="searchData"></include>  
 		  ORDER BY emp_num DESC LIMIT #{start}, #{end}
 	</select>
@@ -148,7 +148,8 @@
 			emp_regdate as emp_regdate,
 			emp_confirm as emp_confirm,
 			emp_auth as emp_auth 
-		 FROM gw_employee e, gw_buseo b, gw_grade g WHERE e.emp_confirm = 'Y' AND e.emp_auth = 10 AND e.emp_buseo = b.buseo_id AND e.emp_grade = g.grade_id ORDER BY emp_num DESC LIMIT #{start}, #{end}
+		 FROM gw_employee e, gw_buseo b, gw_grade g WHERE e.emp_confirm = 'Y' AND e.emp_auth = 10 AND e.emp_buseo = b.buseo_id AND e.emp_grade = g.grade_id AND emp_num > 1 
+		  ORDER BY emp_num DESC LIMIT #{start}, #{end}
 	</select>
 	
 	<select id="getAdminOne" resultType="com.example.grp.model.EmpVO">
@@ -161,6 +162,10 @@
 	
 	<update id="setAdmin" parameterType="int">
 		UPDATE gw_employee SET emp_auth = 10 WHERE emp_num = #{emp_num}
+	</update>
+	
+	<update id="setAdminAuth" parameterType="com.example.grp.model.EmpVO">
+		UPDATE gw_employee SET emp_auth = 2 WHERE emp_num = #{emp_num}
 	</update>
 </mapper>
 

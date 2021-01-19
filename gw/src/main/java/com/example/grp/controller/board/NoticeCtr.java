@@ -1,4 +1,4 @@
-package com.example.grp.controller;
+package com.example.grp.controller.board;
 
 import java.util.List;
 
@@ -16,14 +16,14 @@ import com.example.grp.model.NoticeVO;
 import com.example.grp.pager.Pager;
 import com.example.grp.service.BoardSrv;
 import com.example.grp.service.ComNoticeSrv;
-import com.example.grp.service.NoticeSrv;
+import com.example.grp.service.SysNoticeSrv;
 
 @Controller
 @RequestMapping("/notice")
 public class NoticeCtr {
 
 	@Autowired
-	NoticeSrv nSrv;
+	SysNoticeSrv nSrv;
 	
 	@Autowired
 	ComNoticeSrv cSrv;

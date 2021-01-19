@@ -45,15 +45,28 @@
 							</div>
 							<div class="page-member-bottom">
 								<div class="page-content">
-									<form method="post" id="frm" name="frm" enctype="multipart/form-data">
+									<form method="post" id="frm" name="frm" enctype="multipart/form-data" autocomplete="off" action="${pageContext.request.contextPath}/admin/employee_modify" >
 										<div class="member-info flex">
 											<div class="member-left">
-												<div class="photo-area">
-													<img src="${pageContext.request.contextPath}/images/no.jpg" id="empPhotoImg" />
-												</div>
-												<div class="member-img-btn center m-t10">
-													<input type="file" name="file" id="empPhoto" />
-												</div>
+												<c:choose>
+													<c:when test="${list.emp_photo ne ''}">
+														<div class="photo-area">
+															<img src="${pageContext.request.contextPath}/upload/emp/${list.emp_photo}" id="empPhotoImg" />
+														</div>
+														<div class="member-img-btn center m-t10">
+															<input type="file" name="file" id="emp_photo" />
+														</div>
+													</c:when>
+													<c:otherwise>
+														<div class="photo-area">
+															<img src="${pageContext.request.contextPath}/images/no.jpg" id="empPhotoImg" />
+														</div>
+														<div class="member-img-btn center m-t10">
+															<input type="file" name="file" id="emp_photo" />
+														</div>
+													</c:otherwise>
+												</c:choose>
+
 											</div>
 											<div class="member-right w-100 m-lr10" >
 												<table>
@@ -182,7 +195,7 @@
 										<input type="hidden" name="emp_id" id="emp_id" class="input-100" maxlength="20" value="${list.emp_id}" />
 										<div class="member-info m-t10">
 											<div class="member-right center">
-												<button type="button" class="btn-on" id="btn" onClick="noticeModify('${list.emp_id}');">내용저장</button>
+												<button type="submit" class="btn-on" id="btn">내용저장</button>
 												<button type="reset" class="btn-off" id="">새로고침</button>
 												<a type="button" class="btn-red" id="" href="${pageContext.request.contextPath}/admin/employee_list">목록으로</a>
 											</div>

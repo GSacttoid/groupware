@@ -18,7 +18,10 @@ public class NoticeVO {
 	private Date sn_regdate;
 	private int sn_count;
 	private String sn_files;
+	private String sn_files_oriName;
+	private String sn_files_url;
 	
+
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public int getSn_num() {
@@ -100,5 +103,17 @@ public class NoticeVO {
 		this.sn_files = sn_files;
 	}
 	
+	public String getSn_files_oriName() {
+		return sn_files_oriName;
+	}
+	public void setSn_files_oriName(String sn_files_oriName) {
+		this.sn_files_oriName = sn_files_oriName;
+	}
+	public String getSn_files_url() {
+		return sn_files_url;
+	}
+	public void setSn_files_url(String sn_files_url) {
+		this.sn_files_url = sn_files_url;
+	}
 	
 }

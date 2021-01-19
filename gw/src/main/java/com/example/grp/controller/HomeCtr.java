@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.grp.model.NoticeVO;
 import com.example.grp.model.SurveyVO;
 import com.example.grp.service.ComSrv;
-import com.example.grp.service.NoticeSrv;
+import com.example.grp.service.SysNoticeSrv;
 import com.example.grp.service.SurveySrv;
 
 @Controller
@@ -21,7 +21,7 @@ import com.example.grp.service.SurveySrv;
 public class HomeCtr {
 
 	@Autowired
-	NoticeSrv nSrv;
+	SysNoticeSrv nSrv;
 
 	@Autowired
 	SurveySrv sSrv;

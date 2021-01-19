@@ -145,8 +145,8 @@
        					a += '<div style="line-height:1.8; margin-top:10px;">';
        						a += '<p class="noto font18">1. 설문기간 : <strong>'+resData.survey_startDate+' ~ '+resData.survey_endDate+'</strong></p>';
    							a += '<p class="noto font18">2. 설문참여자수 : <strong>'+resData.survey_total+'</strong>명</p>';
-							a += '<p class="noto font18">3. 설문작성자 : <strong>'+resData.survey_maker+'</strong></p>';
-							a += '<p class="noto font18">4. 설문작성일 : <strong>'+resData.survey_regdate+'</strong></p>';
+							a += '<p class="noto font18">4. 설문작성자 : <strong>'+resData.survey_maker+'</strong></p>';
+							a += '<p class="noto font18">5. 설문작성일 : <strong>'+resData.survey_regdate+'</strong></p>';
 						a += '</div>';
         				
 						a += '<div style="margin-top:30px;">';
@@ -161,7 +161,7 @@
 								a += '<div style="width:30%;">'
 									var tokenCnt = resData.survey_ex_cnt.split("|");
 									for(var i = 0; i < tokenCnt.length-1; i++){
-										a += '<div class="center f6 weight700" style="line-height:35px;margin-top:5px;width:100%;height:35px;background-color:#f00;">';
+										a += '<div class="center font14 f6 weight500" style="line-height:35px;margin-top:5px;width:100%;height:35px;background-color:#f00;">';
 										if(tokenCnt[i] == 0){
 											a += "0표(0%)";
 										}else{

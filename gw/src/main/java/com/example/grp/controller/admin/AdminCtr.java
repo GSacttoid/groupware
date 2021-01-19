@@ -19,14 +19,14 @@ import com.example.grp.pager.Pager;
 import com.example.grp.service.ApprovalSrv;
 import com.example.grp.service.BoardSrv;
 import com.example.grp.service.ComSrv;
-import com.example.grp.service.NoticeSrv;
+import com.example.grp.service.SysNoticeSrv;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminCtr {
 	
 	@Autowired
-	NoticeSrv nSrv;
+	SysNoticeSrv nSrv;
 	
 	@Autowired
 	ComSrv cSrv;

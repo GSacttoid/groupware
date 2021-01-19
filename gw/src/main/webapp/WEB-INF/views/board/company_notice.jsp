@@ -10,6 +10,9 @@
 	        background-color: #c1c1c1;
 	        cursor: pointer;
 	    }
+	    .tr-even {
+			background-color: #eff3f9;
+		}
 	</style>
 <body>
     <div class="total-wrap">
@@ -83,7 +86,7 @@
 			                         	<c:choose>
 			                               	<c:when test = "${curPage > 1}">
 												<span class="page">
-			                                     	<a href="${pageContext.request.contextPath}/board/main?curPage=1"><i class="fas fa-angle-double-left"></i></a>
+			                                     	<a href="${pageContext.request.contextPath}/notice/company_notice?curPage=1"><i class="fas fa-angle-double-left"></i></a>
 			                                 	</span>
 			                             	</c:when>
 			                             	<c:otherwise>
@@ -96,7 +99,7 @@
 			                             <c:choose>
 			                               	<c:when test = "${curPage > 1}">
 			                               		<span class="page">
-			                                    	<a href="${pageContext.request.contextPath}/board/main?curPage=${curPage-1}"><i class="fas fa-angle-left"></i></a>
+			                                    	<a href="${pageContext.request.contextPath}/notice/company_notice?curPage=${curPage-1}"><i class="fas fa-angle-left"></i></a>
 			                                	</span>
 			                               	</c:when>
 			                             	<c:otherwise>
@@ -107,7 +110,7 @@
 			                           	</c:choose>
 			                           	<c:forEach begin="${blockBegin}" end = "${blockEnd}" var="num">
 			                           		<c:if test="${selected != num}">
-			                           			<a href="${pageContext.request.contextPath}/board/main?curPage=${num}">
+			                           			<a href="${pageContext.request.contextPath}/notice/company_notice?curPage=${num}">
 			                                		<span class="page">${num}</span>
 			                            		</a>
 			                            	</c:if>
@@ -120,7 +123,7 @@
 			                           </c:forEach>
 			                           <c:choose>
 			                               	<c:when test = "${curPage != totalPage }">
-			                               		<a href="${pageContext.request.contextPath}/board/main?curPage=${curPage+1}">
+			                               		<a href="${pageContext.request.contextPath}/notice/company_notice?curPage=${curPage+1}">
 			                               			<span class="page">
 			                                     		<i class="fas fa-angle-right"></i>
 			                                 		</span>
@@ -135,7 +138,7 @@
 			                     		<c:choose>
 			                               	<c:when test = "${curPage != totalPage }">
 			                               		<span class="page">
-			                                   		<a href="${pageContext.request.contextPath}/board/main?curPage=${totalPage}"><i class="fas fa-angle-double-right"></i></a>
+			                                   		<a href="${pageContext.request.contextPath}/notice/company_notice?curPage=${totalPage}"><i class="fas fa-angle-double-right"></i></a>
 			                               		</span>
 			                             	</c:when>
 			                             	<c:otherwise>
@@ -158,32 +161,5 @@
     $(function () {
         $(".list tr:nth-child(2n+3)").addClass("tr-even");
     });
-
-    function noticeInsertOne(){
-   	 //window.open(주소, 별명, 넓이/높이/위치/스코롤바)
-   	 var url 	="${pageContext.request.contextPath}/notice/company_notice_insert";
-   	 var nick	="notice";
-   	 var opt	="width=1300, height=750, top=100, left=100";
-   	 window.open(url,nick,opt);
-    } 
-    
-    function noticeDelete(sn_num) {
-    	var str = confirm("삭제 후 복구는 불가능합니다.\n선택하신 정보를 삭제하시겠습니까?");
-        if( str ) {   
-            $.ajax({
-            	url 	: "${pageContext.request.contextPath}/notice/company_notice_delete",
-            	type 	: "POST", 	
-            	data 	: { sn_num : sn_num },
-            	success	: function (resData) {
-            		alert("삭제되었습니다.");
-    	    		window.location.href="${pageContext.request.contextPath}/board/company_notice";
-                },
-                error 	: function() {
-                	alert("시스템 오류!");
-                }
-            });
-        }
-    }
-
 </script>
 </html>

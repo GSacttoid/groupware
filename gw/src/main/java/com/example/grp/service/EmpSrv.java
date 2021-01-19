@@ -1,5 +1,6 @@
 package com.example.grp.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.grp.model.EmpVO;
 import com.example.grp.model.NoticeVO;
 import com.example.grp.repository.EmpDao;
-import com.example.grp.repository.NoticeDao;
+import com.example.grp.repository.SysNoticeDao;
 
 @Service
 public class EmpSrv {
@@ -66,6 +67,11 @@ public class EmpSrv {
 	
 	public void setAdmin(EmpVO evo) {
 		eDao.setAdmin(evo);
+	}
+	
+	public void setAdminAuth(int emp_num) {
+
+		eDao.setAdminAuth(emp_num);
 	}
 	
 	public List<EmpVO> getAdminList(int start, int end) {

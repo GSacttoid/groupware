@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.grp.model.NoticeVO;
-import com.example.grp.repository.NoticeDao;
+import com.example.grp.repository.SysNoticeDao;
 
 @Service
-public class NoticeSrv {
+public class SysNoticeSrv {
 
 	@Autowired
-	NoticeDao nDao;
+	SysNoticeDao nDao;
 	
 	public void setNoticeInsert(NoticeVO nvo) {
 		nDao.setNoticeInsert(nvo);
@@ -44,5 +44,9 @@ public class NoticeSrv {
 	
 	public NoticeVO getNoticeOne(NoticeVO nvo) {
 		return nDao.getNoticeOne(nvo);
+	}
+	
+	public void setHitUp(NoticeVO nvo) {
+		nDao.setHitUp(nvo);
 	}
 }

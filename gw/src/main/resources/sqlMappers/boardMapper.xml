@@ -26,7 +26,6 @@
 	
 	<select id="getBoardList" resultType="com.example.grp.model.BoardVO">
 		SELECT * FROM com_board A ORDER by menu_code DESC LIMIT #{start}, #{end}
-
 	</select>
 
 	<select id="getBoardExist" resultType="int">
@@ -111,6 +110,7 @@
 	<select id="getBuseoMenuList" resultType="com.example.grp.model.BoardVO">
 		SELECT * FROM buseo_board
 	</select>
+	
 </mapper>
 
 

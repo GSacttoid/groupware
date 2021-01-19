@@ -82,6 +82,10 @@ public class EmpDao {
 		sqlSession.update("employee.setAdmin",evo);
 	}
 	
+	public void setAdminAuth(int emp_num) {
+		sqlSession.update("employee.setAdminAuth", emp_num);
+	}
+	
 	public List<EmpVO> getAdminList(int start, int end) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);

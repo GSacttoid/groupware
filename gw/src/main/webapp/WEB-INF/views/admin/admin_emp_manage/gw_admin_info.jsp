@@ -143,7 +143,7 @@ input[type="radio"] {
 												<td class="td-10">부서</td>
 												<td class="td-10">직급</td>
 												<td class="">이름</td>
-												<td class="td-8">권한</td>
+												<td class="td-8">관리</td>
 											</tr>
 											<c:forEach var="list" items="${list}" varStatus="status">
 												<tr class="center noto font14">
@@ -153,18 +153,7 @@ input[type="radio"] {
 													<td>${list.emp_grade_name}</td>
 													<td>${list.emp_name}</td>
 													<td>
-														<select class="sel-75" style="width:75px;">
-															<option value="10" <c:if test="${list.emp_auth eq '10'}">selected</c:if> >10등급</option>
-															<option value="9" <c:if test="${list.emp_auth eq '9'}">selected</c:if> >8등급</option>
-															<option value="8" <c:if test="${list.emp_auth eq '8'}">selected</c:if> >7등급</option>
-															<option value="7" <c:if test="${list.emp_auth eq '7'}">selected</c:if> >6등급</option>
-															<option value="6" <c:if test="${list.emp_auth eq '6'}">selected</c:if> >5등급</option>
-															<option value="5" <c:if test="${list.emp_auth eq '5'}">selected</c:if> >4등급</option>
-															<option value="4" <c:if test="${list.emp_auth eq '4'}">selected</c:if> >3등급</option>
-															<option value="3" <c:if test="${list.emp_auth eq '3'}">selected</c:if> >2등급</option>
-															<option value="2" <c:if test="${list.emp_auth eq '2'}">selected</c:if> >1등급</option>
-															<option value="1" <c:if test="${list.emp_auth eq '1'}">selected</c:if> >1등급</option>
-														</select>
+														<button type="button" class="s-btn-on" onClick="authChange('${list.emp_num}');">해제</button>
 													</td>
 												</tr>
 											</c:forEach>
@@ -261,6 +250,32 @@ input[type="radio"] {
 		var nick = "notice";
 		var opt = "width=1300, height=700, top=100, left=100";
 		window.open(url, nick, opt);
+	}
+</script>
+
+<script>
+	function authChange(emp_num) {
+		
+		if( confirm("권한을 변경하시겠습니까?") ) {
+			var reqData = {
+					emp_num	: emp_num
+			};
+	
+			$.ajax({
+				url 	: "${pageContext.request.contextPath}/admin/admin_auth_change",
+				type	: "POST",
+				data	: reqData,
+				success	: function(resData) {
+					alert("권한이 변경되었습니다.");
+					window.location.reload();
+				},
+				error	: function() {
+					alert("시스템 오류입니다.");
+				}
+			});
+		}else{
+			window.location.reload();
+		}
 	}
 </script>
 </html>

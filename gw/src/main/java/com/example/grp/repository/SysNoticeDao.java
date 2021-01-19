@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.example.grp.model.NoticeVO;
 
 @Repository
-public class NoticeDao {
+public class SysNoticeDao {
 
 	@Autowired
 	SqlSession sqlSession;
@@ -49,5 +49,9 @@ public class NoticeDao {
 	
 	public NoticeVO getNoticeOne(NoticeVO nvo) {
 		return sqlSession.selectOne("notice.getNoticeOne", nvo);
+	}
+	
+	public void setHitUp(NoticeVO nvo) {
+		sqlSession.update("notice.hitUp", nvo);
 	}
 }

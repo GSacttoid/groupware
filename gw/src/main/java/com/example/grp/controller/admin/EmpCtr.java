@@ -1,14 +1,21 @@
 package com.example.grp.controller.admin;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
+
+import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.grp.model.BuseoVO;
@@ -27,6 +34,8 @@ public class EmpCtr {
 	@Autowired
 	ComSrv cSrv;
 	
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	
 	//사원 및 관리자 정보 관리 / 사원관리
 	@RequestMapping("/admin/employee_list")
@@ -207,8 +216,6 @@ public class EmpCtr {
 			@RequestParam(defaultValue = "emp_name") String searchOpt,
 			@RequestParam(defaultValue = "1") int curPage) {
 		int count = eSrv.getTotalEmpCount(searchOpt, words);
-		int countNew = eSrv.getNewEmpCount();
-		int countResign = eSrv.getResignEmpCount();
 		
 		Pager pager = new Pager(count, curPage);
 		
@@ -242,6 +249,15 @@ public class EmpCtr {
 		return "success";
 	}
 	
+	@RequestMapping(value="/admin/admin_auth_change", method=RequestMethod.POST)
+	@ResponseBody
+	public String setAdminAuth(@RequestParam int emp_num) {
+
+		eSrv.setAdminAuth(emp_num);
+
+		return "success";
+	}
+	
 	@RequestMapping(value="/admin/employee_modify", method=RequestMethod.GET)
 	public ModelAndView getEmpModify(@ModelAttribute EmpVO evo) {
 
@@ -252,11 +268,20 @@ public class EmpCtr {
 	}
 	
 	@RequestMapping(value="/admin/employee_modify", method=RequestMethod.POST)
-	@ResponseBody
-	public String setEmpModify(@ModelAttribute EmpVO evo) {
+	public String setEmpModify(@ModelAttribute EmpVO evo, MultipartFile file) throws IOException {	
+		/* 파일 업로드 */
+		UUID uuid = UUID.randomUUID();
+		
+		String orgFileName = uuid.toString() + "_" + file.getOriginalFilename();
+		File location = new File(uploadPath+"/emp", orgFileName);
+		FileCopyUtils.copy(file.getBytes(), location);
+		
+		evo.setEmp_photo(orgFileName);
+		/* 파일 업로드 */
+		
 		eSrv.setEmpModify(evo);
 
-		return "success";
+		return "redirect:/admin/employee_list";
 	}
 	
 	@RequestMapping(value="/admin/employee_resign", method=RequestMethod.POST)
@@ -281,10 +306,20 @@ public class EmpCtr {
 	}
 	
 	@RequestMapping(value="/admin/employee_register", method=RequestMethod.POST)
-	@ResponseBody
-	public String setEmpRegister(@ModelAttribute EmpVO evo) {
+	public String setEmpRegister(@ModelAttribute EmpVO evo, MultipartFile file) throws IOException {
+		
+		/* 파일 업로드 */
+		UUID uuid = UUID.randomUUID();
+		
+		String orgFileName = uuid.toString() + "_" + file.getOriginalFilename();
+		File location = new File(uploadPath+"/emp", orgFileName);
+		FileCopyUtils.copy(file.getBytes(), location);
+		
+		evo.setEmp_photo(orgFileName);
+		/* 파일 업로드 */
+		
 		eSrv.setEmpRegister(evo);
-		return "success";
+		return "redirect:/admin/employee_list";
 	}
 }
 

@@ -20,7 +20,7 @@ import com.example.grp.model.NoticeVO;
 import com.example.grp.model.SurveyVO;
 import com.example.grp.service.ComSrv;
 import com.example.grp.service.LoginSrv;
-import com.example.grp.service.NoticeSrv;
+import com.example.grp.service.SysNoticeSrv;
 import com.example.grp.service.RegisterSrv;
 import com.example.grp.service.SurveySrv;
 
@@ -32,7 +32,7 @@ public class LoginCtr {
 	LoginSrv loginSrv;
 	
 	@Autowired
-	NoticeSrv nSrv;
+	SysNoticeSrv nSrv;
 	
 	@Autowired
 	ComSrv cSrv;

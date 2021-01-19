@@ -18,13 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.grp.model.NoticeVO;
 import com.example.grp.pager.Pager;
-import com.example.grp.service.NoticeSrv;
+import com.example.grp.service.SysNoticeSrv;
 
 @Controller
 @RequestMapping("/admin")
 public class SystemNoticeCtr {
 	@Autowired
-	NoticeSrv nSrv;
+	SysNoticeSrv nSrv;
 		
 	//그룹웨어 정보 / 시스템 공지사항
 	@RequestMapping("/system_notice" )
@@ -104,7 +104,8 @@ public class SystemNoticeCtr {
 
 	@RequestMapping(value="/system_notice_view", method = RequestMethod.GET)
 	public ModelAndView getNoticeView(@ModelAttribute NoticeVO nvo) {
-
+		
+		nSrv.setHitUp(nvo);
 		ModelAndView mav = new ModelAndView();
 		
 		NoticeVO vo = nSrv.getNoticeOne(nvo);

@@ -53,6 +53,10 @@
 	<select id="getNoticeOne" parameterType="com.example.grp.model.NoticeVO" resultType="com.example.grp.model.NoticeVO">
 		SELECT * FROM gw_system_notice WHERE sn_num = #{sn_num}
 	</select>
+	
+	<update id="hitUp" parameterType="int">
+		UPDATE gw_system_notice SET sn_count = sn_count + 1 WHERE sn_num = #{sn_num}
+	</update>
 </mapper>
 
 

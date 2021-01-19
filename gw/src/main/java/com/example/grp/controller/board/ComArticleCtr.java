@@ -1,4 +1,4 @@
-package com.example.grp.controller;
+package com.example.grp.controller.board;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,20 +27,20 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.grp.model.ArticleVO;
 import com.example.grp.model.BoardVO;
 import com.example.grp.pager.Pager;
+import com.example.grp.service.ArticleSrv;
 import com.example.grp.service.BoardSrv;
-import com.example.grp.service.BuseoArticleSrv;
 
 @Controller
-@RequestMapping("/buseo_article")
-public class BuseoArticleCtr {
+@RequestMapping("/article")
+public class ComArticleCtr {
 
 	@Autowired
-	BuseoArticleSrv aSrv;
+	ArticleSrv aSrv;
 	
 	@Autowired
 	BoardSrv boardSrv;
 	
-	@RequestMapping(value="/article_list", method=RequestMethod.GET)
+	@RequestMapping("/article_list")
 	public ModelAndView getArticleList(
 			@RequestParam(defaultValue = "1") int curPage,
 			@RequestParam(defaultValue = "subject") String searchOpt,
@@ -80,11 +80,11 @@ public class BuseoArticleCtr {
 		mav.addObject("comMenuList", comMenuList);
 		mav.addObject("buseoMenuList", buseoMenuList);
 
-		mav.setViewName("board/buseo_menu/article_list");
+		mav.setViewName("board/com_menu/article_list");
 		return mav;
 	}
 	
-	@RequestMapping(value = "/buseo_article_insert", method = RequestMethod.GET)
+	@RequestMapping(value = "/com_article_insert", method = RequestMethod.GET)
 	public ModelAndView getArticleInsert(@RequestParam String menu_code) {
 		List<BoardVO> comMenuList = boardSrv.getComMenuList();
 		List<BoardVO> buseoMenuList = boardSrv.getBuseoMenuList();
@@ -98,11 +98,11 @@ public class BuseoArticleCtr {
 		mav.addObject("comMenuList", comMenuList);
 		mav.addObject("buseoMenuList", buseoMenuList);
 		
-		mav.setViewName("board/buseo_menu/article_insert");
+		mav.setViewName("board/com_menu/article_insert");
 		return mav;
 	}
 	
-	@RequestMapping(value = "/buseo_article_insert", method=RequestMethod.POST)
+	@RequestMapping(value = "/com_article_insert", method=RequestMethod.POST)
 	public String setArticleDo(
 			@ModelAttribute ArticleVO vo,
 			@RequestPart MultipartFile files) throws IllegalStateException, IOException {
@@ -131,10 +131,10 @@ public class BuseoArticleCtr {
 				aSrv.setArticle(vo);
 		}
 		
-		return "redirect:/buseo_article/article_list?menu_code="+vo.getMenu_code();
+		return "redirect:/article/article_list?menu_code="+vo.getMenu_code();
 	}
 	
-	@RequestMapping(value = "/buseo_article_modify", method = RequestMethod.GET)
+	@RequestMapping(value = "/com_article_modify", method = RequestMethod.GET)
 	public ModelAndView getArticleModify(@ModelAttribute ArticleVO vo) {
 		List<BoardVO> comMenuList = boardSrv.getComMenuList();
 		List<BoardVO> buseoMenuList = boardSrv.getBuseoMenuList();
@@ -149,11 +149,11 @@ public class BuseoArticleCtr {
 		mav.addObject("comMenuList", comMenuList);
 		mav.addObject("buseoMenuList", buseoMenuList);
 		
-		mav.setViewName("board/buseo_menu/article_modify");
+		mav.setViewName("board/com_menu/article_modify");
 		return mav;
 	}
 	
-	@RequestMapping(value = "/buseo_article_modify", method=RequestMethod.POST)
+	@RequestMapping(value = "/com_article_modify", method=RequestMethod.POST)
 	public String setArticleModify(
 			@ModelAttribute ArticleVO vo,
 			@RequestPart MultipartFile files) throws IllegalStateException, IOException {
@@ -182,10 +182,10 @@ public class BuseoArticleCtr {
 				aSrv.setArticleModify(vo);
 		}
 		
-		return "redirect:/buseo_article/article_list?menu_code="+vo.getMenu_code();
+		return "redirect:/article/article_list?menu_code="+vo.getMenu_code();
 	}
 	
-	@RequestMapping(value = "/buseo_article_delete", method = RequestMethod.POST)
+	@RequestMapping(value = "/com_article_delete", method = RequestMethod.POST)
 	@ResponseBody
 	public String setArtcileDelete(@ModelAttribute ArticleVO vo) {
 		
@@ -201,7 +201,7 @@ public class BuseoArticleCtr {
 		return "success";
 	}
 	
-	@RequestMapping(value = "/buseo_article_delete_all", method = RequestMethod.POST)
+	@RequestMapping(value = "/com_article_delete_all", method = RequestMethod.POST)
 	@ResponseBody
 	public String setArticleDeleteAll(
 			@ModelAttribute ArticleVO vo,
@@ -227,7 +227,7 @@ public class BuseoArticleCtr {
 		return "success";
 	}
 	
-	@RequestMapping(value = "/buseo_article_view", method = RequestMethod.GET)
+	@RequestMapping(value = "/com_article_view", method = RequestMethod.GET)
 	public ModelAndView getArticleView(@ModelAttribute ArticleVO vo) {
 		List<BoardVO> comMenuList = boardSrv.getComMenuList();
 		List<BoardVO> buseoMenuList = boardSrv.getBuseoMenuList();
@@ -244,12 +244,12 @@ public class BuseoArticleCtr {
 		mav.addObject("comMenuList", comMenuList);
 		mav.addObject("buseoMenuList", buseoMenuList);
 		
-		mav.setViewName("board/buseo_menu/article_view");
+		mav.setViewName("board/com_menu/article_view");
 		
 		return mav;
 	}
 	
-	@RequestMapping(value = "/buseo_article_reply", method = RequestMethod.GET)
+	@RequestMapping(value = "/com_article_reply", method = RequestMethod.GET)
 	public ModelAndView getArticleReply(@ModelAttribute ArticleVO vo) {
 		List<BoardVO> comMenuList = boardSrv.getComMenuList();
 		List<BoardVO> buseoMenuList = boardSrv.getBuseoMenuList();
@@ -267,14 +267,14 @@ public class BuseoArticleCtr {
 			mav.addObject("comMenuList", comMenuList);
 			mav.addObject("buseoMenuList", buseoMenuList);
 			
-			mav.setViewName("board/buseo_menu/article_reply");
+			mav.setViewName("board/com_menu/article_reply");
 		}
 
 		return mav;
 	}
 	
 	
-	@RequestMapping(value = "/buseo_article_reply", method=RequestMethod.POST)
+	@RequestMapping(value = "/com_article_reply", method=RequestMethod.POST)
 	public String setArticleReply(
 			@ModelAttribute ArticleVO vo,
 			@RequestPart MultipartFile files) throws Exception {
@@ -304,10 +304,10 @@ public class BuseoArticleCtr {
 				aSrv.setArticleReply(vo);
 		}
 		
-		return "redirect:/buseo_article/article_list?menu_code="+vo.getMenu_code();
+		return "redirect:/article/article_list?menu_code="+vo.getMenu_code();
 	}
 	
-	@RequestMapping(value = "/buseo_article_download", method = RequestMethod.GET)
+	@RequestMapping(value = "/com_article_download", method = RequestMethod.GET)
 	public void fileDown(
 			@ModelAttribute ArticleVO avo,
 			HttpServletRequest request, 

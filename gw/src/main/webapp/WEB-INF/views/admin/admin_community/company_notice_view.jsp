@@ -79,12 +79,6 @@
 													</script>
 												</td>
 											</tr>
-											<tr>
-												<td class="td-10 center weight700 noto font14 under bg-gray" style="border:1px solid #d5d5d5;">첨부파일</td>
-												<td colspan="3" class="td-90 p-lr3" style="border:1px solid #d5d5d5;">
-													<input type="file" name="sn_files" class="input-100" style="width:100%;" />
-												</td>
-											</tr>
 										</table>
 										<input type="hidden" id="sn_num" name="sn_num" value="${notice.sn_num}"/>
 										<div class="btn-grp center m-t10">

@@ -47,7 +47,7 @@
 											<button type="button" id="articleDeleteAll" class="btn-red">선택삭제</button>
 										</div>
 										<div class="">
-											<form method="post" action="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}">
+											<form method="post" action="${pageContext.request.contextPath}/buseo_article/article_list">
 												<select class="sel-75 noto weight500" name="searchOpt" id="searchOpt">
 													<option value="all" <c:if test="${searchOpt eq 'all'}">selected</c:if> >전체</option>
 													<option value="subject" <c:if test="${searchOpt eq 'subject'}">selected</c:if> >제목</option>
@@ -141,7 +141,7 @@
 			                         	<c:choose>
 			                               	<c:when test = "${curPage > 1}">
 												<span class="page">
-			                                     	<a href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}&curPage=1"><i class="fas fa-angle-double-left"></i></a>
+			                                     	<a href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}&curPage=1&searchOpt=${searchOpt}&words=${words}"><i class="fas fa-angle-double-left"></i></a>
 			                                 	</span>
 			                             	</c:when>
 			                             	<c:otherwise>
@@ -154,7 +154,7 @@
 			                             <c:choose>
 			                               	<c:when test = "${curPage > 1}">
 			                               		<span class="page">
-			                                    	<a href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}&?curPage=${curPage-1}"><i class="fas fa-angle-left"></i></a>
+			                                    	<a href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}&curPage=${curPage-1}&searchOpt=${searchOpt}&words=${words}"><i class="fas fa-angle-left"></i></a>
 			                                	</span>
 			                               	</c:when>
 			                             	<c:otherwise>
@@ -165,7 +165,7 @@
 			                           	</c:choose>
 			                           	<c:forEach begin="${blockBegin}" end ="${blockEnd}" var="num">
 			                           		<c:if test="${selected != num}">
-			                           			<a href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}&?curPage=${num}">
+			                           			<a href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}&curPage=${num}&searchOpt=${searchOpt}&words=${words}">
 			                                		<span class="page">${num}</span>
 			                            		</a>
 			                            	</c:if>
@@ -178,7 +178,7 @@
 			                           </c:forEach>
 			                           <c:choose>
 			                               	<c:when test = "${curPage != totalPage }">
-			                               		<a href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}&?curPage=${curPage+1}">
+			                               		<a href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}&curPage=${curPage+1}&searchOpt=${searchOpt}&words=${words}">
 			                               			<span class="page">
 			                                     		<i class="fas fa-angle-right"></i>
 			                                 		</span>
@@ -193,7 +193,7 @@
 			                     		<c:choose>
 			                               	<c:when test = "${curPage != totalPage }">
 			                               		<span class="page">
-			                                   		<a href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}&?curPage=${totalPage}"><i class="fas fa-angle-double-right"></i></a>
+			                                   		<a href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}&curPage=${totalPage}&searchOpt=${searchOpt}&words=${words}"><i class="fas fa-angle-double-right"></i></a>
 			                               		</span>
 			                             	</c:when>
 			                             	<c:otherwise>

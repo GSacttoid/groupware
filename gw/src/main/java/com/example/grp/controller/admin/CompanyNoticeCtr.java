@@ -104,7 +104,7 @@ public class CompanyNoticeCtr {
 
 	@RequestMapping(value="/company_notice_view", method = RequestMethod.GET)
 	public ModelAndView getNoticeView(@ModelAttribute NoticeVO nvo) {
-
+		cSrv.setHitUp(nvo);
 		ModelAndView mav = new ModelAndView();
 		
 		NoticeVO vo = cSrv.getNoticeOne(nvo);

@@ -87,12 +87,6 @@
 									</script>
 								</td>
 							</tr>
-							<tr>
-								<td class="td-10 center weight700 noto font14 under bg-gray" style="border:1px solid #d5d5d5;">첨부파일</td>
-								<td colspan="3" class="td-90 p-lr3" style="border:1px solid #d5d5d5;">
-									<input type="file" name="sn_files" class="input-100" style="width:100%;" />
-								</td>
-							</tr>
 						</table>
 						<div class="btn-grp center m-t10">
 							<button type="submit" id="btn" name="btn" class="btn-normal" onClick="writeNotice();" >공지작성</button>
@@ -116,7 +110,7 @@ function writeNotice(){
 	CKEDITOR.instances.editor.updateElement();
 	var formData = $("#frm").serialize();
 	$.ajax({
-		url		: "${pageContext.request.contextPath}/notice/company_notice_write",
+		url		: "${pageContext.request.contextPath}/admin/company_notice_write",
 		type	: "POST",
 		data	: formData,
 		success	: function(resData) {

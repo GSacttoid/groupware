@@ -48,12 +48,24 @@
 									<form method="post" id="frm" name="frm" enctype="multipart/form-data">
 										<div class="member-info flex">
 											<div class="member-left">
-												<div class="photo-area">
-													<img src="${pageContext.request.contextPath}/images/no.jpg" id="empPhotoImg" />
-												</div>
-												<div class="member-img-btn center m-t10">
-													<input type="file" name="file" id="empPhoto" />
-												</div>
+												<c:choose>
+													<c:when test="${list.emp_photo ne ''}">
+														<div class="photo-area">
+															<img src="${pageContext.request.contextPath}/upload/emp/${list.emp_photo}" id="empPhotoImg" />
+														</div>
+														<div class="member-img-btn center m-t10">
+															<input type="file" name="file" id="emp_photo" />
+														</div>
+													</c:when>
+													<c:otherwise>
+														<div class="photo-area">
+															<img src="${pageContext.request.contextPath}/images/no.jpg" id="empPhotoImg" />
+														</div>
+														<div class="member-img-btn center m-t10">
+															<input type="file" name="file" id="emp_photo" />
+														</div>
+													</c:otherwise>
+												</c:choose>
 											</div>
 											<div class="member-right w-100 m-lr10" >
 												<table>
@@ -178,7 +190,7 @@
 	                                            CKEDITOR.replace( 'editor' );
 	                                            CKEDITOR.config.height = 150;
 	                                        </script>
-										</div>${sessionScope.empNum}
+										</div>
 										<input type="hidden" name="emp_id" id="emp_id" class="input-100" maxlength="20" value="${list.emp_id}" />
 										<input type="hidden" name="emp_num" id="emp_num" class="input-100" maxlength="20" value="${list.emp_num}" />
 										<div class="member-info m-t10">

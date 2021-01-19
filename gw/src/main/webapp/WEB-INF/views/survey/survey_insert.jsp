@@ -68,7 +68,7 @@
                         						<option value="설문대기중">설문대기중</option>
                         						<option value="설문종료">설문종료</option>
                         					</select>
-                        					<span class="font14 noto m-lr10" style="line-height:38px;">'설문대기중'을 선택하시면 임시보관함에 저장됩니다.</span>
+                        					<span class="font14 noto m-lr10" style="line-height:38px;"></span>
                         				</td>
                         			</tr>
                         			<tr>

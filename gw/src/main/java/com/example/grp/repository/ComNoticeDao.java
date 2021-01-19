@@ -46,4 +46,8 @@ public class ComNoticeDao {
 	public NoticeVO getNoticeOne(NoticeVO nvo) {
 		return sqlSession.selectOne("comNotice.getNoticeOne", nvo);
 	}
+	
+	public void setHitUp(NoticeVO nvo) {
+		sqlSession.update("comNotice.hitUp", nvo);
+	}
 }
