@@ -38,7 +38,7 @@
 <div class="">
 	<div class="title-detail" style="font-size: 14px; border-bottom: 1px solid #6d6d6d;">
 		<h2>
-			<a href="${pageContext.request.contextPath}/survey/main" title="survey" class="f6"><i class="fas fa-file-signature"></i> 설문조사 메뉴</a>
+			<a href="${pageContext.request.contextPath}/survey/main" title="survey" class="f6"><i class="fas fa-file-signature"></i> 설문조사</a>
 		</h2>
 	</div>
 </div>

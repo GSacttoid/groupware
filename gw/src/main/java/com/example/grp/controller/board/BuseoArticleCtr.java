@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.grp.model.ArticleVO;
 import com.example.grp.model.BoardVO;
+import com.example.grp.model.CommentVO;
 import com.example.grp.pager.Pager;
 import com.example.grp.service.BoardSrv;
 import com.example.grp.service.BuseoArticleSrv;
@@ -231,11 +232,14 @@ public class BuseoArticleCtr {
 	public ModelAndView getArticleView(@ModelAttribute ArticleVO vo) {
 		List<BoardVO> comMenuList = boardSrv.getComMenuList();
 		List<BoardVO> buseoMenuList = boardSrv.getBuseoMenuList();
+		List<CommentVO> commentList = aSrv.getCommentList(vo);
 		ArticleVO avo = aSrv.getArticleOne(vo);
 		BoardVO bvo = aSrv.getBoardOne(vo.getMenu_code());
 		ModelAndView mav = new ModelAndView();
 		aSrv.hitUp(vo);
 		mav.addObject("article", avo);
+		mav.addObject("commentList", commentList);
+		mav.addObject("commentListCount", aSrv.getCommentListCount(vo));
 		mav.addObject("menu_color", bvo.getMenu_color());
 		mav.addObject("menu_name", bvo.getMenu_name());
 		mav.addObject("menu_code", vo.getMenu_code());
@@ -379,5 +383,17 @@ public class BuseoArticleCtr {
 			System.out.println("ERROR : " + e.getMessage());
 		}
 
+	}
+	
+	@RequestMapping(value = "/buseo_comment_write", method = RequestMethod.POST)
+	public String setCommentWrite(CommentVO cvo) {
+		aSrv.setCommentWrite(cvo);
+		return "redirect:/buseo_article/buseo_article_view?menu_code="+cvo.getMenu_code()+"&aid="+cvo.getAid();
+	}
+	
+	@RequestMapping("/com_comment_delete")
+	public String setCommentDelete(CommentVO cvo) {
+		aSrv.setCommentDelete(cvo);
+		return "redirect:/buseo_article/buseo_article_view?menu_code="+cvo.getMenu_code()+"&aid="+cvo.getAid();
 	}
 }

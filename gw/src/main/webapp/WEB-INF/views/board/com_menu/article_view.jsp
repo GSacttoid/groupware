@@ -34,7 +34,7 @@
 							<div class="bg-white">
 								<div class="title">
 									<h3 class="tomato font18 noto m-b10">
-										<i class="fas fa-feather-alt"></i> ${menu_name} - 상세보기
+										<i class="fas fa-feather-alt"></i> ${menu_name}
 									</h3>
 								</div>
 								<div class="board-insert">
@@ -110,9 +110,14 @@
 										<div class="btn-grp center m-t10">
 											<button type="button" class="btn-normal" 
 											 onClick="location.href='${pageContext.request.contextPath}/article/com_article_reply?menu_code=${menu_code}&aid=${article.aid}'">게시글답글</button>
-											<button type="button" class="btn-normal" 
-											onClick="location.href='${pageContext.request.contextPath}/article/com_article_modify?menu_code=${menu_code}&aid=${article.aid}'">게시글수정</button>
-											<button type="button" class="btn-cancel" onClick="articleDelete('${menu_code}', ${article.aid});">게시글삭제</button>
+											
+											<!-- 수정 및 삭제는 관리자 또는 작성자만 가능 -->
+											<c:if test="${sessionScope.empAuth eq 10 or sessionScope.empName eq article.writer}">
+												<button type="button" class="btn-normal" 
+												onClick="location.href='${pageContext.request.contextPath}/article/com_article_modify?menu_code=${menu_code}&aid=${article.aid}'">게시글수정</button>
+												<button type="button" class="btn-cancel" onClick="articleDelete('${menu_code}', ${article.aid});">게시글삭제</button>
+											</c:if>
+											
 											<button type="button" class="btn-red"
 												onClick="location.href='${pageContext.request.contextPath}/article/article_list?menu_code=${menu_code}'">게시글목록</button>
 										</div>

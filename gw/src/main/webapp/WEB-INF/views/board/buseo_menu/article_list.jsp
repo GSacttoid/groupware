@@ -44,7 +44,11 @@
 									<div class="noto font16 weight700 m-b10">등록중인 게시글 : ${count} 개</div>
 									<div class="flex flex-justify">
 										<div class="">
-											<button type="button" id="articleDeleteAll" class="btn-red">선택삭제</button>
+											<!-- 전체삭제는 관리자만 가능 -->
+											<c:if test="${sessionScope.empAuth eq 10}">
+												<button type="button" id="articleDeleteAll" class="btn-red">선택삭제</button>
+											</c:if>
+											
 										</div>
 										<div class="">
 											<form method="post" action="${pageContext.request.contextPath}/buseo_article/article_list">
@@ -66,22 +70,31 @@
 									<table
 										style="width: 100%; border: 1px solid #c1c1c1; margin-bottom: 10px;">
 										<tr class="center noto font14 weight500" style="background-color: ${menu_color}; color: #fff;">
-											<td class="td-3">
-					                            <input type="checkbox" onClick="chkAll();" id="chkAll" />
-					                        </td>
+											<!-- 전체삭제는 관리자만 가능 -->
+											<c:if test="${sessionScope.empAuth eq 10}">
+												<td class="td-3">
+					                            	<input type="checkbox" onClick="chkAll();" id="chkAll" />
+					                        	</td>
+				                        	</c:if>
 					                        <td class="td-5">번호</td>
 					                        <td class="td-8">분류</td>
 					                        <td>게시물제목</td>
 					                        <td class="td-10">작성자</td>
 					                        <td class="td-5">조회</td>
 					                        <td class="td-13">날짜</td>
-					                        <td class="td-8">관리</td>
+					                        <!-- 리스트에서 수정 및 삭제는 관리자만 가능 -->
+											<c:if test="${sessionScope.empAuth eq 10}">
+					                        	<td class="td-8">관리</td>
+				                        	</c:if>
 										</tr>
 										<c:forEach var="articleList" items="${list}" varStatus="status"> 
 						                    <tr class="center font14">
-						                        <td>
-						                            <input type="checkbox" name="chk" class="chk" data-uid="${articleList.aid}" data-code="${menu_code}" />
-						                        </td>
+						                    	<!-- 리스트에서 수정 및 삭제는 관리자만 가능 -->
+												<c:if test="${sessionScope.empAuth eq 10}">
+							                        <td>
+							                            <input type="checkbox" name="chk" class="chk" data-uid="${articleList.aid}" data-code="${menu_code}" />
+							                        </td>
+						                        </c:if>
 						                        <td>
 							                        <c:if test = "${articleList.division eq 'N'}">
 							                        	${(count - status.index) - ((curPage - 1) * end)}
@@ -122,10 +135,14 @@
 						                        <td>${articleList.writer}</td>
 						                        <td>${articleList.hit}</td>
 						                        <td>${articleList.regdate}</td>
-						                        <td>
-						                            <button type="button" class="s-btn-on" onClick="location.href='${pageContext.request.contextPath}/buseo_article/buseo_article_modify?menu_code=${menu_code}&aid=${articleList.aid}'">수정</button>
-						                            <button type="button" class="s-btn-off" onClick="articleDelete('${menu_code}', ${articleList.aid});">삭제</button>
-						                        </td>
+						                        <!-- 리스트에서 수정 및 삭제는 관리자만 가능 -->
+												<c:if test="${sessionScope.empAuth eq 10}">
+							                        <td>
+							                            <button type="button" class="s-btn-on" 
+							                            onClick="location.href='${pageContext.request.contextPath}/buseo_article/buseo_article_modify?menu_code=${menu_code}&aid=${articleList.aid}'">수정</button>
+							                            <button type="button" class="s-btn-off" onClick="articleDelete('${menu_code}', ${articleList.aid});">삭제</button>
+							                        </td>
+						                        </c:if>
 						                    </tr>
 						                    </c:forEach>
 									</table>

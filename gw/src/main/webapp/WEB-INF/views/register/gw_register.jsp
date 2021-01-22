@@ -62,9 +62,8 @@
 
                         <div class="pos">
                             <span class="form-icon"><i class="fas fa-phone-square-alt"></i></span>
-                            <input type="text" name="emp_phone" id="emp_phone" class="input" tabindex="6" required placeholder="연락처를 입력하세요. ex) 010-1234-1234" />
+                            <input type="text" name="emp_phone" id="emp_phone" class="input phoneNumber" tabindex="6" maxlength="13" required placeholder="연락처를 입력하세요." />
                         </div>
-                        <p>※ 입력하신 연락처로 승인정보가 발송됩니다.</p>
                     </div>
 
                     <div class="">
@@ -105,7 +104,6 @@
 	
 	/*아이디 체크 (20201220_jhpark) */
 	function checkInfo() {
-
 		$('#emp_id').blur(function () {
 			$.ajax({
 	            type: "POST",
@@ -122,8 +120,6 @@
 	            }
 	        })
 		});
-
-		
 		$("#btn").click(function() {
 			if( $("#emp_id").val() == '' ) {
 				alert("사원아이디를 입력하세요.");
@@ -133,7 +129,6 @@
 			$("#frm").submit();
 		});
 	}
-	
 	/* 패스워드 확인 (20201220_jhpark) */
 	$("#repwd").blur(function() {
 		var pwd = $("#emp_pwd").val();
@@ -153,5 +148,8 @@
 		checkInfo();
 	});
 
+	$(document).on("keyup", ".phoneNumber", function() { 
+		$(this).val( $(this).val().replace(/[^0-9]/g, "").replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/,"$1-$2-$3").replace("--", "-") ); 
+	});
 </script>
 </html>

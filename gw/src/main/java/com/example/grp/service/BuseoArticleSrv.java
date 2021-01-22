@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.grp.model.ArticleVO;
 import com.example.grp.model.BoardVO;
+import com.example.grp.model.CommentVO;
 import com.example.grp.repository.BuseoArticleDao;
 
 @Service
@@ -94,5 +95,21 @@ public class BuseoArticleSrv {
 		result += aDao.setArticleReply(avo);
 		
 		return result;
+	}
+	
+	public void setCommentWrite(CommentVO cvo) {
+		aDao.setCommentWrite(cvo);
+	}
+	
+	public List<CommentVO> getCommentList(ArticleVO avo){
+		return aDao.getCommentList(avo);
+	}
+	
+	public int getCommentListCount(ArticleVO avo) {
+		return aDao.getCommentListCount(avo);
+	}
+	
+	public void setCommentDelete(CommentVO cvo) {
+		aDao.setCommentDelete(cvo);
 	}
 }

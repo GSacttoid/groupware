@@ -8,6 +8,7 @@
 			emp_buseo as emp_buseo,
 			B.buseo_name as emp_buseo_name,
 			g.grade_name as emp_grade_name,
+			emp_grade as emp_grade,
 			emp_id as emp_id,
 			emp_pwd as emp_pwd,
 			emp_name as emp_name,
@@ -22,6 +23,22 @@
 	
 	<select id="loginCheck" parameterType="com.example.grp.model.EmpVO" resultType="int">
 		SELECT count(*) FROM gw_employee WHERE emp_id = #{emp_id} AND emp_pwd = #{emp_pwd}
+	</select>
+	
+	<select id="getIdFind" parameterType="com.example.grp.model.EmpVO" resultType="int">
+		SELECT count(*) FROM gw_employee WHERE emp_name = #{emp_name} AND emp_phone = #{emp_phone}
+	</select>
+	
+	<select id="getIdInfo" parameterType="com.example.grp.model.EmpVO" resultType="String">
+		SELECT emp_id FROM gw_employee WHERE emp_name = #{emp_name} AND emp_phone = #{emp_phone}
+	</select>
+	
+	<select id="getPwdFind" parameterType="com.example.grp.model.EmpVO" resultType="int">
+		SELECT count(*) FROM gw_employee WHERE emp_id = #{emp_id} AND emp_phone = #{emp_phone}
+	</select>
+	
+	<select id="getPwdInfo" parameterType="com.example.grp.model.EmpVO" resultType="String">
+		SELECT emp_pwd FROM gw_employee WHERE emp_id = #{emp_id} AND emp_phone = #{emp_phone}
 	</select>
 </mapper>
 

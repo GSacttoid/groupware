@@ -106,7 +106,7 @@
 			                         	<c:choose>
 			                               	<c:when test = "${curPage > 1}">
 												<span class="page">
-			                                     	<a href="${pageContext.request.contextPath}/survey/survey_list/total_ing?curPage=1"><i class="fas fa-angle-double-left"></i></a>
+			                                     	<a href="${pageContext.request.contextPath}/survey/survey_list/total_end?curPage=1"><i class="fas fa-angle-double-left"></i></a>
 			                                 	</span>
 			                             	</c:when>
 			                             	<c:otherwise>
@@ -119,7 +119,7 @@
 			                             <c:choose>
 			                               	<c:when test = "${curPage > 1}">
 			                               		<span class="page">
-			                                    	<a href="${pageContext.request.contextPath}/survey/survey_list/total_ing?curPage=${curPage-1}"><i class="fas fa-angle-left"></i></a>
+			                                    	<a href="${pageContext.request.contextPath}/survey/survey_list/total_end?curPage=${curPage-1}"><i class="fas fa-angle-left"></i></a>
 			                                	</span>
 			                               	</c:when>
 			                             	<c:otherwise>
@@ -130,7 +130,7 @@
 			                           	</c:choose>
 			                           	<c:forEach begin="${blockBegin}" end = "${blockEnd}" var="num">
 			                           		<c:if test="${selected != num}">
-			                           			<a href="${pageContext.request.contextPath}/survey/survey_list/total_ing?curPage=${num}">
+			                           			<a href="${pageContext.request.contextPath}/survey/survey_list/total_end?curPage=${num}">
 			                                		<span class="page">${num}</span>
 			                            		</a>
 			                            	</c:if>
@@ -143,7 +143,7 @@
 			                           </c:forEach>
 			                           <c:choose>
 			                               	<c:when test = "${curPage != totalPage }">
-			                               		<a href="${pageContext.request.contextPath}/survey/survey_list/total_ing?curPage=${curPage+1}">
+			                               		<a href="${pageContext.request.contextPath}/survey/survey_list/total_end?curPage=${curPage+1}">
 			                               			<span class="page">
 			                                     		<i class="fas fa-angle-right"></i>
 			                                 		</span>
@@ -158,7 +158,7 @@
 			                     		<c:choose>
 			                               	<c:when test = "${curPage != totalPage }">
 			                               		<span class="page">
-			                                   		<a href="${pageContext.request.contextPath}/survey/survey_list/total_ing?curPage=${totalPage}"><i class="fas fa-angle-double-right"></i></a>
+			                                   		<a href="${pageContext.request.contextPath}/survey/survey_list/total_end?curPage=${totalPage}"><i class="fas fa-angle-double-right"></i></a>
 			                               		</span>
 			                             	</c:when>
 			                             	<c:otherwise>

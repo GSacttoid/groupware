@@ -56,11 +56,11 @@
         <div class="icon"><a href="${pageContext.request.contextPath}/address/main" title="직원정보"><i class="fas fa-address-book f6"></i></a></div>
         <div class="icon"><a href="${pageContext.request.contextPath}/gw_logout" title="로그아웃"><i class="fas fa-sign-out-alt f6" id="logout"></i></a></div>
     </div>
-    <c:if test = "${sessionScope.empGender == 'null'}">
+  
+	<c:if test="${sessionScope.empGradeCode eq 1}">
     	<div class="bubble noto font18">내정보를 입력해 주세요.</div>
-   	</c:if>
+	</c:if>
 </header>
-
 <script>
 	$(function() {
 		$("#logout").click(function() {

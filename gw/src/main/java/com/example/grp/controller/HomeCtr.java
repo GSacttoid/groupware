@@ -33,12 +33,10 @@ public class HomeCtr {
 		List<NoticeVO> comNoticeList = nSrv.getComNotice5();
 		List<SurveyVO> surOpenList = sSrv.getSurveyOpen5();
 		int openCount = sSrv.getSurveyOpenCnt();
-		
 		//설문시간관리
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		
 		for(int i = 0; i < surOpenList.size(); i++) {
-			Date s_date = sdf.parse(surOpenList.get(i).getSurvey_startDate());  //고정배열: list[i], 동적배열: list.get(i)
+			Date s_date = sdf.parse(surOpenList.get(i).getSurvey_startDate()); 
 			Date e_date = sdf.parse(surOpenList.get(i).getSurvey_endDate());
 			
 			Date today = new Date();
@@ -58,13 +56,11 @@ public class HomeCtr {
 				}
 			}
 		}
-				
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("sysNoticeList", sysNoticeList);
 		mav.addObject("comNoticeList", comNoticeList);
 		mav.addObject("surOpenList", surOpenList);
 		mav.addObject("openCount", openCount);
-		
 		mav.setViewName("home/gw_home_main");
 		return mav;
 	}

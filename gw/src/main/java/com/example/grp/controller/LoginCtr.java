@@ -112,4 +112,45 @@ public class LoginCtr {
 		return "success";
 	}
 	
+	@RequestMapping("/gw_login_find")
+	public ModelAndView getIdPwd() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("logo", cSrv.getComInfo().getLogo_name());
+		mav.addObject("logoSub", cSrv.getComInfo().getLogo_sub_name());
+		mav.setViewName("login/gw_login_find");
+		return mav;
+	}
+	
+	@RequestMapping("/gw_id_find")
+	public ModelAndView getIdFind(@ModelAttribute EmpVO evo) {
+		int check = loginSrv.getIdFind(evo);
+		String id = loginSrv.getIdInfo(evo);
+		String msg = "";
+		ModelAndView mav = new ModelAndView();
+		if(check > 0) {
+			msg = "사용중인 아이디:  "+id;
+		}else {
+			msg = "입력하신 정보가 일치하지 않습니다.";
+		}
+		mav.addObject("msgId", msg);
+		mav.setViewName("login/gw_login_find");
+		return mav;
+	}
+	
+	@RequestMapping("/gw_pwd_find")
+	public ModelAndView getPwdFind(@ModelAttribute EmpVO evo) {
+		int check = loginSrv.getPwdFind(evo);
+		String pwd = loginSrv.getPwdInfo(evo);
+		String msg = "";
+		ModelAndView mav = new ModelAndView();
+		if(check > 0) {
+			msg = "사용중인 패스워드:  "+pwd;
+		}else {
+			msg = "입력하신 정보가 일치하지 않습니다.";
+		}
+		mav.addObject("msgPwd", msg);
+		mav.setViewName("login/gw_login_find");
+		return mav;
+	}
+	
 }

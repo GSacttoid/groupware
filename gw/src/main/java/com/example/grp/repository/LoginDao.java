@@ -22,5 +22,21 @@ public class LoginDao {
 		return sqlSession.selectOne("login.getEmpInfoOne", evo);
 	}
 	
+	public int getIdFind(EmpVO evo) {
+		return sqlSession.selectOne("login.getIdFind", evo);
+	}
+	
+	public String getIdInfo(EmpVO evo) {
+		return sqlSession.selectOne("login.getIdInfo", evo);
+	}
+	
+	public int getPwdFind(EmpVO evo) {
+		return sqlSession.selectOne("login.getPwdFind", evo);
+	}
+	
+	public String getPwdInfo(EmpVO evo) {
+		return sqlSession.selectOne("login.getPwdInfo", evo);
+	}
+	
 	public void logout(HttpSession httpSession) {}
 }

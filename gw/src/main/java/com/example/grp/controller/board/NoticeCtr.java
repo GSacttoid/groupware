@@ -70,7 +70,7 @@ public class NoticeCtr {
 	public ModelAndView getSysNoticeView(@ModelAttribute NoticeVO nvo) {
 		List<BoardVO> comMenuList = boardSrv.getComMenuList();
 		List<BoardVO> buseoMenuList = boardSrv.getBuseoMenuList();
-
+		nSrv.setHitUp(nvo);
 		ModelAndView mav = new ModelAndView();
 		
 		NoticeVO vo = nSrv.getNoticeOne(nvo);
@@ -120,6 +120,7 @@ public class NoticeCtr {
 	public ModelAndView getComNoticeView(@ModelAttribute NoticeVO nvo) {
 		List<BoardVO> comMenuList = boardSrv.getComMenuList();
 		List<BoardVO> buseoMenuList = boardSrv.getBuseoMenuList();
+		cSrv.setHitUp(nvo);
 		ModelAndView mav = new ModelAndView();
 		
 		NoticeVO vo = cSrv.getNoticeOne(nvo);

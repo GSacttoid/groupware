@@ -22,6 +22,30 @@
 		DELETE FROM com_comment_${menu_code} WHERE cid = #{cid}
 	</delete>
 	
+	
+	
+	
+	<insert id="setBuseoCommentWrite" parameterType="com.example.grp.model.CommentVO">
+		INSERT INTO buseo_comment_${menu_code} SET 
+			aid = #{aid},
+			who	= #{who},
+			comment	= #{comment},
+			regdate = now()
+	</insert>
+	
+	<select id="getBuseoCommentList" parameterType="com.example.grp.model.CommentVO" resultType="com.example.grp.model.CommentVO">
+		SELECT * FROM buseo_comment_${menu_code} ORDER BY regdate DESC
+	</select>
+	
+	<select id="getBuseoCommentListCount" parameterType="com.example.grp.model.CommentVO" resultType="int">
+		SELECT COUNT(*) FROM buseo_comment_${menu_code}
+	</select>
+	
+	<delete id="setBuseoCommentDelete" parameterType="com.example.grp.model.CommentVO">
+		DELETE FROM buseo_comment_${menu_code} WHERE cid = #{cid}
+	</delete>
+	
+	
 </mapper>
 
 

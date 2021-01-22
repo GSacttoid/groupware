@@ -35,6 +35,22 @@ public class LoginSrv {
 		return result;
 	}
 	
+	public int getIdFind(EmpVO evo) {
+		return loginDao.getIdFind(evo);
+	}
+	
+	public String getIdInfo(EmpVO evo) {
+		return loginDao.getIdInfo(evo);
+	}
+	
+	public int getPwdFind(EmpVO evo) {
+		return loginDao.getPwdFind(evo);
+	}
+	
+	public String getPwdInfo(EmpVO evo) {
+		return loginDao.getPwdInfo(evo);
+	}
+	
 	public void logout(HttpSession httpSession) {
 		httpSession.invalidate();
 	}

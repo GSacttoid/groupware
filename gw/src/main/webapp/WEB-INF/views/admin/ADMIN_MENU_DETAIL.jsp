@@ -3,7 +3,7 @@
 <div class="">
 	<div class="title-detail" style="font-size: 14px; border-bottom: 1px solid #6d6d6d;">
 		<h2>
-			<a href="${pageContext.request.contextPath}/admin/main" title="관리자메뉴" class="f6"><i class="fab fa-codepen m-lr5"></i> 관리자 메뉴</a>
+			<a href="${pageContext.request.contextPath}/admin/main" title="관리자메뉴" class="f6"><i class="fab fa-codepen m-lr5"></i> 관리자</a>
 		</h2>
 	</div>
 </div>
@@ -49,10 +49,10 @@
 			<a href="${pageContext.request.contextPath}/admin/company_notice">회사 공지 사항</a>
 		</div>
 		<div>
-			<a href="${pageContext.request.contextPath}/admin/company_menu_set">회사 메뉴 설정</a>
+			<a href="${pageContext.request.contextPath}/admin/company_menu_set">회사 게시판 설정</a>
 		</div>
 		<div>
-			<a href="${pageContext.request.contextPath}/admin/buseo_menu_set">부서 메뉴 설정</a>
+			<a href="${pageContext.request.contextPath}/admin/buseo_menu_set">부서 게시판 설정</a>
 		</div>
 	</div>
 
@@ -69,7 +69,7 @@
 		</div>
 	</div>
 
-	<div class="accordion-header">전자결재</div>
+	<%-- <div class="accordion-header">전자결재</div>
 	<div class="accordion-content">
 		<div>
 			<a href="${pageContext.request.contextPath}/admin/approval_form">전자결재 양식관리</a>
@@ -77,6 +77,6 @@
 		<div>
 			<a href="${pageContext.request.contextPath}/admin/approval_set">전자결재 설정</a>
 		</div>
-	</div>
+	</div> --%>
 
 </div>

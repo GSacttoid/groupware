@@ -52,7 +52,7 @@
                     </div>
                     <div class="register">
                         <span class="forgot">
-                            <a href="#">아이디/비밀번호 찾기</a>
+                            <a href="${pageContext.request.contextPath}/gw_login_find">아이디/비밀번호 찾기</a>
                         </span>
                         <span class="account">
                             <a href="${pageContext.request.contextPath}/gw_register">계정 생성하기</a>

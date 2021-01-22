@@ -5,8 +5,7 @@
 <!-- /INCLUDE HEADER (ALL) -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- 읽기 권한 처리 -->
-<c:if
-	test="${sessionScope.empNum == null || sessionScope.empAuth < menu_read}">
+<c:if test="${sessionScope.empNum == null || sessionScope.empAuth < menu_read}">
 	<!-- 권한이 2보다 작음(직원x) -->
 	<script>
 		alert("게시물 읽기 권한이 없습니다.\n관리자에게 문의하세요.");
@@ -34,7 +33,7 @@
 							<div class="bg-white">
 								<div class="title">
 									<h3 class="tomato font18 noto m-b10">
-										<i class="fas fa-feather-alt"></i> ${menu_name} - 상세보기
+										<i class="fas fa-feather-alt"></i> ${menu_name}
 									</h3>
 								</div>
 								<div class="board-insert">
@@ -110,9 +109,13 @@
 										<div class="btn-grp center m-t10">
 											<button type="button" class="btn-normal" 
 											 onClick="location.href='${pageContext.request.contextPath}/buseo_article/buseo_article_reply?menu_code=${menu_code}&aid=${article.aid}'">게시글답글</button>
-											<button type="button" class="btn-normal" 
-											onClick="location.href='${pageContext.request.contextPath}/buseo_article/buseo_article_modify?menu_code=${menu_code}&aid=${article.aid}'">게시글수정</button>
-											<button type="button" class="btn-cancel" onClick="articleDelete('${menu_code}', ${article.aid});">게시글삭제</button>
+											<!-- 수정 및 삭제는 관리자 또는 작성자만 가능 -->
+											<c:if test="${sessionScope.empAuth eq 10 or sessionScope.empName eq article.writer}">
+												<button type="button" class="btn-normal" 
+												onClick="location.href='${pageContext.request.contextPath}/buseo_article/buseo_article_modify?menu_code=${menu_code}&aid=${article.aid}'">게시글수정</button>
+												<button type="button" class="btn-cancel" onClick="articleDelete('${menu_code}', ${article.aid});">게시글삭제</button>
+											</c:if>
+											
 											<button type="button" class="btn-red"
 												onClick="location.href='${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${menu_code}'">게시글목록</button>
 										</div>
@@ -123,18 +126,17 @@
 						</div>
 						
 						<!-- 댓글 화면 구성 -->
-						<hr style="margin: 5px 0; border: 1px solid #d5d5d5;" />
 						<!-- 댓글 쓰기 화면 -->
-						<div class="p-lr20" style="background-color: #fff;">
-							<div id="commentList"></div>
+						<div class="p-lr20" style="background-color: #fff; border:1px solid #d5d5d5;">
+							<div class="font18 noto weight500 p5" style="margin-top:5px;">${commentListCount}개의 댓글</div>
 							<hr style="margin: 5px 0; border: 1px solid #f7f7f7;" />
 							<div style="margin-top: 5px;">
-								<form id="frm">
+								<form id="frm" method="POST" action="${pageContext.request.contextPath}/buseo_article/buseo_comment_write">
 									<!-- ajax로 자료 전체 전송하기(input -> name을 사용) 위한 id -->
 									<input type="hidden" id="menu_code" name="menu_code" value="${menu_code}" /> 
 									<input type="hidden" name="aid" value="${article.aid}" />
 									<input type="hidden" name="who" value="${sessionScope.empName}" readonly />
-									<textarea id="comment" name="comment" style="border: 1px solid #d5d5d5; width: 100%; height: 100px; background-color: #fffbe6;"
+									<textarea id="comment" name="comment" style="border: 1px solid #d5d5d5; width: 100%; height: 50px; background-color: #fffbe6;"
 										placeholder="댓글 내용을 입력하세요." class="p10 noto font16"></textarea>
 									<div class="flex flex-justify p10" >
 										<!-- 비밀 댓글 & 댓글 저장 버튼-->
@@ -143,10 +145,30 @@
 										</div>
 										<div class="">
 											<button id="btn" style="padding: 5px 10px; background-color: #29302e; color: #fff; border-radius: 3px;"
-												class="noto font14 weight500" type="button">댓글등록</button>
+												class="noto font14 weight500" type="submit">댓글등록</button>
 										</div>
 									</div>
 								</form>
+							</div>
+							<div id="commentList">
+								
+								<c:forEach var="commentList" items="${commentList}" varStatus="status">
+									<div class="flex flex-justify m-lr10 m-tb5 p10" style="width:100%; border-bottom: 1px solid #d5d5d5;">
+										<div class="flex">
+											<div><i class="fas fa-user-circle font16"></i></div>
+											<div><p class="font16 noto m-lr10" style="line-height:18px;">${commentList.who}</p></div>
+											<div><p class="weight500 noto font16" style="line-height:18px;">${commentList.comment}</p></div>
+										</div>
+										<div class="flex">
+											<div class="right m-lr5" style="color:#a8a8a8;"><p>${commentList.regdate}</p></div>
+											<c:if test="${commentList.who == sessionScope.empName || sessionScope.empAuth > 9}">
+												<a href="${pageContext.request.contextPath}/buseo_article/buseo_comment_delete?menu_code=${menu_code}&cid=${commentList.cid}">
+												<i class="fas fa-times-circle font14" ></i></a>
+											</c:if>
+										</div>
+									</div>
+								</c:forEach>
+								
 							</div>
 						</div>
 						<!-- 댓글 쓰기 화면 -->

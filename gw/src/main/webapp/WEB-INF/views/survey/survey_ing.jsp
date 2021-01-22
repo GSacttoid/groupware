@@ -267,6 +267,18 @@ function surveyDelete(survey_id){
 											a += token[i]+'</p>';
 										}
 									a += '</div>';
+									a += '<div style="width:30%;">'
+										var tokenCnt = resData.survey_ex_cnt.split("|");
+										for(var i = 0; i < tokenCnt.length-1; i++){
+											a += '<div class="center f6 weight700" style="line-height:35px;margin-top:5px;width:100%;height:35px;background-color:#f00;">';
+											if(tokenCnt[i] == 0){
+												a += "0표(0%)";
+											}else{
+												a += tokenCnt[i]+'표('+((tokenCnt[i]/resData.survey_total)*100).toFixed(0)+'%)';
+											}
+											a += '</div>';
+										}
+									a += '</div>';
 								a += '</div>';
 							a += '</div>';
 						a += '</div>';

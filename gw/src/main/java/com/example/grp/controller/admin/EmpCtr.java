@@ -269,18 +269,22 @@ public class EmpCtr {
 	
 	@RequestMapping(value="/admin/employee_modify", method=RequestMethod.POST)
 	public String setEmpModify(@ModelAttribute EmpVO evo, MultipartFile file) throws IOException {	
-		/* 파일 업로드 */
-		UUID uuid = UUID.randomUUID();
 		
-		String orgFileName = uuid.toString() + "_" + file.getOriginalFilename();
-		File location = new File(uploadPath+"/emp", orgFileName);
-		FileCopyUtils.copy(file.getBytes(), location);
-		
-		evo.setEmp_photo(orgFileName);
-		/* 파일 업로드 */
-		
-		eSrv.setEmpModify(evo);
-
+		if (file.isEmpty()) { // 업로드할 파일이 없을 시
+			eSrv.setEmpModify(evo);
+		}else {
+			/* 파일 업로드 */
+			UUID uuid = UUID.randomUUID();
+			
+			String orgFileName = uuid.toString() + "_" + file.getOriginalFilename();
+			File location = new File(uploadPath+"/emp", orgFileName);
+			FileCopyUtils.copy(file.getBytes(), location);
+			
+			evo.setEmp_photo(orgFileName);
+			/* 파일 업로드 */
+			
+			eSrv.setEmpModify(evo);
+		}
 		return "redirect:/admin/employee_list";
 	}
 	

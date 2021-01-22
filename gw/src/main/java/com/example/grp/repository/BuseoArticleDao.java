@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.grp.model.ArticleVO;
 import com.example.grp.model.BoardVO;
+import com.example.grp.model.CommentVO;
 
 @Repository
 public class BuseoArticleDao {
@@ -83,5 +84,23 @@ public class BuseoArticleDao {
 	/** 게시판 - 답글 등록 */
 	public int setArticleReply(ArticleVO avo) throws Exception {
 		return sqlSession.insert("buseoArticle.setArticleReply", avo);
+	}
+	
+	
+	public void setCommentWrite(CommentVO cvo) {
+		sqlSession.insert("comment.setBuseoCommentWrite", cvo);
+	}
+	
+	public List<CommentVO> getCommentList(ArticleVO avo){
+
+		return sqlSession.selectList("comment.getBuseoCommentList", avo);
+	}
+	
+	public int getCommentListCount(ArticleVO avo) {
+		return sqlSession.selectOne("comment.getBuseoCommentListCount", avo);
+	}
+	
+	public void setCommentDelete(CommentVO cvo) {
+		sqlSession.delete("comment.setBuseoCommentDelete", cvo);
 	}
 }

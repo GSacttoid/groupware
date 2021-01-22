@@ -83,14 +83,12 @@ public class ArticleSrv {
 
 	
 	public int setArticleReply(ArticleVO avo) throws Exception {
-		
 		ArticleVO dto = aDao.getArticleReplyInfo(avo);
 		avo.setRef(dto.getRef()); //update
 		avo.setRe_step(dto.getRe_step());
 		avo.setRe_level(dto.getRe_level());
 		
 		int result = 0;
-		
 		result += aDao.setArticleRef(avo);
 		result += aDao.setArticleReply(avo);
 		

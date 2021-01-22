@@ -61,7 +61,7 @@
 					<div class="p20">
 						<div class="notice-title font16 noto">
 							<h3>
-								<i class="fas fa-info-circle m-lr5"></i>부서 메뉴 관리
+								<i class="fas fa-info-circle m-lr5"></i>부서 게시판 관리
 							</h3>
 						</div>
 						<hr />
@@ -71,9 +71,8 @@
 								<td style="width: 20%; line-height: 1.8; padding: 10px;">
 									<div class="noto font14">
 										<ul>
-											<li>부서메뉴의 모든 메뉴는 해당 부서 직원에게 공개됩니다.</li>
-											<li>사용하고 싶은 메뉴를 선택하여 추가하거나, 삭제하실 수 있으며, 메뉴이름도 변경하실 수
-												있습니다.</li>
+											<li>부서게시판의 모든 게시판은 해당 부서 직원에게 공개됩니다.</li>
+											<li>사용하고 싶은 게시판를 선택하여 추가하거나, 삭제하실 수 있습니다.</li>
 											<li>추가 시에는 반드시 [등록]버튼을 눌러주셔야만 적용이 됩니다.</li>
 										</ul>
 									</div>
@@ -86,8 +85,8 @@
 			           	        <form method="post" id="buseoList" >
 						            <div class="p10" style="border: 1px solid #c1c1c1;">
 						                <div class="">
-						                    <div class="noto font16 weight700 m-tb10">1. 부서 메뉴 리스트</div>
-						                    <div class="noto font14 m-b10">사용중인 메뉴 : ${count} 개</div>
+						                    <div class="noto font16 weight700 m-tb10">1. 부서 게시판 리스트</div>
+						                    <div class="noto font14 m-b10">사용중인 게시판 : ${count} 개</div>
 						                    <div class="btn-grp m-b10">
 						                        <button class="depart-btn" type="button" id="menuDeleteAll" style="background-color: #fc6468;">선택 삭제</button>
 						                    </div>
@@ -100,8 +99,8 @@
 														  	  <input type="checkbox" id="chkAll" />
 														  </td>
 														  <td id="fontColor" style="border: 1px solid #c1c1c1; width:15%">부서명</td>
-						                                  <td id="fontColor" style="border: 1px solid #c1c1c1; width:15%">메뉴종류</td>
-						                                  <td id="fontColor" style="border: 1px solid #c1c1c1;">메뉴명</td>
+						                                  <td id="fontColor" style="border: 1px solid #c1c1c1; width:15%">게시판종류</td>
+						                                  <td id="fontColor" style="border: 1px solid #c1c1c1;">게시판명</td>
 						                                  <td id="fontColor" style="border: 1px solid #c1c1c1; width:20%">생성일</td>
 						                                  <td id="fontColor" style="border: 1px solid #c1c1c1; width:15%">관리</td>
 						                              </tr>
@@ -124,7 +123,7 @@
 						                    	<!-- PAGER -->
 												<c:if test = "${count eq 0}">
 										        	<div style="width:100%;">
-										        		<p class="center noto font16 weight500" style="margin: 0 auto;">등록된 메뉴가 없습니다.</p>
+										        		<p class="center noto font16 weight500" style="margin: 0 auto;">등록된 게시판가 없습니다.</p>
 										        	</div>
 												</c:if>
 					                        	<c:if test = "${count > 0}">
@@ -204,10 +203,10 @@
 			            	<div style="width:100%">
 			           	        <form method="post" id="frm" autocomplete="off">
 						            <div class="p10" style="border: 1px solid #c1c1c1;">
-						            	<div class="noto font16 weight700 m-tb10">2. 부서 메뉴 만들기</div>
+						            	<div class="noto font16 weight700 m-tb10">2. 부서 게시판 만들기</div>
 						                <table style="width:100%; border: 1px solid #c1c1c1; margin-bottom: 10px;" >
 						                	<tr class="m-t10">
-						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">메뉴 종류</td>
+						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">게시판 구분</td>
 						                        <td>
 						                        	<select class="sel-135" id="menu_buseo" name="menu_buseo" style="margin-left: 3px;">
 		                                                <c:forEach var="buseoList" items="${buseoList}" varStatus="status">
@@ -218,7 +217,7 @@
 						                        </td>
 						                    </tr>
 						                    <tr class="m-t10">
-						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">메뉴 종류</td>
+						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">게시판 종류</td>
 						                        <td>
 						                        	<select class="sel-135" id="menu_kind" name="menu_kind" style="margin-left: 3px;">
 		                                                <option value="건의사항">건의사항</option>
@@ -229,20 +228,20 @@
 						                        </td>
 						                    </tr>
 						                    <tr class="m-t10">
-						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">메뉴코드</td>
+						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">게시판코드</td>
 						                        <td>
 						                            <input type="text" class="input-135" onBlur="chkCode();" name="menu_code" id="menu_code"
 						                            placeholder="영문으로 표기해주세요." style="margin-left: 3px;" />
 						                        </td>
 						                    </tr>
 						                    <tr class="m-t10">
-						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">메뉴명</td>
+						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">게시판명</td>
 						                        <td>
 						                            <input type="text" class="input-100" name="menu_name" id="menu_name" style="margin-left: 3px; width:99%;" />
 						                        </td>
 						                    </tr>
 						                    <tr class="m-t10">
-						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">메뉴 색상</td>
+						                        <td class="font14" style="width: 20%; text-align: center; background-color: #e2e2e2; padding: 10px;">게시판 색상</td>
 						                        <td>
 						                        	<select class="sel-135" id="menu_color" name="menu_color" style="margin-left: 3px;">
 		                                                <option value="#6F809A">#6F809A</option>
@@ -254,7 +253,7 @@
 								                        <option value="#FE5E71">#FE5E71</option>
 			                        					<option value="#1A237E">#1A237E</option>
 		                                            </select>
-						                            <span class="noto font14 m-lr10" style="line-height:35px;">왼쪽 리스트에 적용된 색상이 메뉴 색상으로 지정됩니다.</span>
+						                            <span class="noto font14 m-lr10" style="line-height:35px;">왼쪽 리스트에 적용된 색상이 게시판 색상으로 지정됩니다.</span>
 						                        </td>
 						                    </tr>
 						                    <tr class="m-t10">
@@ -326,7 +325,7 @@ $(function () {
 	function boardMake() {
 
 		if( $.trim($("#menu_name").val()) == '' ) {
-			alert("메뉴명을 입력하세요.");
+			alert("게시판명을 입력하세요.");
 			$("#menu_name").focus();
 			return false;
 		}

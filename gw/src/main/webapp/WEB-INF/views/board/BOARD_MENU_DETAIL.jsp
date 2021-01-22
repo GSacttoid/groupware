@@ -39,7 +39,7 @@
 <div class="">
 	<div class="title-detail" style="font-size: 14px; border-bottom: 1px solid #6d6d6d;">
 		<h2>
-			<a href="${pageContext.request.contextPath}/board/main" title="board" class="f6"><i class="fas fa-file-signature"></i> 게시판 메뉴</a>
+			<a href="${pageContext.request.contextPath}/board/main" title="board" class="f6"><i class="fas fa-file-signature"></i> 게시판</a>
 		</h2>
 	</div>
 </div>
@@ -54,20 +54,22 @@
 			<a style="cursor:pointer;" href="${pageContext.request.contextPath}/notice/system_notice">시스템 공지사항</a>
 		</div>
 	</div>
-	<div class="accordion-header" >회사 메뉴</div>
+	<div class="accordion-header" >회사 게시판</div>
 	<div class="accordion-approval">
 		<c:forEach var="comMenuList" items="${comMenuList}" varStatus="status">
 			<div>
-				<a style="cursor:pointer;" href="${pageContext.request.contextPath}/article/article_list?menu_code=${comMenuList.menu_code}">${comMenuList.menu_name}</a>
+				<a style="cursor:pointer;" 
+				href="${pageContext.request.contextPath}/article/article_list?menu_code=${comMenuList.menu_code}">${comMenuList.menu_name}</a>
 			</div>
 		</c:forEach>
 	</div>
-	<div class="accordion-header">부서 메뉴</div>
+	<div class="accordion-header">부서 게시판</div>
 	<div class="accordion-approval">
 		<c:forEach var="buseoMenuList" items="${buseoMenuList}" varStatus="status">
 			<c:if test="${buseoMenuList.menu_buseo == sessionScope.empBuseoName}">
 				<div>
-					<a style="cursor:pointer;" href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${buseoMenuList.menu_code}">${buseoMenuList.menu_name}</a>
+					<a style="cursor:pointer;" 
+					href="${pageContext.request.contextPath}/buseo_article/article_list?menu_code=${buseoMenuList.menu_code}">${buseoMenuList.menu_name}</a>
 				</div>
 			</c:if>
 		</c:forEach>

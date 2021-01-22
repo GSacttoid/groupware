@@ -33,7 +33,7 @@
 					<div class="p20">
 						<div class="notice-title font16 noto">
 							<h3>
-								<i class="fas fa-info-circle m-lr5"></i> 사원 리스트
+								<i class="fas fa-info-circle m-lr5"></i> 사원 목록
 							</h3>
 						</div>
 						<hr />
